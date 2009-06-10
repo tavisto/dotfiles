@@ -11,6 +11,8 @@ umask 022
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 
 export EDITOR=vim
+export SVN_EDITOR=vim
+export GIT_EDITOR=vim
 
 PATH=$HOME/bin:$HOME/local/bin:$HOME/source_code/:$PATH
 
