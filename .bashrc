@@ -63,10 +63,3 @@ BASH_COMPLETION_DIR="$HOME/.bash_completion.d"
 . ~/.bash_completion
 bind "set completion-ignore-case on"
 
-
-## enable colours for git 
-if [ `git` ]; then
-	git config --global color.diff auto
-	git config --global color.status auto
-	git config --global color.branch auto
-fi

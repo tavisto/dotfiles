@@ -14,4 +14,4 @@ alias l='ls -CF'
 
 alias svn?="svn st -u | grep '^\?' | awk '{print $2}'"
 
-alias config=git --git-dir=$HOME/Dropbox/git/settings/ --work-tree=$HOME
+alias config='git --git-dir=$HOME/.config.git/ --work-tree=$HOME/'

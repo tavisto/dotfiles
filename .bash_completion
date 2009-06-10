@@ -9706,3 +9706,5 @@ unset BASH_COMPLETION_ORIGINAL_V_VALUE
 ###  Local Variables:
 ###  mode: shell-script
 ###  End:
+# Adding completion for my alias of git for home dir stuff
+complete -o default -o nospace -F _git config
