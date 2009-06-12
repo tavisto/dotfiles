@@ -9705,4 +9705,6 @@ unset BASH_COMPLETION_ORIGINAL_V_VALUE
 
 ###  Local Variables:
 ###  mode: shell-script
+#
+complete -o default -o nospace -F _git config
 ###  End:
