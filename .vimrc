@@ -135,5 +135,5 @@ fu! Dupdd()
 endfunction
 
 fu! ConnectDb(dbname)
-	execute ":DBSetOption type=MySQL:host=bpldbdev001.co0:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
+	execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
 endfunction
