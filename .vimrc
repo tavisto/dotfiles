@@ -12,7 +12,7 @@ set lcs=tab:>-,trail:-
 set backspace=indent,eol,start
 
 " Insert mode completion options
-set completeopt=menu,longest,preview
+set completeopt=menu,menuone,preview
 
 " Remember up to 500 'colon' commmands and search patterns
 set history=500
@@ -31,7 +31,7 @@ set showmatch
 
 set autoindent " Auto Indent
 set smartindent " Smart Indent
-set mouse=n " Mouse in normal mode
+set mouse=a " Mouse in normal mode
 set ignorecase
 set smartcase
 set nohlsearch
@@ -65,9 +65,10 @@ set wildmenu
 
 " Set command-line completion mode:
 "   - on first <Tab>, when more than one match, list all matches and complete
-"     the longest common  string
+"     the first string
 "   - on second <Tab>, complete the next full match and show menu
-set wildmode=list:full,full
+set wildmode=list,full
+
 
 " Start wrapping at 100 columns
 set textwidth=100
