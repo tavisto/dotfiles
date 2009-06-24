@@ -1,0 +1,70 @@
+Bash: !! :: Execute last command in history.
+Bash: !abc :: Execute last command in history beginning with abc.
+Bash: !abc:p :: Print last command in history beginning with abc.
+Bash: !n :: Execute nth command in history.
+Bash: !$ :: Last argument of last command.
+Bash: !^ :: First argument of last command.
+Bash: ^abc^xyz :: Replace first occurance of abc with xyz in last command and execute it.
+Bash: set -o vi :: Switch to vi mode.
+Bash: set -o emacs :: Switch to emacs mode.
+Bash vi mode: i :: Insert before cursor.
+Bash vi mode: a :: Insert after cursor.
+Bash vi mode: I :: Insert at the beginning of line.
+Bash vi mode: A :: Insert at the end of line.
+Bash vi mode: c<Movement-Key> :: Change text of a movement command.
+Bash vi mode: C :: Change text to the end of line (equivalent to c$).
+Bash vi mode: cc or S :: Change current line (equivalent to 0c$).
+Bash vi mode: s :: Delete a single character under the cursor and enter input mode (equivalent to c+<Space>).
+Bash vi mode: r :: Replaces a single character under the cursor (without leaving command mode).
+Bash vi mode: R :: Replaces characters under the cursor.
+Bash vi mode: v :: Edit (and execute) the current command in a text editor (an editor in $VISUAL and $EDITOR variables or vi).
+Bash vi mode: I or <Space> :: Move one character to right.
+Bash vi mode: h :: Move one character left.
+Bash vi mode: w :: Move one word or token right.
+Bash vi mode: b :: Move one word or token left.
+Bash vi mode: W :: Move one non-blank word right.
+Bash vi mode: B :: Move one non-blank word left.
+Bash vi mode: e :: Move to the end of the current word.
+Bash vi mode: E :: Move to the end of the current non-blank word.
+Bash vi mode: 0 :: Move to the beinning of line.
+Bash vi mode: ^ :: Move to the first non-blank character of line.
+Bash vi mode: $ :: Move to the end of line.
+Bash vi mode: % :: Move to the corresponding opening/closing bracket (()'s []'s and {}'s)
+Bash vi mode: fc :: Move right to the next occurance of c.
+Bash vi mode: Fc :: Move left to the next occurance of c.
+Bash vi mode: tc :: Move right to the next occurance of c, then one char backward.
+Bash vi mode: Tc :: Move left to the previous occurance of c, then one char backward.
+Bash vi mode: ; :: Redo last character finding command.
+Bash vi mode: , :: Redo last the last character finding command in the previous direction.
+Bash vi mode: | :: Move to the n-th column (you may specify the argument n by typing it on number keys, for example 20|)
+Bash vi mode: x :: Delete a single character under the cursor.
+Bash vi mode: X :: Delete a character before the cursor.
+Bash vi mode: d<Movement-Key> :: Delete text of a movement command MC.
+Bash vi mode: D :: Delete to the end of the line (equivalent to d$).
+Bash vi mode: dd :: Delete current line (equivalent to 0d$).
+Bash vi mode: <Ctrl>+w :: Delete the previous word.
+Bash vi mode: <Ctrl>+u :: Delete from the cursor to the beginning of line.
+Bash vi mode: u :: Undo previous text mmodification.
+Bash vi mode: U :: Undo all previous modifications on the line.
+Bash vi mode: . :: Redo the last text modification.
+Bash vi mode: y<Movement-Key> :: Yank a movement into buffer (copy).
+Bash vi mode: yy :: Yank the whole line.
+Bash vi mode: p :: Insert the yanked text at the cursor (paste).
+Bash vi mode: P :: Insert the yanked text before cursor.
+Bash vi mode: k :: Move backward one command in history.
+Bash vi mode: j :: Move forward one command in history.
+Bash vi mode: G :: Move to the history line n (you may specify the argument n by typing it on number keys, for example, 15G).
+Bash vi mode: /string or <Ctrl>+r :: Search backwaward for a command matching string.
+Bash vi mode: ?string or <Ctrl>+s :: Search history forward for a command matching string (remember that on most machines <Ctrl>+s stops the output to the terminal (<Ctrl>+q starts output) and you might need to change it with stty command).
+Bash vi mode: n :: Repeat search in the same direction.
+Bash vi mode: N :: Repeat search in the opposite direction as previous.
+Bash vi mode: TAB or <Ctrl>+i or = :: List possible completions.
+Bash vi mode: * :: Insert all possible completions.
+Bash vi mode: ~ :: Invert the case of the character under cursor, and move a character right.
+Bash vi mode: # :: Prepend # (comment character) to the line and send it to the history list.
+Bash vi mode: _ :: Inserts the n-th word of the previous command in the current line.
+Bash vi mode: 1, 2, 3, ... :: Sets the numeric argument.
+Bash vi mode: <Ctrl>+v :: Insert a character literally (quoted insert).
+Bash vi mode: <Ctrl>+t :: Transpose (exchange) two characters.
+Vim: Ctrl+v => <Movement-Key> => Shift+i => # => <Esc> :: Comment out multiple lines.
+Ubuntu: sysv-rc-conf :: Command line run level editor.
