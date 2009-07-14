@@ -8,6 +8,8 @@ alias swd='pushd +1 ; dirs -v'
 alias dirs='dirs -v'
 alias grep='grep --color'
 
+alias :q='exit'
+
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
