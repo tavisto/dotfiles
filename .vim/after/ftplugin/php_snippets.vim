@@ -30,3 +30,5 @@ exec "Snippet -globals $GLOBALS['".st."variable".et."']".st.et.st."something".et
 exec "Snippet req require( '".st."file".et."' );<CR>".st.et
 exec "Snippet for for( $".st."i".et."=".st.et."; $".st."i".et." < ".st.et."; $".st."i".et."++ )<CR>{ <CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet while while( ".st.et." )<CR>{<CR>".st.et."<CR>}<CR>".st.et
+
+exec "Snippet log Zend_Registry::get( 'logger' )->debug( ".st.et." ); // XXX DEBUG <CR>"
