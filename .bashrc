@@ -75,6 +75,20 @@ function random_line
 	echo "$LINE"
 }
 
+function extend_path {
+  if [[ $PATH != *:$1* ]]; then
+    export PATH="$PATH:$1"
+  fi
+}
+
+function command_exists {
+  if command -v "$1" &>/dev/null; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 function tip 
 {
 	echo `random_line "$HOME/.tips"`
