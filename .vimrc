@@ -6,7 +6,7 @@ filetype indent on
 " highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
 " match WhiteSpaceEOL /^\s*\ \s*\|\s\+$/
 " autocmd WinEnter * match WhiteSpaceEOL /^\s*\ \s*\|\s\+$/
-set lcs=tab:>-,trail:-
+set listchars=tab:>-,trail:-
 
 " Allow backspacing over everything
 set backspace=indent,eol,start
@@ -23,6 +23,7 @@ set backspace=2
 set ch=2 " Make command line two lines high
 set tabstop=2 " Make all tabs 4 spaces
 set shiftwidth=2 " Make autoindent add 4 spaces per indent level
+set expandtab
 set encoding=utf-8 " Allow editing of utf-8 files.
 set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
 
@@ -31,7 +32,7 @@ set showmatch
 
 set autoindent " Auto Indent
 set smartindent " Smart Indent
-set mouse=a " Mouse in normal mode
+set mouse=n " Mouse in normal mode
 set ignorecase
 set smartcase
 set nohlsearch
@@ -71,7 +72,7 @@ set wildmode=list,full
 
 
 " Start wrapping at 100 columns
-set textwidth=100
+set textwidth=0
 
 "
 " Key Mappings
@@ -114,7 +115,6 @@ nmap <silent> <F7> za
 
 " Togle showing non printing chars 
 nmap <silent> <F9> :set list!<CR>
-
 
 " Execute SQL visually selected
 " mnemonic sql - execute
