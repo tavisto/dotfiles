@@ -8,6 +8,7 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 
 export EDITOR=vim
+export PAGER=$HOME/bin/less.sh
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
