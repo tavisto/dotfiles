@@ -56,10 +56,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 
-## enable colours for git 
-git config --global color.diff auto
-git config --global color.status auto
-git config --global color.branch auto
 
 umask 022
 export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
@@ -100,7 +96,10 @@ function tip
 
 function load_darwin {
 	export PLATFORM='darwin'
-
+	extend_path '/sw/bin'
+	extend_path '/sw/sbin'
+	extend_path '/opt/local/sbin'
+	extend_path '/opt/local/bin'
 	# Fix screen
 	alias ls='ls -G'
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
@@ -131,7 +130,6 @@ function load_linux {
 # Bash completion settings 
 	BASH_COMPLETION="$HOME/.bash_completion"
 	. ~/.bash_completion
-	bind "set completion-ignore-case on"
 	alias ls='ls --color=auto'
 	export PLATFORM='linux'
 	extend_path '/sbin'
@@ -148,6 +146,11 @@ case "`uname`" in
 	load_linux ;;
 esac
 
+	bind "set completion-ignore-case on"
+## enable colours for git 
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
 ################################################################################
 # Local environment
 ################################################################################
