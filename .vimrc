@@ -21,7 +21,7 @@ syntax on
 set nocp " Enable vim only features
 set backspace=2
 set ch=2 " Make command line two lines high
-set tabstop=2 " Make all tabs 4 spaces
+set tabstop=4 " Make all tabs 4 spaces
 set shiftwidth=2 " Make autoindent add 4 spaces per indent level
 set expandtab
 set encoding=utf-8 " Allow editing of utf-8 files.
@@ -136,5 +136,5 @@ fu! Dupdd()
 endfunction
 
 fu! ConnectDb(dbname)
-	execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
+	execute ":DBSetOption type=MySQL:host=bpldbdev001.co0:dbname=" . a:dbname . ":user=taitken:passwd=@ask"
 endfunction
