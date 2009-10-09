@@ -8,6 +8,7 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 
 export EDITOR=vim
+export PAGER=$HOME/bin/less.sh
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
@@ -128,8 +129,13 @@ function load_darwin {
 
 function load_linux {
 # Bash completion settings 
-	BASH_COMPLETION="$HOME/.bash_completion"
-	. ~/.bash_completion
+  if [ -f /etc/bash_completion ]; then
+		BASH_COMPLETION="/etc/bash_completion"
+    . /etc/bash_completion
+  else
+    echo "No bash completion."
+  fi
+	bind "set completion-ignore-case on"
 	alias ls='ls --color=auto'
 	export PLATFORM='linux'
 	extend_path '/sbin'

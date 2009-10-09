@@ -20,3 +20,5 @@ alias svnadd?="svn st -u | grep '^\?' | awk '{print $2}' | xargs svn add"
 alias config='git --git-dir=$HOME/.settings.git/ --work-tree=$HOME/'
 alias config-st='config status -uno'
 alias config-add-f='config add -f'
+
+alias vless='~/bin/less.sh'
