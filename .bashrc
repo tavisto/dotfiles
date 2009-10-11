@@ -8,7 +8,8 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 
 export EDITOR=vim
-export PAGER=$HOME/bin/less.sh
+#export PAGER=$HOME/bin/less.sh
+export PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
@@ -117,9 +118,11 @@ function load_darwin {
 	fi
 
   ## Enable programmable completion (if available)
-  if [ -f /sw/etc/bash_completion ]; then
+  if [ -f /opt/local/etc/bash_completion ]; then
+      . /opt/local/etc/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /sw/etc/bash_completion
-  else
+  else 
     echo "No bash completion."
   fi
 
