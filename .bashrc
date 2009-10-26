@@ -139,6 +139,7 @@ function load_linux {
     echo "No bash completion."
   fi
 	bind "set completion-ignore-case on"
+  echo Loaded Linux Settings
 	alias ls='ls --color=auto'
 	export PLATFORM='linux'
 	extend_path '/sbin'
@@ -166,6 +167,7 @@ git config --global color.branch auto
 
 # Load local configuration settings
 if [ -f "$HOME/.bash_local" ]; then
+  echo Loading local settings
 	. "$HOME/.bash_local"
 fi
 
