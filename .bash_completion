@@ -2,4 +2,11 @@
 ###  mode: shell-script
 #
 complete -o default -o nospace -F _git config
+
+# Load all scripts in the local bash_completion.d folder
+for i in $HOME/.bash_completion.d/* ; do
+    if [ -r "$i" ]; then
+    	. $i
+    fi
+done
 ###  End:

@@ -117,29 +117,38 @@ function load_darwin {
 		/sw/bin/init.sh
 	fi
 
-  ## Enable programmable completion (if available)
-  if [ -f /opt/local/etc/bash_completion ]; then
-      . /opt/local/etc/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /sw/etc/bash_completion
-  else 
-    echo "No bash completion."
-  fi
+    # Only try and load the bash completion if it has not already been set.
+    if [ -z $BASH_COMPLETION ];
+    then
+        ## Enable programmable completion (if available)
+        if [ -f /opt/local/etc/bash_completion ]; then
+            . /opt/local/etc/bash_completion
+        elif [ -f /etc/bash_completion ]; then
+            . /sw/etc/bash_completion
+        else 
+            echo "No bash completion."
+        fi
+    fi
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 }
 
-function load_linux {
-# Bash completion settings 
-  if [ -f /etc/bash_completion ]; then
-		BASH_COMPLETION="/etc/bash_completion"
-    . /etc/bash_completion
-  else
-    echo "No bash completion."
-  fi
+function load_linux
+{
+# Only try and load the bash completion if it has not already been set.
+    if [ -z $BASH_COMPLETION ];
+    then
+        #Bash completion settings 
+        if [ -f /etc/bash_completion ]; then
+            BASH_COMPLETION="/etc/bash_completion"
+            . /etc/bash_completion
+        else
+            echo "No bash completion."
+        fi
+    fi
 	bind "set completion-ignore-case on"
-  echo Loaded Linux Settings
+    echo Loaded Linux Settings
 	alias ls='ls --color=auto'
 	export PLATFORM='linux'
 	extend_path '/sbin'
@@ -147,7 +156,13 @@ function load_linux {
 	extend_path '/usr/local/sbin'
 }
 
-	BASH_COMPLETION_DIR="$HOME/.bash_completion.d"
+# Only try and load the bash completion directory if it has not already been set.
+if [ -z $BASH_COMPLETION_DIR ];
+then
+    BASH_COMPLETION_DIR="$HOME/.bash_completion.d"
+fi
+
+
 # Load OS specific settings
 case "`uname`" in
 	'Darwin')
