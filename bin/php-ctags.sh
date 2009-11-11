@@ -17,6 +17,7 @@ ctags -f /tmp/$USER-$2 \
 
 echo "Replacing relative paths with absolute. "
 # Replace all the ralative paths to absolute paths 
-sed 's#../home#/home#' /tmp/$USER-$2 >  ~/.vim/tags/$2
+#sed 's#../home#/home#' /tmp/$USER-$2 >  ~/.vim/tags/$2
+sed 's#../#/#' /tmp/$USER-$2 >  ~/.vim/tags/$2
 
 echo "Moved to ~/.vim/tags/$2 ";
