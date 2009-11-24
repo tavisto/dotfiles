@@ -33,7 +33,7 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 	xterm)
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[1;30m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 	;;
 	*)
 	PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
