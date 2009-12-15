@@ -93,11 +93,10 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 " Toggle search highlight
 nmap <silent> <F3> :set hls!<CR>
 
-" Use F10 to toggle 'paste' mode
-set pastetoggle=<C-F3>
-
 " Remove all windows line endings
-nmap <silent> <F4> :%s/\r//g<CR>
+"nmap <silent> <F4> :%s/\r//g<CR>
+" Rerun last : command
+nmap <silent> <F4> @:<CR>
 
 "" Remove all duplicate blank lines
 nmap <silent> <C-F4> :call Dupdd() <CR>
@@ -136,5 +135,5 @@ fu! Dupdd()
 endfunction
 
 fu! ConnectDb(dbname)
-	execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
+    execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
 endfunction

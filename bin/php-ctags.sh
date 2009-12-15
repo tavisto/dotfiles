@@ -1,7 +1,10 @@
 #!/bin/bash
 cd $1 
 ctags -f /tmp/$USER-$2 \
--h ".php" -R \
+-n \
+-h ".php.phtml" \
+-R \
+--extra=+f \
 --exclude="\.svn" \
 --exclude="*.js" \
 --totals=yes \
@@ -18,6 +21,6 @@ ctags -f /tmp/$USER-$2 \
 echo "Replacing relative paths with absolute. "
 # Replace all the ralative paths to absolute paths 
 #sed 's#../home#/home#' /tmp/$USER-$2 >  ~/.vim/tags/$2
-sed 's#../#/#' /tmp/$USER-$2 >  ~/.vim/tags/$2
+sed 's#\.\./#/#' /tmp/$USER-$2 >  ~/.vim/tags/$2
 
 echo "Moved to ~/.vim/tags/$2 ";
