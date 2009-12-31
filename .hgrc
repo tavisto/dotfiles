@@ -5,5 +5,10 @@ ignorews = true
 ignoreblanklines = true
 [extensions]
 convert =
+hgext.graphlog =
+pager = 
+[pager]
+pager = ~/bin/less.sh 
+attend = log,diff,help
 [ui]
 username = Tavis Aitken <tavisto@gmail.com>
