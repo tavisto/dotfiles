@@ -1,0 +1,9 @@
+[alias]
+latest = log --limit 10
+[diff]
+ignorews = true
+ignoreblanklines = true
+[extensions]
+convert =
+[ui]
+username = Tavis Aitken <tavisto@gmail.com>

@@ -137,3 +137,20 @@ endfunction
 fu! ConnectDb(dbname)
     execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
 endfunction
+
+function! Zendify()
+     silent! execute ':%s/( /(/g'
+     silent! execute ':%s/ )/)/g'
+     silent! execute ':%s/ \]/\]/g'
+     silent! execute ':%s/\[ /\[/g'
+     silent! execute ':%s/\s*,\s*/, /'
+     silent! execute ':%s/if(/if (/'
+     silent! execute ':%s/if(/if (/'
+     silent! execute ':%s/foreach(/foreach (/'
+     silent! execute ':%s/foreach(/foreach (/'
+     silent! execute ':%s/while(/while (/'
+     silent! execute ':%s/catch(/catch (/'
+     silent! execute ':%s/\(foreach\|if\|while\|catch\)\s*\(.*\)\s*\n\s*{/\1 \2 {/'
+     silent! execute ':%s/\s*\(try\|else\)\s*\s*\n*\s*\({\)/\1 \2/'
+     silent! execute ':%s/\(}\)\s*\n*\s*\(else\)/\1 \2/'
+endfunction
