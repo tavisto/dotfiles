@@ -22,3 +22,5 @@ alias config-st='config status -uno'
 alias config-add-f='config add -f'
 
 alias vless='~/bin/less.sh'
+
+alias vi='echo "Use vim, You will thank me in the end" '
