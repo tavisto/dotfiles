@@ -5,20 +5,24 @@
 echo "Updating $1"
 case $1 in
 beatport)
-    $HOME/bin/php-ctags.sh /mnt/dev_server/source_code/beatport/trunk/php beatport
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/beatport/trunk/php beatport_trunk 
     ;;
 mobile)
-    $HOME/bin/php-ctags.sh /mnt/dev_server/source_code/mobile/trunk/php mobile
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/mobile/trunk/php mobile
     ;;
 catalog)
-    $HOME/bin/php-ctags.sh /mnt/dev_server/source_code/api/catalog/trunk catalog
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/api/catalog/trunk catalog
     ;;
 admin)
-    $HOME/bin/php-ctags.sh /mnt/dev_server/source_code/admintools/trunk/server/src at
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/admintools/trunk/server/src at
     ;;
 control)
-    $HOME/bin/php-ctags.sh /mnt/dev_server/source_code/control/trunk/server/src control 
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/control/trunk/server/src control 
     ;;
+zf)
+    $HOME/bin/php-ctags.sh /usr/share/php/Zend zf 
+    ;;
+
     *) 
     echo "Usage $0 [project]"
     ;;
