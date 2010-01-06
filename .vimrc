@@ -29,13 +29,15 @@ set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
 
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
+set matchtime=3 " Match brackets for 3/10th of a sec.
 
 set autoindent " Auto Indent
 set smartindent " Smart Indent
 set mouse=n " Mouse in normal mode
 set ignorecase
 set smartcase
-set nohlsearch
+
+set nohlsearch " Don't Highlight searches 
 
 set ruler " Always show current positions along the bottom
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]
@@ -101,8 +103,12 @@ nmap <silent> <F4> @:<CR>
 "" Remove all duplicate blank lines
 nmap <silent> <C-F4> :call Dupdd() <CR>
 
+" Use <F5> to togle comments  
+nmap <silent> <F5> ,ci<CR>
+vmap <silent> <F5> ,ci<CR>
 " use <F5> to add phpdoc tags.
-nmap <silent> <F5> :call PhpDoc()<CR>
+nmap <silent> <C-F5> :call PhpDoc()<CR>
+
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>

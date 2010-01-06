@@ -8,13 +8,6 @@ source ~/.vim/php-doc.vim
 " Set up automatic formatting
 set formatoptions+=tcqlro
 
-" Jump to matching bracket for 3/10th of a second (works with showmatch)
-set matchtime=3
-set showmatch
-
-" Set maximum text width (for wrapping)
-set textwidth=100
-
 "
 " Syntax options
 "
@@ -26,7 +19,6 @@ let php_noShortTags = 1
 
 " Highlighti SQL inside PHP strings
 let php_sql_query=1
-
 
 "
 " Linting

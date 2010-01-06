@@ -4,6 +4,12 @@ latest = log --limit 10
 ignorews = true
 ignoreblanklines = true
 [extensions]
+fetch =
 convert =
+hgext.graphlog =
+pager = 
+[pager]
+pager = ~/bin/less.sh 
+attend = log,diff,help
 [ui]
 username = Tavis Aitken <tavisto@gmail.com>
