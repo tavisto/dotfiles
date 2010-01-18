@@ -2,14 +2,21 @@
 
 CONFIG_DIR="$HOME/.home-config"
 
-# Don't copy the repo directory or the . and .. files.
-DOTFILES=`ls -aI .hg  $CONFIG_DIR| grep -v '\.\.' | grep -v '\.$'`
-for i in $DOTFILES
+pushd $CONFIG_DIR/
+shopt -s dotglob
+for file in *
 do
-    if [ $1 == 'clean' ]; then
-        echo "Removing $HOME/$i"
-        rm -v $HOME/$i
+    ## Remove the files if they alaredy exist first
+    if [[ "$1" == "clean" ]]; then
+        echo "Removing $HOME/$file"
+        rm -rvf $HOME/$file
     fi
-    echo "Linking $CONFIG_DIR/$i to $HOME/$i"
-    ln -s $CONFIG_DIR/$i $HOME/$i
+
+    if [ $file != .hg ]; then
+        echo "Linking $file to $HOME/$file"
+        ln -s $CONFIG_DIR/$file $HOME/$file
+    else
+        echo "Not linking the .hg folder"
+    fi
 done
+popd
