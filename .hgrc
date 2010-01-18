@@ -4,14 +4,13 @@ latest = log --limit 10
 ignorews = true
 ignoreblanklines = true
 [extensions]
-color =
-pager = 
 fetch =
 convert =
 hgext.graphlog =
-hgext.kerberos =
+pager = 
 [pager]
 pager = ~/bin/less.sh 
 attend = log,diff,help
 [ui]
-username = Tavis Aitken <tavis.aitken@beatport.com>
+username = Tavis Aitken <tavisto@gmail.com>
+merge=meld
