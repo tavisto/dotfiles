@@ -171,11 +171,14 @@ case "`uname`" in
 	load_linux ;;
 esac
 
-	bind "set completion-ignore-case on"
+bind "set completion-ignore-case on"
+
+if [ `type -P git` ];then
 ## enable colours for git 
-git config --global color.diff auto
-git config --global color.status auto
-git config --global color.branch auto
+   git config --global color.diff auto
+   git config --global color.status auto
+   git config --global color.branch auto
+fi
 ################################################################################
 # Local environment
 ################################################################################
