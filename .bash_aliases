@@ -20,3 +20,5 @@ alias svnadd?="svn st -u | grep '^\?' | awk '{print $2}' | xargs svn add"
 alias vless='~/bin/less.sh'
 
 alias vi='echo "Use vim, You will thank me in the end" '
+
+alias hgroot='cd `hg root`'
