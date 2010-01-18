@@ -22,3 +22,5 @@ alias vless='~/bin/less.sh'
 alias config="hg -R ~/.home-config"
 
 alias vi='echo "Use vim, You will thank me in the end" '
+
+alias hgroot='cd `hg root`'
