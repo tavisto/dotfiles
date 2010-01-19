@@ -11,7 +11,8 @@ convert =
 hgext.graphlog =
 hgext.kerberos =
 [pager]
-pager = ~/bin/less.sh 
+pager = less -R
 attend = log,diff,help
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
+merge=meld
