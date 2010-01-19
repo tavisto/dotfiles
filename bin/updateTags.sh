@@ -5,7 +5,7 @@
 echo "Updating $1"
 case $1 in
 beatport)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/beatport/trunk/php beatport_trunk 
+    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/beatport/trunk/php beatport
     ;;
 mobile)
     $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/mobile/trunk/php mobile
