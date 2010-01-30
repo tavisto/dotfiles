@@ -9,7 +9,8 @@ do
     ## Remove the files if they alaredy exist first
     if [[ "$1" == "clean" ]]; then
         echo "Removing $HOME/$file"
-        rm -rvf $HOME/$file
+        
+        mv $HOME/$file $HOME/$file.bak
     fi
 
     if [ $file != .hg ]; then

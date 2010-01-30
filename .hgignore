@@ -1,2 +1,4 @@
 syntax: glob
 .vim/tags*
+.vim/.*
+.vim/dbext_sql_history.sql
