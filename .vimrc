@@ -17,6 +17,9 @@ set completeopt=menu,menuone,preview
 " Remember up to 500 'colon' commmands and search patterns
 set history=500
 
+" do not put a cr at the end of the file. this will result in headers sent if you do web programming
+set binary noeol
+
 syntax on
 set nocp " Enable vim only features
 set backspace=2
