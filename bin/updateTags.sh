@@ -19,9 +19,9 @@ admin)
 control)
     $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/control/trunk/server/src control 
     ;;
-zf)
-    $HOME/bin/php-ctags.sh /usr/share/php/Zend zf 
-    ;;
+#zf)
+    #$HOME/bin/php-ctags.sh /usr/share/php/Zend zf 
+    #;;
 
     *) 
     echo "Usage $0 [project]"

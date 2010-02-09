@@ -1,6 +1,6 @@
 #!/bin/bash
 cd $1 
-ctags -f /tmp/$USER-$2 \
+$CTAGS_BIN -f /tmp/$USER-$2 \
 -n \
 -h ".php.phtml" \
 -R \

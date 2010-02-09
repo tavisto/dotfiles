@@ -98,10 +98,6 @@ function tip
 
 function load_darwin {
 	export PLATFORM='darwin'
-	extend_path '/sw/bin'
-	extend_path '/sw/sbin'
-	extend_path '/opt/local/sbin'
-	extend_path '/opt/local/bin'
 	# Fix screen
 	alias ls='ls -G'
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
@@ -123,8 +119,10 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
-        elif [ -f /etc/bash_completion ]; then
+        elif [ -f /sw/etc/bash_completion ]; then
             . /sw/etc/bash_completion
+        elif [ -f ~/homebrew/etc/bash_completion ]; then
+            . ~/homebrew/etc/bash_completion 
         else 
             echo "No bash completion."
         fi
