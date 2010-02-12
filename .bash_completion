@@ -1,7 +1,7 @@
 ###  Local Variables:
 ###  mode: shell-script
 #
-complete -o default -o nospace -F hg config
+complete -o default -o nospace -F _hg config
 
 # Load all scripts in the local bash_completion.d folder
 for i in $HOME/.bash_completion.d/* ; do

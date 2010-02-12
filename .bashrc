@@ -127,6 +127,21 @@ function load_darwin {
             echo "No bash completion."
         fi
     fi
+    . $HOME/.bash_completion
+
+    # Only try and load the bash completion directory if it has not already been set.
+    if [ -z $BASH_COMPLETION_DIR ];
+    then
+        if [ -d /opt/local/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+        elif [ -d /sw/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
+        elif [ -d ~/homebrew/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="~/homebrew/etc//bash_completion.d"
+        else 
+            echo "No bash completion."
+        fi
+    fi
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
@@ -134,7 +149,7 @@ function load_darwin {
 
 function load_linux
 {
-# Only try and load the bash completion if it has not already been set.
+    # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ];
     then
         #Bash completion settings 
@@ -145,6 +160,14 @@ function load_linux
             echo "No bash completion."
         fi
     fi
+    . $HOME/.bash_completion
+
+    # Only try and load the bash completion directory if it has not already been set.
+    if [ -z $BASH_COMPLETION_DIR ];
+    then
+        BASH_COMPLETION_DIR="/etc/bash_completion.d"
+    fi
+
 	bind "set completion-ignore-case on"
     echo Loaded Linux Settings
 	alias ls='ls --color=auto'
@@ -153,12 +176,6 @@ function load_linux
 	extend_path '/usr/sbin'
 	extend_path '/usr/local/sbin'
 }
-
-# Only try and load the bash completion directory if it has not already been set.
-if [ -z $BASH_COMPLETION_DIR ];
-then
-    BASH_COMPLETION_DIR="$HOME/.bash_completion.d"
-fi
 
 
 # Load OS specific settings

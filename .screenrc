@@ -1,0 +1,60 @@
+############################################################################
+## General Options
+############################################################################
+# Set caption (bottom line in terminal)
+# %{= kw}        --> set print attributes (black bg, white fg)
+# %{G}[          --> print a bright green '['
+# %=             --> print padding
+# %{w}%?%-w      --> print in white any windows up to current one
+# %{R}(          --> print in bright red print '('
+# %{R}%n         --> print in bright red print the current window number and name
+# %{R}%t         --> print in bright red print the current window name
+# %{R})          --> print in bright red print ')'
+# %{w}%?%+w      --> print in white any windows after current one
+# %=             --> pad the string to the display's width
+# %{G}]          --> print a bright green ']'
+#hardstatus always lastline "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+#caption always "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+caption always "%{= kw} %{G}[%=%{y}%?%-w%{R}(%{R}%n %{R}%t%{R})%{y}%?%+w%=%{G}] "
+
+# Mininal hardstatus line (print in xterm header w/o color)
+#hardstatus always lastline
+#hardstatus string "[%=%?%-w(%n %t)%?%+w%=]"
+
+# Turn off the splash screen
+startup_message off
+
+# Autodetach session on hangup instead of terminating screen completely
+autodetach on
+
+# Use a 30000-line scrollback buffer 
+defscrollback 30000
+
+# Turn on visual bell
+vbell off 
+vbell_msg "bell: window ~%"
+
+# From http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
+# Q: My xterm scrollbar does not work with screen.
+# A: The problem is that xterm will not allow scrolling if the alternate text
+#     buffer is selected. The standard definitions of the termcap initialize
+#     capabilities ti and te switch to and from the alternate text buffer.
+#     (The scrollbar also does not work when you start e.g. ‘vi’).
+#     You can tell screen not to use these initialisations by adding the line
+#     “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
+# Enable xterm mouse scrolling
+termcapinfo xterm ti@:te@
+
+
+############################################################################
+## Key Bindings
+############################################################################
+bind ' ' windowlist -b
+
+
+############################################################################
+## Screens
+############################################################################
+screen -t atop          2 atop        
+screen -t error-logging 1 'cd /var/log/www/'
+screen -t default       0
