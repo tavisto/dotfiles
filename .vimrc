@@ -50,6 +50,7 @@ set laststatus=2
 
 " Scroll when cursor gets within 3 characters of top/bottom edge
 set scrolloff=3
+set scrolljump=5 " Set the scroll jump to be 5 lines
 
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
@@ -101,16 +102,13 @@ nmap <silent> <F3> :set hls!<CR>
 " Remove all windows line endings
 "nmap <silent> <F4> :%s/\r//g<CR>
 " Rerun last : command
-nmap <silent> <F4> @:<CR>
+"nmap <silent> <F4> @:<CR>
 
-"" Remove all duplicate blank lines
-nmap <silent> <C-F4> :call Dupdd() <CR>
+" use <F5> to add phpdoc tags.
+nmap <silent> <F4> :call PhpDoc()<CR>
 
 " Use <F5> to togle comments  
 nmap <silent> <F5> ,ci<CR>
-vmap <silent> <F5> ,ci<CR>
-" use <F5> to add phpdoc tags.
-nmap <silent> <C-F5> :call PhpDoc()<CR>
 
 
 " use <F6> to toggle line numbers
