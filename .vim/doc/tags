@@ -339,6 +339,7 @@ bufexplorer-windowlayout	bufexplorer.txt	/*bufexplorer-windowlayout*
 bufexplorer.txt	bufexplorer.txt	/*bufexplorer.txt*
 buffer-explorer	bufexplorer.txt	/*buffer-explorer*
 creating-snippets	snippets_emu.txt	/*creating-snippets*
+cs	surround.txt	/*cs*
 cvscommand-changes	vcscommand.txt	/*cvscommand-changes*
 database-extension	dbext.txt	/*database-extension*
 db2	dbext.txt	/*db2*
@@ -394,6 +395,7 @@ dbext-tutorial-select	dbext.txt	/*dbext-tutorial-select*
 dbext-tutorial-variables	dbext.txt	/*dbext-tutorial-variables*
 dbext.txt	dbext.txt	/*dbext.txt*
 dbext.vim	dbext.txt	/*dbext.vim*
+ds	surround.txt	/*ds*
 g%	matchit.txt	/*g%*
 g:bufExplorerDefaultHelp	bufexplorer.txt	/*g:bufExplorerDefaultHelp*
 g:bufExplorerDetailedHelp	bufexplorer.txt	/*g:bufExplorerDetailedHelp*
@@ -421,6 +423,8 @@ g:manpageview_sfx_EXT	manpageview.txt	/*g:manpageview_sfx_EXT*
 g:manpageview_syntax_EXT	manpageview.txt	/*g:manpageview_syntax_EXT*
 g:manpageview_winopen	manpageview.txt	/*g:manpageview_winopen*
 g:manpgeview_user	manpageview.txt	/*g:manpgeview_user*
+i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
+i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 ingres	dbext.txt	/*ingres*
 interbase	dbext.txt	/*interbase*
 manpage-pagedown	manpageview.txt	/*manpage-pagedown*
@@ -498,6 +502,14 @@ snippets_emu.txt	snippets_emu.txt	/*snippets_emu.txt*
 sqlanywhere	dbext.txt	/*sqlanywhere*
 sqlite	dbext.txt	/*sqlite*
 sqlsrv	dbext.txt	/*sqlsrv*
+surround	surround.txt	/*surround*
+surround-author	surround.txt	/*surround-author*
+surround-customizing	surround.txt	/*surround-customizing*
+surround-issues	surround.txt	/*surround-issues*
+surround-mappings	surround.txt	/*surround-mappings*
+surround-replacements	surround.txt	/*surround-replacements*
+surround-targets	surround.txt	/*surround-targets*
+surround.txt	surround.txt	/*surround.txt*
 taglist-commands	taglist.txt	/*taglist-commands*
 taglist-debug	taglist.txt	/*taglist-debug*
 taglist-extend	taglist.txt	/*taglist-extend*
@@ -542,8 +554,13 @@ vcscommand-ssh-other	vcscommand.txt	/*vcscommand-ssh-other*
 vcscommand-ssh-wrapper	vcscommand.txt	/*vcscommand-ssh-wrapper*
 vcscommand-statusline	vcscommand.txt	/*vcscommand-statusline*
 vcscommand.txt	vcscommand.txt	/*vcscommand.txt*
+vs	surround.txt	/*vs*
 xml-plugin-callbacks	xml-plugin.txt	/*xml-plugin-callbacks*
 xml-plugin-html	xml-plugin.txt	/*xml-plugin-html*
 xml-plugin-mappings	xml-plugin.txt	/*xml-plugin-mappings*
 xml-plugin-settings	xml-plugin.txt	/*xml-plugin-settings*
 xml-plugin.txt	xml-plugin.txt	/*xml-plugin.txt*
+yS	surround.txt	/*yS*
+ySS	surround.txt	/*ySS*
+ys	surround.txt	/*ys*
+yss	surround.txt	/*yss*
