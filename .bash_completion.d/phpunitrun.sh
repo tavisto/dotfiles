@@ -34,3 +34,4 @@ _phpunitrun()
 }
 complete -F _phpunitrun phpunitrun
 complete -F _phpunitrun phpunit.php
+complete -F _phpunitrun phpunit

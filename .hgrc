@@ -4,6 +4,8 @@ latest = log --limit 10
 ignorews = true
 ignoreblanklines = true
 [extensions]
+hgext.reviewboard =
+bphg.ext = 
 hgexternals = ~/bin/hgexternals.py
 color =
 pager = 
@@ -11,9 +13,12 @@ fetch =
 convert =
 hgext.graphlog =
 hgext.kerberos =
+[reviewboard]
+server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = log,diff,help
+attend = glog,log,diff,help
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
-merge=meld
+merge=vimdiff
+ignore=~/.hgignore

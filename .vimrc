@@ -1,4 +1,4 @@
-" Enable loading filetype and indentation plugins
+" Dnable loading filetype and indentation plugins
 filetype plugin on
 filetype indent on
 
@@ -162,4 +162,6 @@ function! Zendify()
      silent! execute ':%s/\(foreach\|if\|while\|catch\)\s*\(.*\)\s*\n\s*{/\1 \2 {/'
      silent! execute ':%s/\s*\(try\|else\)\s*\s*\n*\s*\({\)/\1 \2/'
      silent! execute ':%s/\(}\)\s*\n*\s*\(else\)/\1 \2/'
+     silent! execute ':%s/\t/    /g'
+     silent! execute ':%s/\s*$//g'
 endfunction

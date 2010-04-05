@@ -4,35 +4,38 @@
 CTAGS=$HOME/bin/php-ctags.sh
 echo "Updating $1"
 case $1 in
-auth)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/internal-api/authentication auth
+    auth)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/authentication auth
     ;;
-beatport)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/beatport/trunk/php beatport
+    beatport)
+    $CTAGS $SOURCE_CODE_DIR/beatport/php-beatport-www beatport
     ;;
-bp-release)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/beatport/branches/4.2009.1563/php bp-release
+    mobile)
+    $CTAGS $SOURCE_CODE_DIR/mobile/php-beatport-mobile/php mobile
     ;;
-mobile)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/mobile/trunk/php mobile
+    catalog)
+    $CTAGS $SOURCE_CODE_DIR/api/php-api-catalog/php catalog
     ;;
-catalog)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/api/catalog/trunk catalog
+    admin)
+    $CTAGS $SOURCE_CODE_DIR/php-admintools/server/src at
     ;;
-admin)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/admintools/trunk/server/src at
+    control)
+    $CTAGS $SOURCE_CODE_DIR/control/trunk/server/src control 
     ;;
-control)
-    $HOME/bin/php-ctags.sh $SOURCE_CODE_DIR/control/trunk/server/src control 
-    ;;
-email)
+    email)
     $CTAGS $SOURCE_CODE_DIR/api/app-email-php/ email
     ;;
-i18n)
+    i18n)
     $CTAGS $SOURCE_CODE_DIR/api/app-i18n-php/ i18n
     ;;
-zf)
-    $HOME/bin/php-ctags.sh /usr/share/php/Zend zf
+    cart)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/php-internal-api-cart cart
+    ;;
+    voids)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/app-internal-api-voids-php/ voids 
+    ;;
+    zf)
+    $CTAGS /usr/share/php/Zend zf
     ;;
     *) 
     echo "Usage $0 [project]"
