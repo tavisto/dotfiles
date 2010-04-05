@@ -9,11 +9,12 @@ color =
 pager = 
 fetch =
 convert =
-hgext.graphlog =
-hgext.kerberos =
+graphlog =
+kerberos = /Library/Python/2.6/site-packages/hgext/kerberos.py
 [pager]
 pager = less -R
 attend = log,diff,help
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
-merge=meld
+merge=vimdiff
+ignore=~/.hgignore
