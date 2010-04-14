@@ -4,8 +4,14 @@
 CTAGS=$HOME/bin/php-ctags.sh
 echo "Updating $1"
 case $1 in
-    auth)
-    $CTAGS $SOURCE_CODE_DIR/internal-api/authentication auth
+    security)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/php-internal-api-security/php security
+    ;;
+    content)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/php-internal-api-content/php content
+    ;;
+    voids)
+    $CTAGS $SOURCE_CODE_DIR/internal-api/php-internal-api-voids/php voids
     ;;
     beatport)
     $CTAGS $SOURCE_CODE_DIR/beatport/php-beatport-www beatport
@@ -20,7 +26,7 @@ case $1 in
     $CTAGS $SOURCE_CODE_DIR/php-admintools/server/src at
     ;;
     control)
-    $CTAGS $SOURCE_CODE_DIR/control/trunk/server/src control 
+    $CTAGS $SOURCE_CODE_DIR/control/php-control/ control
     ;;
     email)
     $CTAGS $SOURCE_CODE_DIR/api/app-email-php/ email

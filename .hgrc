@@ -17,7 +17,7 @@ hgext.kerberos =
 server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = glog,log,diff,help
+attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
 merge=vimdiff
