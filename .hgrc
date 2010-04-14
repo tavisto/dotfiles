@@ -3,6 +3,10 @@ latest = log --limit 10
 [diff]
 ignorews = true
 ignoreblanklines = true
+[defaults]
+pull = -v
+update = -v
+fetch = -v
 [extensions]
 hgexternals = ~/bin/hgexternals.py
 color =
