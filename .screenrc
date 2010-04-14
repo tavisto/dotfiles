@@ -43,14 +43,12 @@ vbell_msg "bell: window ~%"
 #     You can tell screen not to use these initialisations by adding the line
 #     “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
 # Enable xterm mouse scrolling
-termcapinfo xterm ti@:te@
-
+termcapinfo xterm* ti@:te@
 
 ############################################################################
 ## Key Bindings
 ############################################################################
 bind ' ' windowlist -b
-
 
 ############################################################################
 ## Screens

@@ -3,21 +3,21 @@ latest = log --limit 10
 [diff]
 ignorews = true
 ignoreblanklines = true
-[defaults]
-pull = -v
-update = -v
-fetch = -v
 [extensions]
+hgext.reviewboard =
+bphg.ext = 
 hgexternals = ~/bin/hgexternals.py
 color =
 pager = 
 fetch =
 convert =
-graphlog =
-kerberos = /Library/Python/2.6/site-packages/hgext/kerberos.py
+hgext.graphlog =
+hgext.kerberos =
+[reviewboard]
+server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = log,diff,help
+attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
 merge=vimdiff
