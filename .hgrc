@@ -8,21 +8,15 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-hgext.reviewboard =
-bphg.ext = 
-hgexternals = ~/bin/hgexternals.py
 color =
 pager = 
 fetch =
 convert =
 hgext.graphlog =
-hgext.kerberos =
-[reviewboard]
-server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
-username = Tavis Aitken <tavis.aitken@beatport.com>
+username = Tavis Aitken <tavisto@gmail.com>
 merge=vimdiff
 ignore=~/.hgignore
