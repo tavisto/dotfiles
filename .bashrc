@@ -78,6 +78,11 @@ function extend_path {
     export PATH="$PATH:$1"
   fi
 }
+function prepend_path {
+  if [[ $PATH != *:$1* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
 
 function command_exists {
   if command -v "$1" &>/dev/null; then
