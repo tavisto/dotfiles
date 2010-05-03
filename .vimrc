@@ -128,7 +128,7 @@ vnoremap E :DBExecVisualSQL <CR>
 
 let  g:dbext_default_history_file = '~/.vim/dbext_sql_history.sql'
 
-set grepprg=wcgrep
+set grepprg=grep
 
 "
 " Custon functions
