@@ -8,8 +8,8 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-hgext.reviewboard =
-bphg.ext = 
+reviewboard = ~/bin/reviewboard/reviewboard.py
+#bphg.ext = 
 hgexternals = ~/bin/hgexternals.py
 color =
 pager = 

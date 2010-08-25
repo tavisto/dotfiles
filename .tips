@@ -68,3 +68,4 @@ Bash vi mode: <Ctrl>+v :: Insert a character literally (quoted insert).
 Bash vi mode: <Ctrl>+t :: Transpose (exchange) two characters.
 Vim: Ctrl+v => <Movement-Key> => Shift+i => # => <Esc> :: Comment out multiple lines.
 Ubuntu: sysv-rc-conf :: Command line run level editor.
+Vim: set scb binds the scrolling of a buffer to all buffers that the binding is set to
