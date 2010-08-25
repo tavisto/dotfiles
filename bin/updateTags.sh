@@ -23,7 +23,7 @@ case $1 in
     $CTAGS $SOURCE_CODE_DIR/api/php-api-catalog/php catalog
     ;;
     admin)
-    $CTAGS $SOURCE_CODE_DIR/php-admintools/server/src at
+    $CTAGS $SOURCE_CODE_DIR/php-admintools at
     ;;
     control)
     $CTAGS $SOURCE_CODE_DIR/control/php-control/ control

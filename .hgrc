@@ -1,5 +1,5 @@
 [alias]
-latest = log --limit 10
+latest = glog --limit 10
 [diff]
 ignorews = true
 ignoreblanklines = true
@@ -17,12 +17,15 @@ fetch =
 convert =
 hgext.graphlog =
 hgext.kerberos =
+rebase=
+transplant=
 [reviewboard]
 server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = glog,log,diff,help,heads,tags,branches
+attend = glog,log,diff,help,tags
 [ui]
+email = tavis.aitken@beatport.com
 username = Tavis Aitken <tavis.aitken@beatport.com>
 merge=vimdiff
 ignore=~/.hgignore

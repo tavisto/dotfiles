@@ -24,3 +24,5 @@ alias config="hg -R ~/.home-config"
 alias vi='echo "Use vim, You will thank me in the end" '
 
 alias hgroot='cd `hg root`'
+
+alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "APC clear failed."'
