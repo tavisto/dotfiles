@@ -12,7 +12,8 @@ color =
 pager = 
 fetch =
 convert =
-hgext.graphlog =
+graphlog =
+hgkeychain =
 [pager]
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches

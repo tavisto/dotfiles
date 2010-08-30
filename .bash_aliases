@@ -24,3 +24,4 @@ alias config="hg -R ~/.home-config"
 alias vi='echo "Use vim, You will thank me in the end" '
 
 alias hgroot='cd `hg root`'
+alias dhog='du -cks * | sort -rn'
