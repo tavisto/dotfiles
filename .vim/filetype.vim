@@ -12,3 +12,5 @@ au BufNewFile,BufRead  svn-commit.* setf svn
 au BufNewFile,BufRead *.as		setf actionscript 
 
 au BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc setf ini
+
+autocmd FileType python compiler pylint

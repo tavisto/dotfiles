@@ -15,19 +15,22 @@ color =
 pager = 
 fetch =
 convert =
-hgext.graphlog =
-hgext.kerberos =
-children = 
-progress =
-rebase =
-transplant =
+graphlog =
+kerberos =
+extdiff=
+transplant=
+rebase=
+keychain=
+[extdiff]
+cmd.diffmerge = diffmerge
 [reviewboard]
 server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
-#username = Tavis Aitken <tavis.aitken@beatport.com>
-username = Tavis Aitken
-merge=vimdiff
+username = Tavis Aitken <tavis.aitken@beatport.com>
+merge = diffmerge
 ignore=~/.hgignore
+[merge-tools]
+diffmerge.binary = False
