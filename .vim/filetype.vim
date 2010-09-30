@@ -2,7 +2,7 @@
 " Filetype detection
 "
 augroup filetypedetect
-	" Detect .txt as 'text'
+    " Detect .txt as 'text'
     autocmd! BufNewFile,BufRead *.txt setfiletype text
     " PHP
     autocmd! BufNewFile,BufRead *.phtml setfiletype php 
@@ -16,4 +16,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setf json
 
     au BufNewFile,BufRead *puppet* setf puppet 
+    autocmd FileType python compiler pylint
 augroup END
+

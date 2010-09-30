@@ -109,7 +109,7 @@ nmap <silent> <F3> :set hls!<CR>
 nmap <silent> <F4> :call PhpDoc()<CR>
 
 " Use <F5> to togle comments  
-nmap <silent> <F5> ,ci<CR>
+nmap <silent> <F5> ,cs<CR>
 
 
 " use <F6> to toggle line numbers
@@ -129,7 +129,9 @@ vnoremap E :DBExecVisualSQL <CR>
 
 let  g:dbext_default_history_file = '~/.vim/dbext_sql_history.sql'
 
-set grepprg=wcgrep
+autocmd FileType python compiler pylint
+
+set grepprg=grep
 
 "
 " Custon functions

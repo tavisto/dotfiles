@@ -172,6 +172,8 @@ function load_darwin {
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+
+    extend_path $HOME'/homebrew/sbin';
 }
 
 function load_linux
