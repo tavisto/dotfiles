@@ -20,4 +20,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.as		setf actionscript 
 
     autocmd FileType python compiler pylint
+    au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog 
+    au! BufRead,BufNewFile *.log  set filetype=syslog 
 augroup END

@@ -39,8 +39,18 @@ fi
 	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
 	#;;
 #esac
+vc_ps1() {
+    PINK=$'\e[35;40m'
+    GREEN=$'\e[32;40m'
+    ORANGE=$'\e[33;40m'
+    BLUE=$'\e[34;40m'
+    RED=$'\e[31;40m'
+    WHITE=$'\e[37;40m'
+        vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+    }
+
 . ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]${NORMAL}\n$ "
+export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
