@@ -16,4 +16,8 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setf json
 
     au BufNewFile,BufRead *puppet* setf puppet 
+
+    au BufNewFile,BufRead *.as		setf actionscript 
+
+    autocmd FileType python compiler pylint
 augroup END

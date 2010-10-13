@@ -31,14 +31,16 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-	xterm*|screen*)
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-	;;
-	*)
-	PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
-	;;
-esac
+#case "$TERM" in
+	#xterm*|screen*)
+	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+	#;;
+	#*)
+	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
+	#;;
+#esac
+. ~/.bash_color
+export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]${NORMAL}\n$ "
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

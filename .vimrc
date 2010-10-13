@@ -126,11 +126,14 @@ nmap <silent> <F9> :set list!<CR>
 " Execute SQL visually selected
 " mnemonic sql - execute
 vnoremap E :DBExecVisualSQL <CR>
-
 let  g:dbext_default_history_file = '~/.vim/dbext_sql_history.sql'
 
 set grepprg=wcgrep
 
+" Disable the Pylint on write all the time
+let g:pylint_onwrite = 0
+
+autocmd FileType python compiler pylint
 "
 " Custon functions
 "

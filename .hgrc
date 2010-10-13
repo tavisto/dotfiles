@@ -8,22 +8,22 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = ~/bin/reviewboard
-#bphg.ext = 
-hgexternals = ~/bin/hgexternals.py
+reviewboard = 
+bphg.ext = 
 color =
 pager = 
-fetch =
 convert =
-hgext.graphlog =
-hgext.kerberos =
-rebase =
+graphlog =
+kerberos =
+rebase=
+transplant=
 [reviewboard]
 server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
 attend = glog,log,diff,help,tags
 [ui]
+email = tavis.aitken@beatport.com
 username = Tavis Aitken <tavis.aitken@beatport.com>
 merge=vimdiff
 ignore=~/.hgignore
