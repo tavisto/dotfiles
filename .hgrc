@@ -20,7 +20,7 @@ kerberos =
 extdiff=
 transplant=
 rebase=
-keychain=
+hgkeychain=
 [extdiff]
 cmd.diffmerge = diffmerge
 [reviewboard]

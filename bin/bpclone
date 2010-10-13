@@ -1,2 +1,2 @@
 #!/bin/bash
-`hg clone https://hg.beatportcorp.net$1 $2`
+hg clone https://hg.beatportcorp.net/$1
