@@ -170,6 +170,8 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
+        elif [ -f /usr/local/etc/bash_completion ]; then
+            . /usr/local/etc/bash_completion
         elif [ -f /sw/etc/bash_completion ]; then
             . /sw/etc/bash_completion
         elif [ -f ~/homebrew/etc/bash_completion ]; then
@@ -185,6 +187,8 @@ function load_darwin {
     then
         if [ -d /opt/local/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+        elif [ -d /usr/local/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="/usr/local/etc//bash_completion.d"
         elif [ -d /sw/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
         elif [ -d ~/homebrew/etc/bash_completion.d ]; then

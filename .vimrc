@@ -131,7 +131,7 @@ let  g:dbext_default_history_file = '~/.vim/dbext_sql_history.sql'
 
 autocmd FileType python compiler pylint
 
-set grepprg=grep
+set grepprg=wcgrep
 
 "
 " Custon functions
