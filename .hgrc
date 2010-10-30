@@ -1,5 +1,5 @@
 [alias]
-latest = glog --limit 10
+latest = log --limit 10
 [diff]
 ignorews = true
 ignoreblanklines = true
@@ -8,22 +8,18 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = 
-bphg.ext = 
 color =
 pager = 
+fetch =
 convert =
 graphlog =
-kerberos =
 rebase=
 transplant=
-[reviewboard]
-server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = glog,log,diff,help,tags
+attend = glog,log,diff,help,heads,tags,branches
 [ui]
-email = tavis.aitken@beatport.com
-username = Tavis Aitken <tavis.aitken@beatport.com>
+email = tavisto@gmail.com
+username = Tavis Aitken <tavisto@gmail.com>
 merge=vimdiff
 ignore=~/.hgignore
