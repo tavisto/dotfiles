@@ -134,6 +134,9 @@ set grepprg=grep
 let g:pylint_onwrite = 0
 
 autocmd FileType python compiler pylint
+
+autocmd FileType yaml set ts=2
+
 "
 " Custon functions
 "

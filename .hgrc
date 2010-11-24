@@ -19,7 +19,7 @@ transplant=
 server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
-attend = glog,log,diff,help,tags
+attend = glog,log,diff,help
 [ui]
 email = tavis.aitken@beatport.com
 username = Tavis Aitken
