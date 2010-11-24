@@ -8,8 +8,6 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = 
-bphg.ext = 
 color =
 pager = 
 convert =
@@ -24,6 +22,6 @@ pager = less -R
 attend = glog,log,diff,help,tags
 [ui]
 email = tavis.aitken@beatport.com
-username = Tavis Aitken <tavis.aitken@beatport.com>
+username = Tavis Aitken
 merge=vimdiff
 ignore=~/.hgignore
