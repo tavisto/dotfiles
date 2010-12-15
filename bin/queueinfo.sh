@@ -2,7 +2,7 @@
 echo "Queue Info: "
 echo "name durable messages_ready messages_unacknowledged consumer_count memory" | column -t
 echo "------------------------------------------------------------------"
-sudo rabbitmqctl -q list_queues -p / name durable messages_ready messages_unacknowledged consumers memory | column -t 
+sudo rabbitmqctl -q list_queues -p /$1 name durable messages_ready messages_unacknowledged consumers memory | column -t 
 echo "------------------------------------------------------------------"
 echo "Connection Info: "
 echo "vhost user IP state channels timeout client_properties" | column -t
@@ -17,10 +17,10 @@ echo "------------------------------------------------------------------"
 echo "Consumers:"
 echo " queue connection_pid consume_tag acks_expected" | column -t
 echo "------------------------------------------------------------------"
-sudo rabbitmqctl -q list_consumers -p / | column -t 
+sudo rabbitmqctl -q list_consumers -p /$1 | column -t 
 echo "------------------------------------------------------------------"
 echo "Exchange Info: "
 echo " name type durable auto_delete"
 echo "------------------------------------------------------------------"
-sudo rabbitmqctl -q list_exchanges -p / name type durable auto_delete | column -t
+sudo rabbitmqctl -q list_exchanges -p /$1 name type durable auto_delete | column -t
 echo "------------------------------------------------------------------"

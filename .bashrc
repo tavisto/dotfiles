@@ -13,11 +13,6 @@ export PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
-PINK=$'\e[35;40m'
-GREEN=$'\e[32;40m'
-ORANGE=$'\e[33;40m'
-
-
 # Set command line to vi mode and learn to deal with it :) 
 set -o vi
 # ^l clear screen
@@ -34,18 +29,16 @@ shopt -s checkwinsize
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
-#VC_PS1= vcprompt -f "%b:${PINK}%r ${ORANGE}%u"
-## set a fancy prompt (non-color, unless we know we "want" color)
+
+# set a fancy prompt (non-color, unless we know we "want" color)
 #case "$TERM" in
 	#xterm*|screen*)
-	#PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]${VC_PS1}\$ "
+	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 	#;;
 	#*)
 	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
 	#;;
 #esac
-
-
 vc_ps1() {
     PINK=$'\e[35;40m'
     GREEN=$'\e[32;40m'
@@ -54,15 +47,10 @@ vc_ps1() {
     RED=$'\e[31;40m'
     WHITE=$'\e[37;40m'
         vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
-        #FORMAT (default="[%n:%b%m%u] ") may contain:
-         #%b  show branch
-         #%r  show revision
-         #%s  show VC name
-         #%%  show '%'
     }
 
 . ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}${HOSTNAME/.nar.beatportcorp.net/}${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -196,8 +184,6 @@ function load_darwin {
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
-
-    extend_path $HOME'/homebrew/sbin';
 }
 
 function load_linux

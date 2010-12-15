@@ -1,6 +1,0 @@
-#!/bin/sh
-
-exec python ~/bin/diffmerge.py "$@"
-
-
-
