@@ -1,5 +1,5 @@
 [alias]
-latest = log --limit 10
+latest = glog --limit 10
 [diff]
 ignorews = true
 ignoreblanklines = true
@@ -10,14 +10,13 @@ fetch = -v
 [extensions]
 color =
 pager = 
-fetch =
 convert =
 graphlog =
 rebase=
 transplant=
 [pager]
 pager = less -R
-attend = glog,log,diff,help,heads,tags,branches
+attend = glog,log,diff,help
 [ui]
 email = tavisto@gmail.com
 username = Tavis Aitken <tavisto@gmail.com>

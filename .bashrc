@@ -50,7 +50,7 @@ vc_ps1() {
     }
 
 . ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}${HOSTNAME}${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
