@@ -8,7 +8,7 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = ~/SourceCode/mercurial-reviewboard/reviewboard.py
+reviewboard = ~/SourceCode/mercurial-reviewboard
 bphg.ext = 
 hgexternals = ~/bin/hgexternals.py
 color =
@@ -30,6 +30,7 @@ pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
+email= tavis.aitken@beatport.com
 merge = diffmerge
 ignore=~/.hgignore
 [merge-tools]
