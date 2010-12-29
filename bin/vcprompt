@@ -537,7 +537,7 @@ def git(path, string, unknown):
 
     # status
     if '%i' in string:
-        command = 'git status'
+        command = 'git status --short -z'
         process = Popen(command.split(), stdout=PIPE, stderr=PIPE)
         output = process.communicate()[0]
         returncode = process.returncode

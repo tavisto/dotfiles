@@ -24,4 +24,4 @@ syn match   logName  /^.*\.log/ nextgroup=logEntry skipwhite
   hi link logLine       Comment
 "endif
 
-let b:current_syntax="bppythonservicelog"
+let b:current_syntax="pythonlog"

@@ -35,5 +35,3 @@ if exists('loaded_taglist')
 	" map <F8> to toggle taglist window
 	nmap <silent> <F8> :TlistToggle<CR>
 endif
-
-" vim: set fdm=marker:

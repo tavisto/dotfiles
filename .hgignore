@@ -7,3 +7,6 @@ syntax: glob
 *.buildpath
 *.project
 *.settings*
+*.egg*
+*build*
+*.swp
