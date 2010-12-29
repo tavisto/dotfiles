@@ -100,17 +100,11 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 " Toggle search highlight
 nmap <silent> <F3> :set hls!<CR>
 
-" Remove all windows line endings
-"nmap <silent> <F4> :%s/\r//g<CR>
 " Rerun last : command
-"nmap <silent> <F4> @:<CR>
-
-" use <F5> to add phpdoc tags.
-nmap <silent> <F4> :call PhpDoc()<CR>
+nmap <silent> <F4> @:<CR>
 
 " Use <F5> to togle comments  
-nmap <silent> <F5> ,cs<CR>
-
+nmap <silent> <F5> \cs<CR>
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
@@ -118,25 +112,26 @@ nmap <silent> <F6> :set number!<CR>
 " use <F7> to togle folding
 nmap <silent> <F7> za
 
-" <F8> Used for Taglist
+" map <F8> to toggle taglist window
+" nmap <silent> <F8> :TlistToggle<CR>
+" Set in .vim/after/plugin/general.vim only if taglist can be run
 
 " Togle showing non printing chars 
 nmap <silent> <F9> :set list!<CR>
 
-" Execute SQL visually selected
-" mnemonic sql - execute
-vnoremap E :DBExecVisualSQL <CR>
+" Togle paste mode on and off with F10
+set pastetoggle=<F10>
 
-let  g:dbext_default_history_file = '~/.vim/dbext_sql_history.sql'
+" Add current buffer to diff
+nmap <silent> <F11> :diffthis<CR>
 
-autocmd FileType python compiler pylint
+nmap <silent> <F12> :call PylintOnWriteTogle()<CR>
 
-set grepprg=grep
+set grepprg=wcgrep
 
 "
 " Custon functions
 "
-
 function! LoadTags(tagfile)
 	execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction
@@ -144,10 +139,6 @@ endfunction
 fu! Dupdd()
 	execute ":%s/[ ^I]*$"
 	execute ":%!sed '/./,/^$/ \\!d'"
-endfunction
-
-fu! ConnectDb(dbname)
-    execute ":DBSetOption type=MySQL:host=@ask:dbname=" . a:dbname . ":user=@ask:passwd=@ask"
 endfunction
 
 function! Zendify()

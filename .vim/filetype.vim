@@ -16,9 +16,10 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setf json
 
     au BufNewFile,BufRead *puppet* setf puppet 
-    "autocmd FileType python compiler pylint
+    autocmd FileType python compiler pylint
 
     au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog 
-    au! BufRead,BufNewFile *.log  set filetype=syslog 
+    au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
+    au! BufRead,BufNewFile *.log  set filetype=syslog
 augroup END
 
