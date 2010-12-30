@@ -21,6 +21,9 @@ set history=500
 set binary noeol
 
 syntax on
+set background=dark
+colorscheme ir_black
+
 set nocp " Enable vim only features
 set backspace=2
 set ch=2 " Make command line two lines high
