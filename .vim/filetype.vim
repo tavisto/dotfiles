@@ -17,7 +17,8 @@ augroup filetypedetect
 
     au BufNewFile,BufRead *puppet* setf puppet
     autocmd FileType python compiler pylint
-    au BufNewFile,BufRead *.as		setf actionscript
+    autocmd BufNewFile,BufRead *.as set filetype=actionscript 
+    autocmd BufNewFile,BufRead *.mxml set filetype=mxml 
 
     au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog
     au! BufRead,BufNewFile *.log  set filetype=syslog
