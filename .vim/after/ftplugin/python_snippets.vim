@@ -157,6 +157,10 @@ exec "Snippet % '".st."s".et."'".st."s:PyHashArgList(Count(@z, '%[^%]'))".et.st.
 exec "Snippet ass assert ".st."expression".et.st.et
 " From Kib2
 exec "Snippet bc \"\"\"<CR>".st.et."<CR>\"\"\"<CR>".st.et
+exec "Snippet jimport try:
+\<CR>    import json 
+\<CR>except: ImportError
+\<CR>    import simplejson as json"
 
 " Try, except, finally.
 exec "Snippet trye try:

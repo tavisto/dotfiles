@@ -21,8 +21,6 @@ set history=500
 set binary noeol
 
 syntax on
-set background=dark
-colorscheme ir_black
 
 set nocp " Enable vim only features
 set backspace=2
@@ -79,7 +77,6 @@ set wildmenu
 "     the first string
 "   - on second <Tab>, complete the next full match and show menu
 set wildmode=list,full
-
 
 " Start wrapping at 100 columns
 set textwidth=0
