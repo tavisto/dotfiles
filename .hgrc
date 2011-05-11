@@ -19,6 +19,7 @@ rebase=
 transplant=
 [reviewboard]
 server = https://reviewboard.beatportcorp.net/
+target_groups   = engineering, supplychain 
 [pager]
 pager = less -R
 attend = glog,log,diff,help

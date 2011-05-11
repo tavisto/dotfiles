@@ -25,3 +25,13 @@ augroup filetypedetect
     au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
     au! BufRead,BufNewFile supervisord.conf set filetype=ini
 augroup END
+augroup Binary
+    au!
+    au BufReadPre  *.bin,*.jpg,*.mp3,*.wav let &bin=1
+    au BufReadPost *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd 
+    au BufReadPost *.bin,*.jpg,*.mp3,*.wav set ft=xxd | endif
+    au BufWritePre *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd -r
+    au BufWritePre *.bin,*.jpg,*.mp3,*.wav endif
+    au BufWritePost *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd
+    au BufWritePost *.bin,*.jpg,*.mp3,*.wav set nomod | endif
+augroup END
