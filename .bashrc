@@ -50,7 +50,7 @@ vc_ps1() {
     }
 
 . ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}${HOSTNAME/.nar.beatportcorp.net/}${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}${HOSTNAME}${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -158,6 +158,8 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
+        elif [ -f /usr/local/etc/bash_completion ]; then
+            . /usr/local/etc/bash_completion
         elif [ -f /sw/etc/bash_completion ]; then
             . /sw/etc/bash_completion
         elif [ -f ~/homebrew/etc/bash_completion ]; then
@@ -173,6 +175,8 @@ function load_darwin {
     then
         if [ -d /opt/local/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+        elif [ -d /usr/local/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="/usr/local/etc//bash_completion.d"
         elif [ -d /sw/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
         elif [ -d ~/homebrew/etc/bash_completion.d ]; then

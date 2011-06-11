@@ -8,23 +8,17 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = 
-bphg.ext = 
 color =
 pager = 
 convert =
 graphlog =
-kerberos =
 rebase=
 transplant=
-[reviewboard]
-server = https://reviewboard.beatportcorp.net/
-target_groups   = engineering, supplychain 
 [pager]
 pager = less -R
 attend = glog,log,diff,help
 [ui]
-email = tavis.aitken@beatport.com
-username = Tavis Aitken
+email = tavisto@gmail.com
+username = Tavis Aitken <tavisto@gmail.com>
 merge=vimdiff
 ignore=~/.hgignore

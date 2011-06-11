@@ -10,6 +10,7 @@ alias grep='grep --color'
 
 alias :q='exit'
 
+alias ll='ls -l'
 alias ll='ls -lart'
 alias la='ls -A'
 alias l='ls -CF'
@@ -24,8 +25,4 @@ alias config="hg -R ~/.home-config"
 alias vi='echo "Use vim, You will thank me in the end" '
 
 alias hgroot='cd `hg root`'
-
-alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "APC clear failed."'
-alias bpupdate='sudo yum makecache && sudo yum update bpapp*'
-
-alias hgrep='history | grep '
+alias dhog='du -cks * | sort -rn'
