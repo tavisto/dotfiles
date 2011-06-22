@@ -6,6 +6,7 @@
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
+export HISTSIZE=2000
 
 export EDITOR=vim
 #export PAGER=$HOME/bin/less.sh
@@ -61,8 +62,17 @@ vc_ps1() {
          #%%  show '%'
     }
 
-. ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+vc_ps1_nocolor() { 
+    vcprompt -f "(%s:%b:%i)" 2>/dev/null
+    }
+
+if [ -z $VIMRUNTIME ]; then
+    . ~/.bash_color
+    export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+else
+    export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
+fi
+
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -260,4 +270,6 @@ fi
 ################################################################################
 #         Run tips at login           
 ################################################################################
-tip
+if [ -z $VIMRUNTIME ]; then
+    tip
+fi

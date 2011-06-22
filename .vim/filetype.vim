@@ -23,13 +23,13 @@ augroup filetypedetect
     au! BufRead,BufNewFile *.log  set filetype=syslog
     augroup Binary
           au!
-          au BufReadPre  *.bin,*.jpg,*.mp3,*.wav let &bin=1
-          au BufReadPost *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd -c 32
-          au BufReadPost *.bin,*.jpg,*.mp3,*.wav set ft=xxd | endif
-          au BufWritePre *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd -r
-          au BufWritePre *.bin,*.jpg,*.mp3,*.wav endif
-          au BufWritePost *.bin,*.jpg,*.mp3,*.wav if &bin | %!xxd
-          au BufWritePost *.bin,*.jpg,*.mp3,*.wav set nomod | endif
+          au BufReadPre  *.bin,*.jpg,*.mp3,*.wav,*.aif let &bin=1
+          au BufReadPost *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd -c 32
+          au BufReadPost *.bin,*.jpg,*.mp3,*.wav,*.aif set ft=xxd | endif
+          au BufWritePre *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd -r
+          au BufWritePre *.bin,*.jpg,*.mp3,*.wav,*.aif endif
+          au BufWritePost *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd
+          au BufWritePost *.bin,*.jpg,*.mp3,*.wav,*.aif set nomod | endif
     augroup END
 augroup END
 
