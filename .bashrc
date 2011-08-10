@@ -182,8 +182,6 @@ function load_darwin {
             . /opt/local/etc/bash_completion
         elif [ -f /sw/etc/bash_completion ]; then
             . /sw/etc/bash_completion
-        elif [ -f ~/homebrew/etc/bash_completion ]; then
-            . ~/homebrew/etc/bash_completion 
         else 
             echo "No bash completion."
         fi
@@ -197,8 +195,6 @@ function load_darwin {
             BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
         elif [ -d /sw/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
-        elif [ -d ~/homebrew/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="~/homebrew/etc//bash_completion.d"
         else 
             echo "No bash completion."
         fi
@@ -207,7 +203,6 @@ function load_darwin {
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 
-    extend_path $HOME'/homebrew/sbin';
 }
 
 function load_linux
