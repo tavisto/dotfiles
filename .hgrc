@@ -8,30 +8,17 @@ pull = -v
 update = -v
 fetch = -v
 [extensions]
-reviewboard = ~/SourceCode/mercurial-reviewboard
-bphg.ext = 
-hgexternals = ~/bin/hgexternals.py
 color =
 pager = 
 fetch =
 convert =
 graphlog =
-kerberos =
-extdiff=
 transplant=
 rebase=
-hgkeychain=
-[extdiff]
-cmd.diffmerge = diffmerge
-[reviewboard]
-server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
-username = Tavis Aitken <tavis.aitken@beatport.com>
-email= tavis.aitken@beatport.com
-merge = diffmerge
+username = Tavis Aitken <tavisto@gmail.com>
+merge=vimdiff
 ignore=~/.hgignore
-[merge-tools]
-diffmerge.binary = False

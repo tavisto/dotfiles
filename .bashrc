@@ -35,15 +35,15 @@ shopt -s checkwinsize
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
-#VC_PS1= vcprompt -f "%b:${PINK}%r ${ORANGE}%u"
-## set a fancy prompt (non-color, unless we know we "want" color)
+#VC_PS1= ~/bin/vcprompt -f "%b:${PINK}%r ${ORANGE}%u"
+# set a fancy prompt (non-color, unless we know we "want" color)
 #case "$TERM" in
-	#xterm*|screen*)
-	#PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]${VC_PS1}\$ "
-	#;;
-	#*)
-	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
-	#;;
+    #xterm*|screen*)
+    #PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]${VC_PS1}\$ "
+    #;;
+    #*)
+    #PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
+    #;;
 #esac
 
 
@@ -54,7 +54,7 @@ vc_ps1() {
     BLUE=$'\e[34;40m'
     RED=$'\e[31;40m'
     WHITE=$'\e[37;40m'
-        vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+        ~/bin/vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
         #FORMAT (default="[%n:%b%m%u] ") may contain:
          #%b  show branch
          #%r  show revision
@@ -63,7 +63,7 @@ vc_ps1() {
     }
 
 vc_ps1_nocolor() { 
-    vcprompt -f "(%s:%b:%i)" 2>/dev/null
+    ~/bin/vcprompt -f "(%s:%b:%i)" 2>/dev/null
     }
 
 if [ -z $VIMRUNTIME ]; then
@@ -72,10 +72,6 @@ if [ -z $VIMRUNTIME ]; then
 else
     export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
 fi
-
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -90,8 +86,6 @@ esac
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
-
-
 
 umask 022
 export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
@@ -180,6 +174,8 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
+        elif [ -f /usr/local/etc/bash_completion ]; then
+            . /usr/local/etc/bash_completion
         elif [ -f /sw/etc/bash_completion ]; then
             . /sw/etc/bash_completion
         else 
@@ -193,6 +189,8 @@ function load_darwin {
     then
         if [ -d /opt/local/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+        elif [ -d /usr/local/etc/bash_completion.d ]; then
+            BASH_COMPLETION_DIR="/usr/local/etc//bash_completion.d"
         elif [ -d /sw/etc/bash_completion.d ]; then
             BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
         else 
@@ -203,6 +201,9 @@ function load_darwin {
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 
+    # MacPorts path
+    extend_path '/opt/local/bin';
+    extend_path '/opt/local/sbin';
 }
 
 function load_linux
