@@ -14,9 +14,6 @@ export PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
-PINK=$'\e[35;40m'
-GREEN=$'\e[32;40m'
-ORANGE=$'\e[33;40m'
 
 
 # Set command line to vi mode and learn to deal with it :) 
@@ -31,44 +28,34 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-	debian_chroot=$(cat /etc/debian_chroot)
-fi
-#VC_PS1= vcprompt -f "%b:${PINK}%r ${ORANGE}%u"
-## set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-	#xterm*|screen*)
-	#PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]${VC_PS1}\$ "
-	#;;
-	#*)
-	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
-	#;;
-#esac
+# Colors
+PINK=$'\e[35;40m'
+GREEN=$'\e[32;40m'
+ORANGE=$'\e[33;40m'
+BLUE=$'\e[34;40m'
+RED=$'\e[31;40m'
+WHITE=$'\e[37;40m'
 
+my_time() {
+    date +"%T"
+}
 
 vc_ps1() {
-    PINK=$'\e[35;40m'
-    GREEN=$'\e[32;40m'
-    ORANGE=$'\e[33;40m'
-    BLUE=$'\e[34;40m'
-    RED=$'\e[31;40m'
-    WHITE=$'\e[37;40m'
-        vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
-        #FORMAT (default="[%n:%b%m%u] ") may contain:
-         #%b  show branch
-         #%r  show revision
-         #%s  show VC name
-         #%%  show '%'
-    }
+    vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+    #FORMAT (default="[%n:%b%m%u] ") may contain:
+    #%b  show branch
+    #%r  show revision
+    #%s  show VC name
+    #%%  show '%'
+}
 
 vc_ps1_nocolor() { 
     vcprompt -f "(%s:%b:%i)" 2>/dev/null
-    }
+}
 
 if [ -z $VIMRUNTIME ]; then
     . ~/.bash_color
-    export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+    export PS1="${RED}[${BRIGHT_GREEN}\$(my_time) \u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 else
     export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
 fi
@@ -79,19 +66,17 @@ fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-	xterm*|rxvt*)
-	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-	;;
-	*)
-	;;
+    xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+    *)
+    ;;
 esac
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+    . ~/.bash_aliases
 fi
-
-
 
 umask 022
 export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
@@ -101,34 +86,34 @@ export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
 ################################################################################
 function random_line 
 {
-	LINES=$( wc -l "$1" | awk '{ print ($1 +1) }' )
-	RANDSEED=$( date '+%S%M%I' )
-	LINE=$( cat "$1" | awk -v "COUNT=$LINES" -v "SEED=$RANDSEED" 'BEGIN { srand(SEED);i=int(rand()*COUNT) } FNR==i { print $0 }');
-	echo "$LINE"
+    LINES=$( wc -l "$1" | awk '{ print ($1 +1) }' )
+    RANDSEED=$( date '+%S%M%I' )
+    LINE=$( cat "$1" | awk -v "COUNT=$LINES" -v "SEED=$RANDSEED" 'BEGIN { srand(SEED);i=int(rand()*COUNT) } FNR==i { print $0 }');
+    echo "$LINE"
 }
 
 function extend_path {
-  if [[ $PATH != *:$1* ]]; then
+if [[ $PATH != *:$1* ]]; then
     export PATH="$PATH:$1"
-  fi
+fi
 }
 function prepend_path {
-  if [[ $PATH != *:$1* ]]; then
+if [[ $PATH != *:$1* ]]; then
     export PATH="$1:$PATH"
-  fi
+fi
 }
 
 function command_exists {
-  if command -v "$1" &>/dev/null; then
+if command -v "$1" &>/dev/null; then
     return 0
-  else
+else
     return 1
-  fi
+fi
 }
 
 function tip 
 {
-	echo `random_line "$HOME/.tips"`
+    echo `random_line "$HOME/.tips"`
 }
 
 extract() {
@@ -158,50 +143,53 @@ extract() {
 ################################################################################
 
 function load_darwin {
-	export PLATFORM='darwin'
-	# Fix screen
-	alias ls='ls -G'
-	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
-	export SHELL="/bin/bash -rcfile $HOME/.bash_profile"
+export PLATFORM='darwin'
+# Fix screen
+alias ls='ls -G'
+alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
+export SHELL="/bin/bash -rcfile $HOME/.bash_profile"
 
-	# Switch to current working directory when screen is started
-	if [[ "$TERM" == 'screen' ]]; then
-		cd "$SCREENPWD"
-	fi
+# Switch to current working directory when screen is started
+if [[ "$TERM" == 'screen' ]]; then
+    cd "$SCREENPWD"
+fi
 
-	# Load Fink on OS X
-	if [[ -x /sw/bin/init.sh ]]; then
-		/sw/bin/init.sh
-	fi
+# Load Fink on OS X
+if [[ -x /sw/bin/init.sh ]]; then
+    /sw/bin/init.sh
+fi
 
-    # Only try and load the bash completion if it has not already been set.
-    if [ -z $BASH_COMPLETION ];
-    then
-        ## Enable programmable completion (if available)
-        if [ -f /opt/local/etc/bash_completion ]; then
-            . /opt/local/etc/bash_completion
-        elif [ -f /sw/etc/bash_completion ]; then
-            . /sw/etc/bash_completion
-        else 
-            echo "No bash completion."
-        fi
+# Only try and load the bash completion if it has not already been set.
+if [ -z $BASH_COMPLETION ];
+then
+    ## Enable programmable completion (if available)
+    if [ -f /opt/local/etc/bash_completion ]; then
+        . /opt/local/etc/bash_completion
+    elif [ -f /sw/etc/bash_completion ]; then
+        . /sw/etc/bash_completion
+    else 
+        echo "No bash completion."
     fi
-    . $HOME/.bash_completion
+fi
+. $HOME/.bash_completion
 
-    # Only try and load the bash completion directory if it has not already been set.
-    if [ -z $BASH_COMPLETION_DIR ];
-    then
-        if [ -d /opt/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
-        elif [ -d /sw/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
-        else 
-            echo "No bash completion."
-        fi
+# Only try and load the bash completion directory if it has not already been set.
+if [ -z $BASH_COMPLETION_DIR ];
+then
+    if [ -d /opt/local/etc/bash_completion.d ]; then
+        BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+    elif [ -d /sw/etc/bash_completion.d ]; then
+        BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
+    else 
+        echo "No bash completion."
     fi
+fi
 
-	# Setup Java
-	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+# Setup Java
+#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+
+# Add macports path to the manpath
+export MANPATH=/opt/local/share/man:$MANPATH
 
 }
 
@@ -226,31 +214,31 @@ function load_linux
         BASH_COMPLETION_DIR="/etc/bash_completion.d"
     fi
 
-	bind "set completion-ignore-case on"
+    bind "set completion-ignore-case on"
     echo Loaded Linux Settings
-	alias ls='ls --color=auto'
-	export PLATFORM='linux'
-	extend_path '/sbin'
-	extend_path '/usr/sbin'
-	extend_path '/usr/local/sbin'
+    alias ls='ls --color=auto'
+    export PLATFORM='linux'
+    extend_path '/sbin'
+    extend_path '/usr/sbin'
+    extend_path '/usr/local/sbin'
 }
 
 
 # Load OS specific settings
 case "`uname`" in
-	'Darwin')
-	load_darwin ;;
-	'Linux')
-	load_linux ;;
+    'Darwin')
+    load_darwin ;;
+    'Linux')
+    load_linux ;;
 esac
 
 bind "set completion-ignore-case on"
 
 if [ `type -P git` ];then
-## enable colours for git 
-   git config --global color.diff auto
-   git config --global color.status auto
-   git config --global color.branch auto
+    ## enable colours for git 
+    git config --global color.diff auto
+    git config --global color.status auto
+    git config --global color.branch auto
 fi
 ################################################################################
 # Local environment
@@ -258,8 +246,8 @@ fi
 
 # Load local configuration settings
 if [ -f "$HOME/.bash_local" ]; then
-  echo Loading local settings
-	. "$HOME/.bash_local"
+    echo Loading local settings
+    . "$HOME/.bash_local"
 fi
 
 ################################################################################

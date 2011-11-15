@@ -20,7 +20,6 @@ kerberos =
 extdiff=
 transplant=
 rebase=
-hgkeychain=
 [extdiff]
 cmd.diffmerge = diffmerge
 [reviewboard]
@@ -35,3 +34,5 @@ merge = diffmerge
 ignore=~/.hgignore
 [merge-tools]
 diffmerge.binary = False
+[web]
+cacerts = /etc/hg-dummy-cert.pem
