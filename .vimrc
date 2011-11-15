@@ -22,13 +22,13 @@ set binary noeol
 
 syntax on
 
-set nocp " Enable vim only features
+set nocompatible " Enable vim only features
 set backspace=2
 set ch=2 " Make command line two lines high
 set tabstop=4 " Make all tabs 4 spaces
 set softtabstop=4 " Make tabs delete properly 
 set shiftwidth=4 " Make autoindent add 4 spaces per indent level
-set expandtab
+set expandtab " Convert all tabs 
 set encoding=utf-8 " Allow editing of utf-8 files.
 set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
 

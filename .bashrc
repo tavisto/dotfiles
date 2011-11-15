@@ -14,11 +14,6 @@ export PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
-PINK=$'\e[35;40m'
-GREEN=$'\e[32;40m'
-ORANGE=$'\e[33;40m'
-
-
 # Set command line to vi mode and learn to deal with it :) 
 set -o vi
 # ^l clear screen
@@ -31,29 +26,15 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-	debian_chroot=$(cat /etc/debian_chroot)
-fi
-#VC_PS1= ~/bin/vcprompt -f "%b:${PINK}%r ${ORANGE}%u"
-# set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-    #xterm*|screen*)
-    #PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]${VC_PS1}\$ "
-    #;;
-    #*)
-    #PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
-    #;;
-#esac
-
+# Define colors
+PINK=$'\e[35;40m'
+GREEN=$'\e[32;40m'
+ORANGE=$'\e[33;40m'
+BLUE=$'\e[34;40m'
+RED=$'\e[31;40m'
+WHITE=$'\e[37;40m'
 
 vc_ps1() {
-    PINK=$'\e[35;40m'
-    GREEN=$'\e[32;40m'
-    ORANGE=$'\e[33;40m'
-    BLUE=$'\e[34;40m'
-    RED=$'\e[31;40m'
-    WHITE=$'\e[37;40m'
         ~/bin/vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
         #FORMAT (default="[%n:%b%m%u] ") may contain:
          #%b  show branch
@@ -163,11 +144,6 @@ function load_darwin {
 		cd "$SCREENPWD"
 	fi
 
-	# Load Fink on OS X
-	if [[ -x /sw/bin/init.sh ]]; then
-		/sw/bin/init.sh
-	fi
-
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ];
     then
@@ -176,8 +152,6 @@ function load_darwin {
             . /opt/local/etc/bash_completion
         elif [ -f /usr/local/etc/bash_completion ]; then
             . /usr/local/etc/bash_completion
-        elif [ -f /sw/etc/bash_completion ]; then
-            . /sw/etc/bash_completion
         else 
             echo "No bash completion."
         fi
@@ -188,11 +162,9 @@ function load_darwin {
     if [ -z $BASH_COMPLETION_DIR ];
     then
         if [ -d /opt/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+            BASH_COMPLETION_DIR="/opt/local/etc/bash_completion.d"
         elif [ -d /usr/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/usr/local/etc//bash_completion.d"
-        elif [ -d /sw/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
+            BASH_COMPLETION_DIR="/usr/local/etc/bash_completion.d"
         else 
             echo "No bash completion."
         fi
