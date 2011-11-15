@@ -17,11 +17,8 @@ fetch =
 convert =
 graphlog =
 kerberos =
-extdiff=
 transplant=
 rebase=
-[extdiff]
-cmd.diffmerge = diffmerge
 [reviewboard]
 server = https://reviewboard.beatportcorp.net/
 [pager]
@@ -30,9 +27,6 @@ attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
 email= tavis.aitken@beatport.com
-merge = mvimdiff
 ignore=~/.hgignore
-[merge-tools]
-diffmerge.binary = False
 [web]
 cacerts = /etc/hg-dummy-cert.pem
