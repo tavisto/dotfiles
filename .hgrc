@@ -30,7 +30,7 @@ attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
 email= tavis.aitken@beatport.com
-merge = diffmerge
+merge = mvimdiff
 ignore=~/.hgignore
 [merge-tools]
 diffmerge.binary = False
