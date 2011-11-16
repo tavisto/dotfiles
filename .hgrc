@@ -27,6 +27,7 @@ attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavis.aitken@beatport.com>
 email= tavis.aitken@beatport.com
+merge=vimdiff
 ignore=~/.hgignore
 [web]
 cacerts = /etc/hg-dummy-cert.pem

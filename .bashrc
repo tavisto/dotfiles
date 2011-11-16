@@ -28,7 +28,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Colors
+# Define colors
 PINK=$'\e[35;40m'
 GREEN=$'\e[32;40m'
 ORANGE=$'\e[33;40m'
@@ -50,7 +50,7 @@ vc_ps1() {
 }
 
 vc_ps1_nocolor() { 
-    vcprompt -f "(%s:%b:%i)" 2>/dev/null
+    ~/bin/vcprompt -f "(%s:%b:%i)" 2>/dev/null
 }
 
 if [ -z $VIMRUNTIME ]; then
@@ -59,10 +59,6 @@ if [ -z $VIMRUNTIME ]; then
 else
     export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
 fi
-
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -154,32 +150,25 @@ if [[ "$TERM" == 'screen' ]]; then
     cd "$SCREENPWD"
 fi
 
-# Load Fink on OS X
-if [[ -x /sw/bin/init.sh ]]; then
-    /sw/bin/init.sh
-fi
-
-# Only try and load the bash completion if it has not already been set.
-if [ -z $BASH_COMPLETION ];
-then
-    ## Enable programmable completion (if available)
-    if [ -f /opt/local/etc/bash_completion ]; then
-        . /opt/local/etc/bash_completion
-    elif [ -f /sw/etc/bash_completion ]; then
-        . /sw/etc/bash_completion
-    else 
-        echo "No bash completion."
+    # Only try and load the bash completion if it has not already been set.
+    if [ -z $BASH_COMPLETION ];
+    then
+        ## Enable programmable completion (if available)
+        if [ -f /opt/local/etc/bash_completion ]; then
+            . /opt/local/etc/bash_completion
+        else 
+            echo "No bash completion."
+        fi
     fi
-fi
-. $HOME/.bash_completion
+    . $HOME/.bash_completion
 
-# Only try and load the bash completion directory if it has not already been set.
-if [ -z $BASH_COMPLETION_DIR ];
-then
+    # Only try and load the bash completion directory if it has not already been set.
+    if [ -z $BASH_COMPLETION_DIR ];
+    then
     if [ -d /opt/local/etc/bash_completion.d ]; then
         BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
-    elif [ -d /sw/etc/bash_completion.d ]; then
-        BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
+    elif [ -d /usr/local/etc/bash_completion.d ]; then
+        BASH_COMPLETION_DIR="/usr/local/etc/bash_completion.d"
     else 
         echo "No bash completion."
     fi
@@ -188,9 +177,12 @@ fi
 # Setup Java
 #export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 
-# Add macports path to the manpath
-export MANPATH=/opt/local/share/man:$MANPATH
+    # Add macports path to the manpath
+    export MANPATH=/opt/local/share/man:$MANPATH
 
+    # MacPorts path
+    extend_path '/opt/local/bin';
+    extend_path '/opt/local/sbin';
 }
 
 function load_linux

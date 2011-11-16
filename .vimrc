@@ -22,13 +22,13 @@ set binary noeol
 
 syntax on
 
-set nocp " Enable vim only features
+set nocompatible " Enable vim only features
 set backspace=2
 set ch=2 " Make command line two lines high
 set tabstop=4 " Make all tabs 4 spaces
-set softtabstop=4 " Make tabs delete properly 
+set softtabstop=4 " Make tabs delete properly
 set shiftwidth=4 " Make autoindent add 4 spaces per indent level
-set expandtab
+set expandtab " Convert all tabs
 set encoding=utf-8 " Allow editing of utf-8 files.
 set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
 
@@ -42,7 +42,7 @@ set mouse=n " Mouse in normal mode
 set ignorecase
 set smartcase
 
-set nohlsearch " Don't Highlight searches 
+set nohlsearch " Don't Highlight searches
 
 set ruler " Always show current positions along the bottom
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]
@@ -103,7 +103,7 @@ nmap <silent> <F3> :set hls!<CR>
 " Rerun last : command
 nmap <silent> <F4> @:<CR>
 
-" Use <F5> to togle comments  
+" Use <F5> to togle comments 
 nmap <silent> <F5> \cs<CR>
 
 " use <F6> to toggle line numbers
@@ -116,7 +116,7 @@ nmap <silent> <F7> za
 " nmap <silent> <F8> :TlistToggle<CR>
 " Set in .vim/after/plugin/general.vim only if taglist can be run
 
-" Togle showing non printing chars 
+" Togle showing non printing chars
 nmap <silent> <F9> :set list!<CR>
 
 " Togle paste mode on and off with F10

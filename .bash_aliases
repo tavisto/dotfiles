@@ -1,9 +1,5 @@
 # .bash_aliases
 
-alias up2='cd ../..';
-alias up3='cd ../../..';
-alias up4='cd ../../../..';
-
 alias swd='pushd +1 ; dirs -v'
 alias dirs='dirs -v'
 alias grep='grep --color'
@@ -24,5 +20,4 @@ alias config="hg -R ~/.home-config"
 alias vi='echo "Use vim, You will thank me in the end" '
 
 alias hgroot='cd `hg root`'
-
-alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "APC clear failed."'
+alias dhog='du -cks * | sort -rn'
