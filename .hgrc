@@ -20,5 +20,8 @@ pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
 username = Tavis Aitken <tavisto@gmail.com>
+email= tavisto@gmail.com
 merge=vimdiff
 ignore=~/.hgignore
+[web]
+cacerts = /etc/hg-dummy-cert.pem
