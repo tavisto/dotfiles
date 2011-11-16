@@ -26,15 +26,14 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Define colors
-PINK=$'\e[35;40m'
-GREEN=$'\e[32;40m'
-ORANGE=$'\e[33;40m'
-BLUE=$'\e[34;40m'
-RED=$'\e[31;40m'
-WHITE=$'\e[37;40m'
-
 vc_ps1() {
+        # Define colors
+        PINK=$'\e[35;40m'
+        GREEN=$'\e[32;40m'
+        ORANGE=$'\e[33;40m'
+        BLUE=$'\e[34;40m'
+        RED=$'\e[31;40m'
+        WHITE=$'\e[37;40m'
         ~/bin/vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
         #FORMAT (default="[%n:%b%m%u] ") may contain:
          #%b  show branch
