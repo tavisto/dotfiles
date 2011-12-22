@@ -109,6 +109,10 @@ function tip
 	echo `random_line "$HOME/.tips"`
 }
 
+function mkpmod() {
+    mkdir -p "$1/files" "$1/lib" "$1/manifests" "$1/tempaltes" "$1/tests"
+}
+
 extract() {
     if [ -f "$1" ] ; then
         case "$1" in
@@ -251,3 +255,4 @@ fi
 #         Run tips at login           
 ################################################################################
 tip
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
