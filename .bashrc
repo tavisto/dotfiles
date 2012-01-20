@@ -113,6 +113,9 @@ function tip
 	echo `random_line "$HOME/.tips"`
 }
 
+function mkpmod() {
+    mkdir -p "$1/files" "$1/lib" "$1/manifests" "$1/tempaltes" "$1/tests"
+}
 extract() {
     if [ -f "$1" ] ; then
         case "$1" in
