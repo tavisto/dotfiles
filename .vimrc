@@ -94,7 +94,7 @@ map <C-L> <C-W>l
 " use CTRL-F for omni completion
 imap <C-F> 
 
-" Toggle search highlight
+" Toggle NERDTree 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 
 " Toggle search highlight
@@ -137,11 +137,6 @@ autocmd FileType yaml set ts=2
 "
 function! LoadTags(tagfile)
 	execute "set tags=~/.vim/tags/" . a:tagfile
-endfunction
-
-fu! Dupdd()
-	execute ":%s/[ ^I]*$"
-	execute ":%!sed '/./,/^$/ \\!d'"
 endfunction
 
 function! Zendify()

@@ -26,7 +26,7 @@ case $1 in
     $CTAGS $SOURCE_CODE_DIR/php-admintools at
     ;;
     control)
-    $CTAGS $SOURCE_CODE_DIR/control/php-control/ control
+    $CTAGS $SOURCE_CODE_DIR/php-control/ control
     ;;
     email)
     $CTAGS $SOURCE_CODE_DIR/api/app-email-php/ email
@@ -39,6 +39,9 @@ case $1 in
     ;;
     voids)
     $CTAGS $SOURCE_CODE_DIR/internal-api/app-internal-api-voids-php/ voids 
+    ;;
+    in-app)
+    $CTAGS $SOURCE_CODE_DIR/php-api-in-app/ in-app
     ;;
     zf)
     $CTAGS /usr/share/php/Zend zf

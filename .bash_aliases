@@ -27,4 +27,4 @@ alias hgroot='cd `hg root`'
 
 alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "APC clear failed."'
 alias bpupdate='sudo yum makecache && sudo yum update bpapp*'
-
+alias phpunit='php /usr/share/php/PHPUnit/phpunit.php --colors'
