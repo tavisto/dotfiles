@@ -129,6 +129,10 @@ nmap <silent> <F12> :call PylintOnWriteTogle()<CR>
 
 set grepprg=wcgrep
 
+syntax enable
+set background=dark
+colorscheme solarized
+
 "
 " Custon functions
 "
