@@ -26,6 +26,9 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+my_time() {
+    date +"%T"
+}
 vc_ps1() {
         # Define colors
         PINK=$'\e[35;40m'
@@ -48,7 +51,7 @@ vc_ps1_nocolor() {
 
 if [ -z $VIMRUNTIME ]; then
     . ~/.bash_color
-    export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+    export PS1="${RED}[${BRIGHT_GREEN}\$(my_time) \u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
 else
     export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
 fi
@@ -171,6 +174,8 @@ function load_darwin {
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+    # Add macports path to the manpath
+    export MANPATH=/opt/local/share/man:$MANPATH
 
     # MacPorts path
     extend_path '/opt/local/bin';

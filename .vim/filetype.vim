@@ -16,7 +16,8 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setf json
 
     au BufNewFile,BufRead *puppet* setf puppet
-    autocmd FileType python compiler pylint
+    au BufNewFile,BufRead *.pp setf puppet
+    au FileType python compiler pylint
 
     au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog
     au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
@@ -32,4 +33,13 @@ augroup filetypedetect
           au BufWritePost  *.bin,*.jpg,*.mp3,*.wav,*.aif set nomod | endif
     augroup END
 augroup END
-
+augroup Binary
+      au!
+      au BufReadPre  *.bin,*.jpg,*.mp3,*.wav,*.aif let &bin=1
+      au BufReadPost *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd -c 32
+      au BufReadPost *.bin,*.jpg,*.mp3,*.wav,*.aif set ft=xxd | endif
+      au BufWritePre *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd -r
+      au BufWritePre *.bin,*.jpg,*.mp3,*.wav,*.aif endif
+      au BufWritePost *.bin,*.jpg,*.mp3,*.wav,*.aif if &bin | %!xxd
+      au BufWritePost *.bin,*.jpg,*.mp3,*.wav,*.aif set nomod | endif
+augroup END

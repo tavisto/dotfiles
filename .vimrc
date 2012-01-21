@@ -132,6 +132,9 @@ set grepprg=wcgrep
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
+syntax enable
+set background=dark
+colorscheme solarized
 "
 " Custon functions
 "
