@@ -129,6 +129,9 @@ nmap <silent> <F12> :call PylintOnWriteTogle()<CR>
 
 set grepprg=wcgrep
 
+" sudo write
+ca w!! w !sudo tee >/dev/null "%"
+
 "
 " Custon functions
 "
