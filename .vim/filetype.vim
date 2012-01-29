@@ -22,6 +22,7 @@ augroup filetypedetect
     au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog
     au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
     au! BufRead,BufNewFile *.log  set filetype=syslog
+    au! BufRead,BufNewFile */nginx/* set ft=nginx
 augroup END
 augroup Binary
       au!
