@@ -12,3 +12,4 @@ ScriptID SourceID Filename
 642 15781 :AutoInstall: getscript.vim
 1697 12566 :AutoInstall: surround.vim
 2975 15542 :AutoInstall: fugitive.vim
+1590 12570 :AutoInstall: unimpaired.vim

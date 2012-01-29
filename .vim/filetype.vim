@@ -15,11 +15,11 @@ augroup filetypedetect
     "Json files
     au BufNewFile,BufRead *.json setf json
 
+    " Puppet files
     au BufNewFile,BufRead *puppet* setf puppet
     au BufNewFile,BufRead *.pp setf puppet
-    au FileType python compiler pylint
 
-    au! BufRead,BufNewFile /var/log/syslog/*  set filetype=syslog
+    au! BufRead,BufNewFile /var/log/*  set filetype=syslog
     au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
     au! BufRead,BufNewFile *.log  set filetype=syslog
     au! BufRead,BufNewFile */nginx/* set ft=nginx
