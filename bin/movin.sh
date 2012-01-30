@@ -13,11 +13,11 @@ do
         mv $HOME/$file $HOME/$file.bak
     fi
 
-    if [ $file != .hg ]; then
+    if [ $file != .git ]; then
         echo "Linking $file to $HOME/$file"
         ln -s $CONFIG_DIR/$file $HOME/$file
     else
-        echo "Not linking the .hg folder"
+        echo "Not linking the .git folder"
     fi
 done
 popd
