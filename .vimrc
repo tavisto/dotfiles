@@ -1,6 +1,15 @@
-" Dnable loading filetype and indentation plugins
+set nocompatible " Enable vim only features
+
+" Enable loading filetype and indentation plugins
 filetype plugin on
 filetype indent on
+
+set autoread " Reload files that have changed outside of vim
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
 
 " Show Whitespace
 " highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
@@ -20,14 +29,22 @@ set history=500
 " do not put a cr at the end of the file. this will result in headers sent if you do web programming
 set binary noeol
 
-syntax on
-set nocp " Enable vim only features
+" Turn on syntax highlighting
+syntax enable
+" Set the background to dark
+set background=dark
+
+colorscheme solarized
+
 set backspace=2
 set ch=2 " Make command line two lines high
+
 set tabstop=4 " Make all tabs 4 spaces
-set softtabstop=4 " Make tabs delete properly 
+set softtabstop=4 " Make tabs delete properly
 set shiftwidth=4 " Make autoindent add 4 spaces per indent level
-set expandtab
+set expandtab " Convert all tabs
+set smarttab
+
 set encoding=utf-8 " Allow editing of utf-8 files.
 set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
 
@@ -37,11 +54,12 @@ set matchtime=3 " Match brackets for 3/10th of a sec.
 
 set autoindent " Auto Indent
 set smartindent " Smart Indent
+
 set mouse=n " Mouse in normal mode
 set ignorecase
 set smartcase
 
-set nohlsearch " Don't Highlight searches 
+set nohlsearch " Don't Highlight searches
 
 set ruler " Always show current positions along the bottom
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]
@@ -77,58 +95,13 @@ set wildmenu
 "   - on second <Tab>, complete the next full match and show menu
 set wildmode=list,full
 
-
 " Start wrapping at 100 columns
 set textwidth=0
+set linebreak " Wrap lines at convenient points
 
-"
-" Key Mappings
-"
-
-" switch to upper/lower window quickly
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
-" use CTRL-F for omni completion
-imap <C-F> 
-
-" Toggle search highlight
-nmap <silent> <F2> :NERDTreeToggle<CR>
-
-" Toggle search highlight
-nmap <silent> <F3> :set hls!<CR>
-
-" Rerun last : command
-nmap <silent> <F4> @:<CR>
-
-" Use <F5> to togle comments  
-nmap <silent> <F5> \cs<CR>
-
-
-" use <F6> to toggle line numbers
-nmap <silent> <F6> :set number!<CR>
-
-" use <F7> to togle folding
-nmap <silent> <F7> za
-
-" map <F8> to toggle taglist window
-" nmap <silent> <F8> :TlistToggle<CR>
-" Set in .vim/after/plugin/general.vim only if taglist can be run
-
-" Togle showing non printing chars 
-nmap <silent> <F9> :set list!<CR>
-
-" Togle paste mode on and off with F10
-set pastetoggle=<F10>
-
-" Add current buffer to diff
-nmap <silent> <F11> :diffthis<CR>
-
-nmap <silent> <F12> :call PylintOnWriteTogle()<CR>
-
+" Set the Grep program to my custom wcgrep
 set grepprg=wcgrep
+ca w!! w !sudo tee >/dev/null "%"
 
 autocmd FileType yaml set ts=2
 
@@ -136,29 +109,5 @@ autocmd FileType yaml set ts=2
 " Custon functions
 "
 function! LoadTags(tagfile)
-	execute "set tags=~/.vim/tags/" . a:tagfile
-endfunction
-
-fu! Dupdd()
-	execute ":%s/[ ^I]*$"
-	execute ":%!sed '/./,/^$/ \\!d'"
-endfunction
-
-function! Zendify()
-     silent! execute ':%s/( /(/g'
-     silent! execute ':%s/ )/)/g'
-     silent! execute ':%s/ \]/\]/g'
-     silent! execute ':%s/\[ /\[/g'
-     silent! execute ':%s/\s*,\s*/, /'
-     silent! execute ':%s/if(/if (/'
-     silent! execute ':%s/if(/if (/'
-     silent! execute ':%s/foreach(/foreach (/'
-     silent! execute ':%s/foreach(/foreach (/'
-     silent! execute ':%s/while(/while (/'
-     silent! execute ':%s/catch(/catch (/'
-     silent! execute ':%s/\(foreach\|if\|while\|catch\)\s*\(.*\)\s*\n\s*{/\1 \2 {/'
-     silent! execute ':%s/\s*\(try\|else\)\s*\s*\n*\s*\({\)/\1 \2/'
-     silent! execute ':%s/\(}\)\s*\n*\s*\(else\)/\1 \2/'
-     silent! execute ':%s/\t/    /g'
-     silent! execute ':%s/\s*$//g'
+    execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction

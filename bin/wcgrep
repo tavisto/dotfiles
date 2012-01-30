@@ -36,6 +36,7 @@
 WCGREP_GREPARGS='-nI --color ';
 
 arg_count=$#
+pathargs="."
 for (( i=1; i <= $arg_count; i++ )); do
     arg="$1"
     shift 1
@@ -55,7 +56,7 @@ for (( i=1; i <= $arg_count; i++ )); do
     fi
 done
 
-find $pathargs -regex ${WCGREP_IGNORE:-'.*\.hg*\|.*~$\|.*/\.svn\(/\|$\)'} -prune -o \
-    -type f -print0 | xargs -r0 ${WCGREP_GREP:-grep} ${WCGREP_GREPARGS:--HnI} \
+find $pathargs -regex ${WCGREP_IGNORE:-'.*\.git*\|.*\.hg*\|.*~$\|.*/\.svn\(/\|$\)'} -prune -o \
+    -type f -print0 | xargs -0 ${WCGREP_GREP:-grep} ${WCGREP_GREPARGS:--HnI} \
     $grepargs "$pattern"
 

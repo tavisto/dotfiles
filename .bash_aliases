@@ -1,9 +1,5 @@
 # .bash_aliases
 
-alias up2='cd ../..';
-alias up3='cd ../../..';
-alias up4='cd ../../../..';
-
 alias swd='pushd +1 ; dirs -v'
 alias dirs='dirs -v'
 alias grep='grep --color'

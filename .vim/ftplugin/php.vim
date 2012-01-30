@@ -2,6 +2,25 @@
 " Settings for PHP filetype
 "
 
+function! Zendify()
+     silent! execute ':%s/( /(/g'
+     silent! execute ':%s/ )/)/g'
+     silent! execute ':%s/ \]/\]/g'
+     silent! execute ':%s/\[ /\[/g'
+     silent! execute ':%s/\s*,\s*/, /'
+     silent! execute ':%s/if(/if (/'
+     silent! execute ':%s/if(/if (/'
+     silent! execute ':%s/foreach(/foreach (/'
+     silent! execute ':%s/foreach(/foreach (/'
+     silent! execute ':%s/while(/while (/'
+     silent! execute ':%s/catch(/catch (/'
+     silent! execute ':%s/\(foreach\|if\|while\|catch\)\s*\(.*\)\s*\n\s*{/\1 \2 {/'
+     silent! execute ':%s/\s*\(try\|else\)\s*\s*\n*\s*\({\)/\1 \2/'
+     silent! execute ':%s/\(}\)\s*\n*\s*\(else\)/\1 \2/'
+     silent! execute ':%s/\t/    /g'
+     silent! execute ':%s/\s*$//g'
+endfunction
+
 " Load PHP Documentor for VIM
 source ~/.vim/php-doc.vim
 

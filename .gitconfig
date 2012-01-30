@@ -1,0 +1,9 @@
+[alias]
+    glog = log --graph
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Tavis Aitken
+	email = tavisto@tavisto.net

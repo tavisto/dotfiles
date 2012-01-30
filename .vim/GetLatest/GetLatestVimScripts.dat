@@ -4,10 +4,12 @@ ScriptID SourceID Filename
 302 14498 AnsiEsc.vim
 40 8798 DrawIt.tar.gz
 195 6351 engspchk.vim
-642 8136 GetLatestVimScripts.vim
-489 14117 Manpageview.vim
-670 8073 visincr.vim
+642 15781 GetLatestVimScripts.vim
+489 16670 Manpageview.vim
+670 16281 visincr.vim
 628 3593 SeeTab.vim
 1066 7618 :AutoInstall: cecutil.vim
-642 8136 :AutoInstall: getscript.vim
+642 15781 :AutoInstall: getscript.vim
 1697 12566 :AutoInstall: surround.vim
+2975 15542 :AutoInstall: fugitive.vim
+1590 12570 :AutoInstall: unimpaired.vim

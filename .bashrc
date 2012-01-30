@@ -6,6 +6,7 @@
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
+export HISTSIZE=2000
 
 export EDITOR=vim
 #export PAGER=$HOME/bin/less.sh
@@ -25,35 +26,35 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-	debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-	#xterm*|screen*)
-	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-	#;;
-	#*)
-	#PS1='${debian_chroot:+($debian_chroot)}\u-\h:\W\$ '
-	#;;
-#esac
+my_time() {
+    date +"%T"
+}
 vc_ps1() {
-    PINK=$'\e[35;40m'
-    GREEN=$'\e[32;40m'
-    ORANGE=$'\e[33;40m'
-    BLUE=$'\e[34;40m'
-    RED=$'\e[31;40m'
-    WHITE=$'\e[37;40m'
-        vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+        # Define colors
+        PINK=$'\e[35;40m'
+        GREEN=$'\e[32;40m'
+        ORANGE=$'\e[33;40m'
+        BLUE=$'\e[34;40m'
+        RED=$'\e[31;40m'
+        WHITE=$'\e[37;40m'
+        ~/bin/vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+        #FORMAT (default="[%n:%b%m%u] ") may contain:
+         #%b  show branch
+         #%r  show revision
+         #%s  show VC name
+         #%%  show '%'
     }
 
-. ~/.bash_color
-export PS1="${RED}[${BRIGHT_GREEN}\u${BLUE}@${WHITE}${HOSTNAME}${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+vc_ps1_nocolor() { 
+    ~/bin/vcprompt -f "(%s:%b:%i)" 2>/dev/null
+    }
 
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+if [ -z $VIMRUNTIME ]; then
+    . ~/.bash_color
+    export PS1="${RED}[${BRIGHT_GREEN}\$(my_time) \u${BLUE}@${WHITE}\h${BLUE}:${GREEN}\w${RED}]\$(vc_ps1)${NORMAL}\n$ "
+else
+    export PS1="[\w]\$(vc_ps1_nocolor)\n$ "
+fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -68,8 +69,6 @@ esac
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
-
-
 
 umask 022
 export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
@@ -151,11 +150,6 @@ function load_darwin {
 		cd "$SCREENPWD"
 	fi
 
-	# Load Fink on OS X
-	if [[ -x /sw/bin/init.sh ]]; then
-		/sw/bin/init.sh
-	fi
-
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ];
     then
@@ -164,10 +158,6 @@ function load_darwin {
             . /opt/local/etc/bash_completion
         elif [ -f /usr/local/etc/bash_completion ]; then
             . /usr/local/etc/bash_completion
-        elif [ -f /sw/etc/bash_completion ]; then
-            . /sw/etc/bash_completion
-        elif [ -f ~/homebrew/etc/bash_completion ]; then
-            . ~/homebrew/etc/bash_completion 
         else 
             echo "No bash completion."
         fi
@@ -178,13 +168,9 @@ function load_darwin {
     if [ -z $BASH_COMPLETION_DIR ];
     then
         if [ -d /opt/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/opt/local/etc//bash_completion.d"
+            BASH_COMPLETION_DIR="/opt/local/etc/bash_completion.d"
         elif [ -d /usr/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/usr/local/etc//bash_completion.d"
-        elif [ -d /sw/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/sw/etc//bash_completion.d"
-        elif [ -d ~/homebrew/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="~/homebrew/etc//bash_completion.d"
+            BASH_COMPLETION_DIR="/usr/local/etc/bash_completion.d"
         else 
             echo "No bash completion."
         fi
@@ -192,6 +178,12 @@ function load_darwin {
 
 	# Setup Java
 	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+    # Add macports path to the manpath
+    export MANPATH=/opt/local/share/man:$MANPATH
+
+    # MacPorts path
+    extend_path '/opt/local/bin';
+    extend_path '/opt/local/sbin';
 }
 
 function load_linux
@@ -254,5 +246,6 @@ fi
 ################################################################################
 #         Run tips at login           
 ################################################################################
-tip
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if [ -z $VIMRUNTIME ]; then
+    tip
+fi

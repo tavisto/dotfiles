@@ -24,6 +24,3 @@ endif
 "	return result
 "endfunction
 "setlocal ofu=MyPHPComplete
-
-
-

@@ -16,9 +16,11 @@ rebase=
 transplant=
 [pager]
 pager = less -R
-attend = glog,log,diff,help
+attend = glog,log,diff,help,heads,tags,branches
 [ui]
-email = tavisto@gmail.com
 username = Tavis Aitken <tavisto@gmail.com>
+email= tavisto@gmail.com
 merge=vimdiff
 ignore=~/.hgignore
+[web]
+cacerts = /etc/hg-dummy-cert.pem
