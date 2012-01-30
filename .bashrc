@@ -193,7 +193,7 @@ function load_linux
 	extend_path '/usr/sbin'
 	extend_path '/usr/local/sbin'
 
-    eval `/usr/bin/dircolors ~/.home-config/dircolors.ansi-dark`
+    eval `/usr/bin/dircolors ~/.dircolors.ansi-dark`
 }
 
 # Load OS specific settings
