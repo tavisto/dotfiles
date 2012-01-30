@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG_DIR="$HOME/.home-config"
+CONFIG_DIR="$HOME/.dotfiles"
 
 pushd $CONFIG_DIR/
 shopt -s dotglob
