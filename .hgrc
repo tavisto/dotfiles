@@ -6,7 +6,6 @@ ignoreblanklines = true
 [defaults]
 pull = -v
 update = -v
-fetch = -v
 [extensions]
 color =
 pager = 

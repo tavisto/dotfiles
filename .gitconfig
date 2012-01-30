@@ -1,3 +1,5 @@
+[core]
+    excludesfile = ~/.gitignore
 [alias]
     glog = log --graph
 [color]

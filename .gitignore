@@ -1,0 +1,12 @@
+syntax: glob
+.vim/tags*
+.vim/.*
+.vim/dbext_sql_history.sql
+*.pyc
+*.project
+*.buildpath
+*.project
+*.settings*
+*.egg*
+*build*
+*.swp
