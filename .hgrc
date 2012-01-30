@@ -7,17 +7,22 @@ ignoreblanklines = true
 pull = -v
 update = -v
 [extensions]
+reviewboard = 
+bphg.ext = 
 color =
 pager = 
 convert =
 graphlog =
+kerberos =
 rebase=
 transplant=
+[reviewboard]
+server = https://reviewboard.beatportcorp.net/
 [pager]
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
-username = Tavis Aitken <tavisto@gmail.com>
+username = Tavis Aitken
 email= tavisto@gmail.com
 merge=vimdiff
 ignore=~/.hgignore

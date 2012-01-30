@@ -134,6 +134,7 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
+<<<<<<< HEAD
         elif [ -f /usr/local/etc/bash_completion ]; then
             . /usr/local/etc/bash_completion
         else 
@@ -192,6 +193,8 @@ function load_linux
 	extend_path '/sbin'
 	extend_path '/usr/sbin'
 	extend_path '/usr/local/sbin'
+
+    eval `/usr/bin/dircolors ~/.home-config/dircolors.ansi-dark`
 }
 
 # Load OS specific settings

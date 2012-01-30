@@ -1,0 +1,2 @@
+#!/bin/bash
+hg clone https://hg.beatportcorp.net/$1

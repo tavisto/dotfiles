@@ -7,7 +7,7 @@ case $1 in
     zf)
     $CTAGS ~/SourceCode/Zend zf
     ;;
-    *) 
+    *)
     echo "Usage $0 [project]"
     ;;
 esac
