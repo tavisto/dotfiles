@@ -134,7 +134,6 @@ function load_darwin {
         ## Enable programmable completion (if available)
         if [ -f /opt/local/etc/bash_completion ]; then
             . /opt/local/etc/bash_completion
-<<<<<<< HEAD
         elif [ -f /usr/local/etc/bash_completion ]; then
             . /usr/local/etc/bash_completion
         else 
@@ -211,10 +210,22 @@ bind "set completion-ignore-case on"
 # Local environment
 ################################################################################
 
+
 # Load local configuration settings
 if [ -f "$HOME/.bash_local" ]; then
   echo Loading local settings
 	. "$HOME/.bash_local"
+fi
+
+# Git configs
+if [ `type -P git` ];then
+## enable colours for git 
+   git config --global color.diff auto
+   git config --global color.status auto
+   git config --global color.branch auto
+   git config --global user.email $EMAIL
+   git config --global core.excludesfile $HOME/.gitignore
+   git config --global alias.glog "log --graph --oneline"
 fi
 
 ################################################################################
