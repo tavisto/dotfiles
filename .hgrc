@@ -27,4 +27,4 @@ email= $EMAIL
 merge=vimdiff
 ignore=~/.hgignore
 [web]
-cacerts = /etc/hg-dummy-cert.pem
+#cacerts = /etc/hg-dummy-cert.pem

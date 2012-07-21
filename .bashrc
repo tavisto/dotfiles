@@ -9,10 +9,13 @@ export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 export HISTSIZE=2000
 
 export EDITOR=vim
-#export PAGER=$HOME/bin/less.sh
-export PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
+
+# Set pager to vim and alias less to it for good measure
+export PAGER=$HOME/bin/vimpager
+alias less=$PAGER
+alias zless=$PAGER
 
 # Set command line to vi mode and learn to deal with it :) 
 set -o vi
@@ -23,8 +26,15 @@ bind -m vi-insert "\C-l":clear-screen
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+# Function definitions
+if [ -f ~/.bash_functions ]; then
+	. ~/.bash_functions
+fi
 
 my_time() {
     date +"%T"
@@ -65,52 +75,9 @@ case "$TERM" in
 	;;
 esac
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-
-umask 022
-export PATH=$HOME/bin/:$HOME/local/bin:$HOME/source_code/:$PATH
-
-################################################################################
-# Functions 
-################################################################################
-function random_line 
-{
-	LINES=$( wc -l "$1" | awk '{ print ($1 +1) }' )
-	RANDSEED=$( date '+%S%M%I' )
-	LINE=$( cat "$1" | awk -v "COUNT=$LINES" -v "SEED=$RANDSEED" 'BEGIN { srand(SEED);i=int(rand()*COUNT) } FNR==i { print $0 }');
-	echo "$LINE"
-}
-
-function extend_path {
-  if [[ $PATH != *:$1* ]]; then
-    export PATH="$PATH:$1"
-  fi
-}
-function prepend_path {
-  if [[ $PATH != *:$1* ]]; then
-    export PATH="$1:$PATH"
-  fi
-}
-
-function command_exists {
-  if command -v "$1" &>/dev/null; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-function tip 
-{
-	echo `random_line "$HOME/.tips"`
-}
-
-function mkpmod() {
-    mkdir -p "$1/files" "$1/lib" "$1/manifests" "$1/tempaltes" "$1/tests"
-}
+# Set the default file permissions to 760
+umask 026
+export PATH=$HOME/bin/:$PATH
 
 ###############################################################################
 # OS specific settings
@@ -118,10 +85,10 @@ function mkpmod() {
 
 function load_darwin {
 	export PLATFORM='darwin'
+    export PORT_DIR='/opt/local'
 	# Fix screen
 	alias ls='ls -G'
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
-	export SHELL="/bin/bash -rcfile $HOME/.bash_profile"
 
 	# Switch to current working directory when screen is started
 	if [[ "$TERM" == 'screen' ]]; then
@@ -129,39 +96,22 @@ function load_darwin {
 	fi
 
     # Only try and load the bash completion if it has not already been set.
-    if [ -z $BASH_COMPLETION ];
-    then
+    if [ -z $BASH_COMPLETION ]; then
         ## Enable programmable completion (if available)
-        if [ -f /opt/local/etc/bash_completion ]; then
-            . /opt/local/etc/bash_completion
-        elif [ -f /usr/local/etc/bash_completion ]; then
-            . /usr/local/etc/bash_completion
+        if [ -f $PORT_DIR/etc/bash_completion ]; then
+            . $PORT_DIR/etc/bash_completion
         else 
             echo "No bash completion."
         fi
     fi
     . $HOME/.bash_completion
 
-    # Only try and load the bash completion directory if it has not already been set.
-    if [ -z $BASH_COMPLETION_DIR ];
-    then
-        if [ -d /opt/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/opt/local/etc/bash_completion.d"
-        elif [ -d /usr/local/etc/bash_completion.d ]; then
-            BASH_COMPLETION_DIR="/usr/local/etc/bash_completion.d"
-        else 
-            echo "No bash completion."
-        fi
-    fi
-
-	# Setup Java
-	#export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
     # Add macports path to the manpath
-    export MANPATH=/opt/local/share/man:$MANPATH
+    export MANPATH=$PORT_DIR/share/man:$MANPATH
 
     # MacPorts path
-    extend_path '/opt/local/bin';
-    extend_path '/opt/local/sbin';
+    prepend_path "$PORT_DIR/bin";
+    prepend_path "$PORT_DIR/sbin";
 }
 
 function load_linux
@@ -209,7 +159,6 @@ bind "set completion-ignore-case on"
 ################################################################################
 # Local environment
 ################################################################################
-
 
 # Load local configuration settings
 if [ -f "$HOME/.bash_local" ]; then

@@ -115,3 +115,11 @@ autocmd FileType yaml set ts=2
 function! LoadTags(tagfile)
     execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction
+
+" Set the column indecator to 80 columns
+" If older vim then highlight in red after 80 columns
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
