@@ -10,3 +10,4 @@ syntax: glob
 *.egg*
 *build*
 *.swp
+.DS_Store

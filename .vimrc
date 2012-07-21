@@ -1,4 +1,8 @@
 set nocompatible " Enable vim only features
+" Pathogen setup 
+call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " Enable loading filetype and indentation plugins
 filetype plugin on
