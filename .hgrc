@@ -7,13 +7,13 @@ ignoreblanklines = true
 pull = -v
 update = -v
 [extensions]
-reviewboard = 
-bphg.ext = 
+#reviewboard = 
+#bphg.ext = 
 color =
 pager = 
 convert =
 graphlog =
-kerberos =
+#kerberos =
 rebase=
 transplant=
 [reviewboard]
