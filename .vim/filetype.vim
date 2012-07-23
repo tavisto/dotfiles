@@ -16,7 +16,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setf json
 
     " Puppet files
-    au BufNewFile,BufRead *puppet* setf puppet
+    "au BufNewFile,BufRead *puppet* setf puppet
     au BufNewFile,BufRead *.pp setf puppet
 
     au! BufRead,BufNewFile /var/log/*  set filetype=syslog

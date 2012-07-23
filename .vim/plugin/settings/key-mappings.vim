@@ -2,8 +2,6 @@
 " Key Mappings
 "
 
-" Change leader to a comma for ease of use
-let mapleader=","
 
 " switch to upper/lower window quickly
 map <C-J> <C-W>j
@@ -21,7 +19,7 @@ nmap <silent> <F3> :set hls!<CR>
 nmap <silent> <F4> @:<CR>
 
 " Use <F5> to togle comments 
-nmap <silent> <F5> <leader>ci
+nmap <silent> <F5> <Plug>NERDCommenterToggle
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
