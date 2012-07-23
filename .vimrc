@@ -90,6 +90,9 @@ set nrformats=octal,hex,alpha
 " n    - set name of viminfo file
 set viminfo='20,\"50,:20,%,n~/.viminfo
 
+" Set the default behavior of opening a buffer to use the one already open
+set swb=useopen
+
 " Use menu to show command-line completion (in 'full' case)
 set wildmenu
 
@@ -105,7 +108,6 @@ set linebreak " Wrap lines at convenient points
 
 " Set the Grep program to my custom wcgrep
 set grepprg=wcgrep
-ca w!! w !sudo tee >/dev/null "%"
 
 autocmd FileType yaml set ts=2
 

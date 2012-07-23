@@ -176,6 +176,7 @@ if [ `type -P git` ];then
    git config --global user.email $EMAIL
    git config --global core.excludesfile $HOME/.gitignore
    git config --global alias.glog "log --graph --oneline"
+   git config --global alias.root "!pwd"
 fi
 
 ################################################################################

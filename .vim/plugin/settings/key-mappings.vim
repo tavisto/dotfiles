@@ -11,12 +11,8 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" use CTRL-F for omni completion
-imap <C-F> 
-
 " Toggle NERDTree 
 nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <S-F2> :NERDTreeFind<CR>
 
 " Toggle search highlight
 nmap <silent> <F3> :set hls!<CR>
@@ -25,7 +21,7 @@ nmap <silent> <F3> :set hls!<CR>
 nmap <silent> <F4> @:<CR>
 
 " Use <F5> to togle comments 
-nmap <silent> <F5> \cs<CR>
+nmap <silent> <F5> <leader>ci
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
@@ -46,4 +42,8 @@ set pastetoggle=<F10>
 " Add current buffer to diff
 nmap <silent> <F11> :diffthis<CR>
 
-nmap <silent> <F12> :call PylintOnWriteTogle()<CR>
+" Use <F12> for filetype specific functions
+" PHP:
+" nmap <F12> <silent> :call PhpDoc()
+" Python:
+" nmap <F12> spep8 on python filetype

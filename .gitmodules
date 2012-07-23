@@ -6,3 +6,43 @@
 	path = .vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
     ignore = dirty
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+    ignore = dirty
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+    ignore = dirty
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+    ignore = dirty
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+    ignore = dirty
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+    ignore = dirty
+[submodule ".vim/bundle/Align"]
+	path = .vim/bundle/Align
+	url = https://github.com/vim-scripts/Align.git
+    ignore = dirty
+[submodule ".vim/bundle/markdown"]
+	path = .vim/bundle/markdown
+	url = https://github.com/hallison/vim-markdown.git
+    ignore = dirty
+[submodule ".vim/bundle/unimpaired"]
+	path = .vim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+    ignore = dirty
+[submodule ".vim/bundle/taglist"]
+	path = .vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+    ignore = dirty
+[submodule ".vim/bundle/phpdoc"]
+	path = .vim/bundle/phpdoc
+	url = https://github.com/vexxor/phpdoc.vim.git
+    ignore = dirty

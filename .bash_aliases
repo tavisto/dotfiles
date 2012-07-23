@@ -11,7 +11,8 @@ alias la='ls -A'
 
 alias vi='echo "Use vim, You will thank me in the end" '
 
-alias hgroot='cd `hg root`'
+alias hgroot='pushd `hg root`'
+alias gitroot='pushd `git root`'
 alias dhog='du -cks * | sort -rn'
 
 alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "APC clear failed."'
