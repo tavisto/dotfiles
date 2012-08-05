@@ -1,1 +1,12 @@
 set noloadplugins
+set nocompatible " Enable vim only features
+syntax enable
+set listchars=tab:>-,trail:-
+
+colorscheme solarized
+set background=dark
+
+set encoding=utf-8 " Allow editing of utf-8 files.
+set mouse=n " Mouse in normal mode
+set ruler " Always show current positions along the bottom
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]

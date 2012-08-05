@@ -22,8 +22,8 @@ server = https://reviewboard.beatportcorp.net/
 pager = less -R
 attend = glog,log,diff,help,heads,tags,branches
 [ui]
-username = Tavis Aitken <$EMAIL>
-email= $EMAIL 
+username = Tavis Aitken <tavisto@tavisto.net>
+email= tavisto@tavisto.net
 merge=vimdiff
 ignore=~/.hgignore
 [web]
