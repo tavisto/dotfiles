@@ -126,6 +126,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Save undo into a folder
+set undodir=~/.vim/undodir
+set undofile
+
 "
 " Custon functions
 "
