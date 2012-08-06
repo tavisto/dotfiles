@@ -16,7 +16,7 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :set hls!<CR>
 
 " Rerun last : command
-nmap <silent> <F4> @:<CR>
+nmap <silent> <F4> :GundoToggle<CR>
 
 " Use <F5> to togle comments 
 nmap <silent> <F5> <Plug>NERDCommenterToggle
