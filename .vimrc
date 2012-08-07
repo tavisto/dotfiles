@@ -119,12 +119,17 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['xml', 'html', 'python', 'php'],
-                           \ 'passive_filetypes': ['puppet'] }
+                           \ 'active_filetypes': [
+'xml', 'html', 'puppet', 'python', 'php'],
+                           \ 'passive_filetypes': ['ruby'] }
 let g:syntastic_python_checker = 'pylint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Save undo into a folder
+set undodir=~/.vim/undodir
+set undofile
 
 "
 " Custon functions

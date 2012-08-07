@@ -4,7 +4,7 @@
     ignore = dirty
 [submodule ".vim/bundle/surround"]
 	path = .vim/bundle/surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
     ignore = dirty
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
@@ -45,4 +45,8 @@
 [submodule ".vim/bundle/phpdoc"]
 	path = .vim/bundle/phpdoc
 	url = https://github.com/vexxor/phpdoc.vim.git
+    ignore = dirty
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
     ignore = dirty
