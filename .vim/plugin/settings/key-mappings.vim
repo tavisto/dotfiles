@@ -9,8 +9,14 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
+" F1 reserved for help
+
+" Show error window from synstastic
+nmap <silent> <S-F1> :Errors<CR>
+
 " Toggle NERDTree 
 nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <S-F2> :NERDTreeFind<CR>
 
 " Toggle search highlight
 nmap <silent> <F3> :set hls!<CR>
@@ -23,6 +29,7 @@ nmap <silent> <F5> <Plug>NERDCommenterToggle
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
+nmap <silent> <S-F6> :set relativenumber!<CR>
 
 " use <F7> to togle folding
 nmap <silent> <F7> za
@@ -40,8 +47,12 @@ set pastetoggle=<F10>
 " Add current buffer to diff
 nmap <silent> <F11> :diffthis<CR>
 
-" Use <F12> for filetype specific functions
+" Check current file with synstastic
+nmap <silent> <F12> :SyntasticCheck<CR>
+
+" Use <S-F12> for filetype specific functions
 " PHP:
-" nmap <F12> <silent> :call PhpDoc()
+" nmap <S-F12> <silent> :call PhpDoc()
 " Python:
-" nmap <F12> spep8 on python filetype
+" nmap <S-F12> spep8 on python filetype
+let g:pep8_map='<S-F12>'

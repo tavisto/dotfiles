@@ -23,7 +23,7 @@ endfunction
 
 " Load PHP Documentor for VIM
 source ~/.vim/bundle/phpdoc/plugin/php-doc.vim
-nmap <silent> <F12> :call PhpDoc()<CR>
+nmap <silent> <S-F12> :call PhpDoc()<CR>
 
 
 " Set up automatic formatting
