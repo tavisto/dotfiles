@@ -18,10 +18,6 @@
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
     ignore = dirty
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
-    ignore = dirty
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
