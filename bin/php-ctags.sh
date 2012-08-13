@@ -6,6 +6,7 @@ $CTAGS_BIN -f /tmp/$USER-$2 \
 -R \
 --extra=+f \
 --exclude="\.svn" \
+--exclude="\.hg" \
 --exclude="*.js" \
 --totals=yes \
 --sort=yes \
