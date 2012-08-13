@@ -56,3 +56,12 @@ nmap <silent> <F12> :SyntasticCheck<CR>
 " Python:
 " nmap <S-F12> spep8 on python filetype
 let g:pep8_map='<S-F12>'
+
+" Map <leader>mc to count the number of matches the curren search will
+" return in the current buffer
+nmap <silent> <leader>mc :%s///gn<CR>
+
+" Fix the & command to always preserve flags on searches 
+" in both normal and visual mode
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>

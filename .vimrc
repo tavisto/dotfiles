@@ -97,10 +97,8 @@ set swb=useopen
 set wildmenu
 
 " Set command-line completion mode:
-"   - on first <Tab>, when more than one match, list all matches and complete
-"     the first string
-"   - on second <Tab>, complete the next full match and show menu
-set wildmode=list,full
+"	Complete longest common string, then list alternatives.
+set wildmode=longest,list,full
 
 " Start wrapping at 100 columns
 set textwidth=0
@@ -110,9 +108,6 @@ set linebreak " Wrap lines at convenient points
 set grepprg=wcgrep
 
 autocmd FileType yaml set ts=2
-
-" Change leader to a comma for ease of use
-let mapleader=","
 
 let g:syntastic_check_on_open=1
 let g:syntastic_echo_current_error=1
@@ -130,6 +125,8 @@ set statusline+=%*
 set undodir=~/.vim/undodir
 set undofile
 
+" Map %% to expand to the current working directory of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "
 " Custon functions
 "
