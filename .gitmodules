@@ -62,3 +62,11 @@
 	path = .vim/bundle/snipmate-snippets
 	url = https://github.com/honza/snipmate-snippets.git
     ignore = dirty
+[submodule ".vim/bundle/visual-star-search"]
+	path = .vim/bundle/visual-star-search
+	url = https://github.com/nelstrom/vim-visual-star-search.git
+    ignore = dirty
+[submodule ".vim/bundle/qargs"]
+	path = .vim/bundle/qargs
+	url = https://github.com/nelstrom/vim-qargs.git
+    ignore = dirty
