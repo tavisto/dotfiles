@@ -1,5 +1,5 @@
 set nocompatible " Enable vim only features
-" Pathogen setup 
+" Pathogen setup
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -19,7 +19,7 @@ set hidden
 " highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
 " match WhiteSpaceEOL /^\s*\ \s*\|\s\+$/
 " autocmd WinEnter * match WhiteSpaceEOL /^\s*\ \s*\|\s\+$/
-set listchars=tab:>-,trail:-
+set listchars=tab:▶-,eol:¬,trail:-
 
 " Allow backspacing over everything
 set backspace=indent,eol,start
@@ -97,7 +97,7 @@ set swb=useopen
 set wildmenu
 
 " Set command-line completion mode:
-"	Complete longest common string, then list alternatives.
+"   Complete longest common string, then list alternatives.
 set wildmode=longest,list,full
 
 " Start wrapping at 100 columns
@@ -114,8 +114,8 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
-   \ 'active_filetypes': [ 'xml', 'html', 'puppet', 'python', 'php'],
-   \ 'passive_filetypes': ['ruby'] }
+            \ 'active_filetypes': [ 'xml', 'html', 'puppet', 'python', 'php'],
+            \ 'passive_filetypes': ['ruby'] }
 let g:syntastic_python_checker = 'pylint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -137,14 +137,56 @@ endfunction
 " Set the column indecator to 80 columns
 " If older vim then highlight in red after 80 columns
 if exists('+colorcolumn')
-  set colorcolumn=80
+    set colorcolumn=80
 else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 "
 " Custon functions
 "
 function! LoadTags(tagfile)
-        execute "set tags=~/.vim/tags/" . a:tagfile
+    execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction
+
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+    if l:tabstop > 0
+        let &l:sts = l:tabstop
+        let &l:ts = l:tabstop
+        let &l:sw = l:tabstop
+    endif
+    call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+    try
+        echohl ModeMsg
+        echon 'tabstop='.&l:ts
+        echon ' shiftwidth='.&l:sw
+        echon ' softtabstop='.&l:sts
+        if &l:et
+            echon ' expandtab'
+        else
+            echon ' noexpandtab'
+        endif
+    finally
+        echohl None
+    endtry
+endfunction
+
+function! Preserve(command)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    execute a:command
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap <leader>= :call Preserve("normal gg=G")<CR>

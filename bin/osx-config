@@ -80,3 +80,5 @@ defaults write com.apple.dashboard devmode -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# enable text selection in quicklook
+defaults write com.apple.finder QLEnableTextSelection -bool true
