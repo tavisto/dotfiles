@@ -40,12 +40,14 @@ set background=dark
 
 colorscheme solarized
 
-set backspace=2
-set ch=2 " Make command line two lines high
-
-set tabstop=4 " Make all tabs 4 spaces
-set softtabstop=4 " Make tabs delete properly
-set shiftwidth=4 " Make autoindent add 4 spaces per indent level
+set backspace=indent,eol,start
+" set ch=2 " Make command line two lines high
+" Make all tabs 4 spaces
+" Make tabs delete properly
+" Make autoindent add 4 spaces per indent level
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab " Convert all tabs
 set smarttab
 
@@ -65,8 +67,8 @@ set smartcase
 
 set nohlsearch " Don't Highlight searches
 
-set ruler " Always show current positions along the bottom
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]
+" set ruler " Always show current positions along the bottom
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [POS=%03l,%03v][%p%%]\ [LEN=%L]
 
 " Always show status line, even for one window
 set laststatus=2
@@ -190,3 +192,13 @@ function! Preserve(command)
 endfunction
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
+
+" Powerline stuff
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+if has("gui_running")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Monaco\ for\ Powerline
+    endif
+endif
