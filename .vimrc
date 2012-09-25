@@ -201,6 +201,6 @@ call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 if has("gui_running")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-        set guifont=Monaco\ for\ Powerline
+        set guifont=Monaco\ for\ Powerline:h14
     endif
 endif
