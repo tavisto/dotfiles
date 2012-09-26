@@ -123,11 +123,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Save undo into a folder
-set undodir=~/.vim/undodir
-set undofile
-set backupdir=~/.vim/backupdir
-set directory=~/.vim/backupdir
+" Save undo into a folder only if supported
+if exists('+undodir')
+    set undodir=~/.vim/undodir
+    set undofile
+endif
+if exists('+backupdir')
+    set backupdir=~/.vim/backupdir
+    set directory=~/.vim/backupdir
+endif
 
 " Map %% to expand to the current working directory of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
