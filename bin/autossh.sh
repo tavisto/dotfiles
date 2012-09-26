@@ -6,7 +6,7 @@
 #fi
  
 AUTOSSH_POLL=600
-#AUTOSSH_PORT=20020 Set this in .bash_local to avoid colisions 
+AUTOSSH_PORT=20020 # Set this in .bash_local to avoid colisions 
 AUTOSSH_GATETIME=30
 AUTOSSH_LOGFILE=/tmp/autossh.log
 AUTOSSH_DEBUG=yes 

@@ -116,6 +116,8 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['puppet','python',],
+            \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'pylint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -199,6 +201,6 @@ call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 if has("gui_running")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-        set guifont=Monaco\ for\ Powerline
+        set guifont=Source\ Code\ Pro\ Semibold:h16
     endif
 endif

@@ -13,7 +13,7 @@ color =
 pager = 
 convert =
 graphlog =
-kerberos = ~/bin/kerberos.py
+#kerberos = ~/bin/kerberos.py
 rebase=
 transplant=
 [reviewboard]
