@@ -166,19 +166,6 @@ if [ -f "$HOME/.bash_local" ]; then
 	. "$HOME/.bash_local"
 fi
 
-# Git configs
-if [ `type -P git` ];then
-## enable colours for git 
-   git config --global color.diff auto
-   git config --global color.status auto
-   git config --global color.branch auto
-   git config --global user.name "Tavis Aitken"
-   git config --global user.email $EMAIL
-   git config --global core.excludesfile $HOME/.gitignore
-   git config --global alias.glog "log --graph --oneline"
-   git config --global alias.root "!pwd"
-fi
-
 ################################################################################
 #         Run tips at login           
 ################################################################################

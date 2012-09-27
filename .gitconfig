@@ -1,0 +1,14 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+    show-branch = always
+[user]
+	name = Tavis Aitken
+    email = tavis.aitken@beatport.com
+[core]
+	excludesfile = /Users/tavis.aitken/.gitignore
+    pager = /usr/bin/less -R
+[alias]
+    glog = log --graph --oneline --decorate --all
+	root = !pwd
