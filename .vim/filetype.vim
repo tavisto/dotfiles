@@ -15,9 +15,15 @@ augroup filetypedetect
     "Json files
     au BufNewFile,BufRead *.json setf json
 
+    " VCL for varnish configs
+    au BufRead,BufNewFile *.vcl setf vcl
+
     " Puppet files
     "au BufNewFile,BufRead *puppet* setf puppet
     au BufNewFile,BufRead *.pp setf puppet
+
+    " Set vagrant files as ruby
+    au BufNewFile,BufRead Vagrantfile setf ruby 
 
     au! BufRead,BufNewFile /var/log/*  set filetype=syslog
     au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
