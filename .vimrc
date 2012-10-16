@@ -27,21 +27,20 @@ set backspace=indent,eol,start
 " Insert mode completion options
 set completeopt=menu,menuone,preview
 
-" Remember up to 500 'colon' commmands and search patterns
-set history=500
+" Remember up to 5000 'colon' commmands and search patterns
+set history=5000
 
 " do not put a cr at the end of the file. this will result in headers sent if you do web programming
 set binary noeol
 
 " Turn on syntax highlighting
 syntax enable
+
 " Set the background to dark
 set background=dark
 
 colorscheme solarized
 
-set backspace=indent,eol,start
-" set ch=2 " Make command line two lines high
 " Make all tabs 4 spaces
 " Make tabs delete properly
 " Make autoindent add 4 spaces per indent level
@@ -102,14 +101,37 @@ set wildmenu
 "   Complete longest common string, then list alternatives.
 set wildmode=longest,list,full
 
-" Start wrapping at 100 columns
+" Don't auto wrap anything
 set textwidth=0
 set linebreak " Wrap lines at convenient points
 
 " Set the Grep program to my custom wcgrep
 set grepprg=wcgrep
 
-autocmd FileType yaml set ts=2
+" Save undo into a folder only if supported
+if exists('+undodir')
+    set undodir=~/.vim/undodir
+    set undofile
+endif
+if exists('+backupdir')
+    set backupdir=~/.vim/backupdir
+    set directory=~/.vim/backupdir
+endif
+
+" Set the column indecator to 80 columns
+" If older vim then highlight in red after 80 columns
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" Map %% to expand to the current working directory of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" =============================================
+" Plugin Configs
+" =============================================
 
 let g:syntastic_check_on_open=1
 let g:syntastic_echo_current_error=1
@@ -123,32 +145,25 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Save undo into a folder only if supported
-if exists('+undodir')
-    set undodir=~/.vim/undodir
-    set undofile
-endif
-if exists('+backupdir')
-    set backupdir=~/.vim/backupdir
-    set directory=~/.vim/backupdir
+" Make Gundo open on the right side
+let g:gundo_right = 1
+
+" Powerline stuff
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+if has("gui_running")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Source\ Code\ Pro\ Semibold:h16
+    endif
 endif
 
-" Map %% to expand to the current working directory of the active buffer
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-"
+" =============================================
 " Custon functions
-"
+" =============================================
 function! LoadTags(tagfile)
     execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction
-
-" Set the column indecator to 80 columns
-" If older vim then highlight in red after 80 columns
-if exists('+colorcolumn')
-    set colorcolumn=80
-else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 "
 " Custon functions
@@ -198,13 +213,3 @@ function! Preserve(command)
 endfunction
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
-
-" Powerline stuff
-let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-if has("gui_running")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-        set guifont=Source\ Code\ Pro\ Semibold:h16
-    endif
-endif
