@@ -2,6 +2,7 @@ syntax: glob
 .vim/tags*
 .vim/.*
 .vim/undodir/*
+.vim/backupdir/*
 .vim/dbext_sql_history.sql
 *.pyc
 *.project

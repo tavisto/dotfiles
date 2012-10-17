@@ -74,3 +74,6 @@
 	path = .vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
     ignore = dirty
+[submodule ".vim/bundle/puppet"]
+	path = .vim/bundle/puppet
+	url = https://github.com/tavisto/vim-puppet.git
