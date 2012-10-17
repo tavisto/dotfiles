@@ -138,9 +138,10 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['puppet','python',],
+            \ 'active_filetypes': ['puppet','python','php'],
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'pylint'
+let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
