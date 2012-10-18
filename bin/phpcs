@@ -1,0 +1,2 @@
+#!/bin/sh
+php -d include_path=/opt/local/lib/php/pear /opt/local/lib/php/pear/bin/phpcs $@

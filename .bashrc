@@ -47,7 +47,7 @@ vc_ps1() {
         BLUE=$'\e[34;40m'
         RED=$'\e[31;40m'
         WHITE=$'\e[37;40m'
-        ~/bin/vcprompt -f "${GREEN}(${BLUE}%s:${WHITE}%b${PINK}%i${GREEN})" 2>/dev/null
+        ~/bin/vcprompt -f "${GREEN}(${BLUE}%s: ${WHITE}%b ${ORANGE}%r ${PINK}%i${GREEN})" 2>/dev/null
         #FORMAT (default="[%n:%b%m%u] ") may contain:
          #%b  show branch
          #%r  show revision
