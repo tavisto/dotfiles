@@ -91,9 +91,9 @@ function load_darwin {
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
 	# Switch to current working directory when screen is started
-	if [[ "$TERM" == 'screen' ]]; then
-		cd "$SCREENPWD"
-	fi
+	#if [[ "$TERM" == 'screen' ]]; then
+	#	cd "$SCREENPWD"
+	#fi
 
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ]; then
