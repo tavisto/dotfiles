@@ -72,6 +72,9 @@ set nohlsearch " Don't Highlight searches
 " Always show status line, even for one window
 set laststatus=2
 
+" Explicitly tell Vim that the terminal supports 256 colors
+set t_Co=256
+
 " Scroll when cursor gets within 3 characters of top/bottom edge
 set scrolloff=3
 set scrolljump=5 " Set the scroll jump to be 5 lines
@@ -140,7 +143,7 @@ let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['puppet','python','php'],
             \ 'passive_filetypes': [] }
-let g:syntastic_python_checker = 'pylint'
+let g:syntastic_python_checker = 'flake8'
 let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -151,6 +154,7 @@ let g:gundo_right = 1
 
 " Powerline stuff
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_cache_enabled = 0
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 if has("gui_running")
     let s:uname = system("uname")
