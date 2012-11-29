@@ -12,3 +12,5 @@
 [alias]
     glog = log --graph --oneline --decorate --all
 	root = !pwd
+[push]
+	default = simple

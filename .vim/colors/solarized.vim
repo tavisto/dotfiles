@@ -226,6 +226,9 @@ call s:SetOption("menu",1)
 " Colorscheme initialization "{{{
 " ---------------------------------------------------------------------
 hi clear
+if exists('g:Powerline_loaded')
+	call Pl#ReloadColorscheme()
+endif
 if exists("syntax_on")
   syntax reset
 endif
