@@ -90,21 +90,6 @@ function load_darwin {
 	alias ls='ls -G'
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
-	# Switch to current working directory when screen is started
-	#if [[ "$TERM" == 'screen' ]]; then
-	#	cd "$SCREENPWD"
-	#fi
-
-    # Only try and load the bash completion if it has not already been set.
-    if [ -z $BASH_COMPLETION ]; then
-        ## Enable programmable completion (if available)
-        if [ -f $PORT_DIR/etc/bash_completion ]; then
-            . $PORT_DIR/etc/bash_completion
-        else 
-            echo "No bash completion."
-        fi
-    fi
-    . $HOME/.bash_completion
 
     # Add macports path to the manpath
     export MANPATH=$PORT_DIR/share/man:$MANPATH
@@ -112,6 +97,18 @@ function load_darwin {
     # MacPorts path
     prepend_path "$PORT_DIR/bin";
     prepend_path "$PORT_DIR/sbin";
+    
+    # Only try and load the bash completion if it has not already been set.
+    if [ -z $BASH_COMPLETION ]; then
+        ## Enable programmable completion (if available)
+        if [ -f $PORT_DIR/share/bash-completion/bash_completion ]; then
+            echo "Loading Bash Completions"
+            . $PORT_DIR/share/bash-completion/bash_completion
+        else 
+            echo "No bash completion."
+        fi
+    fi
+    . $HOME/.bash_completion
 }
 
 function load_linux
