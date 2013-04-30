@@ -7,6 +7,11 @@
 export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 export HISTSIZE=2000
+# append instead of overwriting history, and do it in realtime
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+# add date / time to history entries
+HISTTIMEFORMAT='%b %d %H:%M '
 
 export EDITOR=vim
 export GIT_EDITOR=vim

@@ -145,6 +145,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'flake8'
 let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
+let g:syntastic_phpcs_conf = "--standard=PSR "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -162,6 +163,9 @@ if has("gui_running")
         set guifont=Source\ Code\ Pro\ Semibold:h16
     endif
 endif
+
+" Ack config to use silver_searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " =============================================
 " Custon functions
