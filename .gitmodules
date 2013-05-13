@@ -50,6 +50,10 @@
 	path = .vim/bundle/snipmate
 	url = git://github.com/garbas/vim-snipmate.git
     ignore = dirty
+[submodule ".vim/bundle/snipmate-snippets"]
+    path = .vim/bundle/snipmate-snippets
+    url = https://github.com/honza/vim-snippets.git
+    ignore = dirty
 [submodule ".vim/bundle/tlib"]
 	path = .vim/bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
