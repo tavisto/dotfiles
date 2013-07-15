@@ -102,6 +102,7 @@ function load_darwin {
     # MacPorts path
     prepend_path "$PORT_DIR/bin";
     prepend_path "$PORT_DIR/sbin";
+    export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
     
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ]; then

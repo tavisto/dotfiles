@@ -27,6 +27,10 @@ set backspace=indent,eol,start
 " Insert mode completion options
 set completeopt=menu,menuone,preview
 
+" Set the dictionary and add as a completion option
+set dictionary+=/usr/share/dict/words
+set complete-=k complete+=k
+
 " Remember up to 5000 'colon' commmands and search patterns
 set history=5000
 
@@ -120,6 +124,10 @@ if exists('+backupdir')
     set backupdir=~/.vim/backupdir
     set directory=~/.vim/backupdir
 endif
+
+" Automatically write files out on buffer changes
+set autowrite
+set autowriteall
 
 " Set the column indecator to 80 columns
 " If older vim then highlight in red after 80 columns
