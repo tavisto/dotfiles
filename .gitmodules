@@ -92,3 +92,9 @@
 [submodule ".vim/bundle/json"]
 	path = .vim/bundle/json
 	url = https://github.com/elzr/vim-json.git
+[submodule ".vim/bundle/elixir"]
+	path = .vim/bundle/elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule ".vim/bundle/elixir-snippets"]
+	path = .vim/bundle/elixir-snippets
+	url = https://github.com/carlosgaldino/elixir-snippets.git
