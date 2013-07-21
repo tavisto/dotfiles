@@ -2,7 +2,7 @@ set nocompatible " Enable vim only features
 " Pathogen setup
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#helptags()
 
 " Enable loading filetype and indentation plugins
 filetype plugin on
@@ -26,6 +26,10 @@ set backspace=indent,eol,start
 
 " Insert mode completion options
 set completeopt=menu,menuone,preview
+
+" Set the dictionary and add as a completion option
+set dictionary+=/usr/share/dict/words
+set complete-=k complete+=k
 
 " Remember up to 5000 'colon' commmands and search patterns
 set history=5000
@@ -122,6 +126,10 @@ if exists('+backupdir')
     set directory=~/.vim/backupdir
 endif
 
+" Automatically write files out on buffer changes
+set autowrite
+set autowriteall
+
 " Set the column indecator to 80 columns
 " If older vim then highlight in red after 80 columns
 if exists('+colorcolumn')
@@ -146,6 +154,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'flake8'
 let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
+let g:syntastic_phpcs_conf = "--standard=PSR "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -164,6 +173,9 @@ if has("gui_running")
         set guifont=Source\ Code\ Pro\ Semibold:h16
     endif
 endif
+
+" Ack config to use silver_searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " =============================================
 " Custon functions

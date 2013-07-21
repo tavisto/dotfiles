@@ -50,6 +50,10 @@
 	path = .vim/bundle/snipmate
 	url = git://github.com/garbas/vim-snipmate.git
     ignore = dirty
+[submodule ".vim/bundle/snipmate-snippets"]
+    path = .vim/bundle/snipmate-snippets
+    url = https://github.com/honza/vim-snippets.git
+    ignore = dirty
 [submodule ".vim/bundle/tlib"]
 	path = .vim/bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
@@ -57,10 +61,6 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-    ignore = dirty
-[submodule ".vim/bundle/snipmate-snippets"]
-	path = .vim/bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
     ignore = dirty
 [submodule ".vim/bundle/visual-star-search"]
 	path = .vim/bundle/visual-star-search
@@ -80,9 +80,21 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/elixer"]
-	path = .vim/bundle/elixer
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/abolish"]
+	path = .vim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/repeat"]
+	path = .vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/json"]
+	path = .vim/bundle/json
+	url = https://github.com/elzr/vim-json.git
+[submodule ".vim/bundle/elixir"]
+	path = .vim/bundle/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
-[submodule ".vim/bundle/elixer-snippets"]
-	path = .vim/bundle/elixer-snippets
+[submodule ".vim/bundle/elixir-snippets"]
+	path = .vim/bundle/elixir-snippets
 	url = https://github.com/carlosgaldino/elixir-snippets.git

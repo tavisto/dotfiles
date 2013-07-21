@@ -7,6 +7,11 @@
 export HISTCONTROL=ignoredups
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 export HISTSIZE=2000
+# append instead of overwriting history, and do it in realtime
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+# add date / time to history entries
+HISTTIMEFORMAT='%b %d %H:%M '
 
 export EDITOR=vim
 export GIT_EDITOR=vim
@@ -90,16 +95,21 @@ function load_darwin {
 	alias ls='ls -G'
 	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
-	# Switch to current working directory when screen is started
-	#if [[ "$TERM" == 'screen' ]]; then
-	#	cd "$SCREENPWD"
-	#fi
 
+    # Add macports path to the manpath
+    export MANPATH=$PORT_DIR/share/man:$MANPATH
+
+    # MacPorts path
+    prepend_path "$PORT_DIR/bin";
+    prepend_path "$PORT_DIR/sbin";
+    export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
+    
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ]; then
         ## Enable programmable completion (if available)
-        if [ -f $PORT_DIR/etc/bash_completion ]; then
-            . $PORT_DIR/etc/bash_completion
+        if [ -f $PORT_DIR/share/bash-completion/bash_completion ]; then
+            echo "Loading Bash Completions"
+            . $PORT_DIR/share/bash-completion/bash_completion
         else 
             echo "No bash completion."
         fi
