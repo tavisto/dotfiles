@@ -112,6 +112,8 @@ function load_darwin {
     # MacPorts path
     prepend_path "$PORT_DIR/bin";
     prepend_path "$PORT_DIR/sbin";
+
+    prepend_path "~/Downloads/v0.9.3/bin";
 }
 
 function load_linux

@@ -80,3 +80,9 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/elixer"]
+	path = .vim/bundle/elixer
+	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule ".vim/bundle/elixer-snippets"]
+	path = .vim/bundle/elixer-snippets
+	url = https://github.com/carlosgaldino/elixir-snippets.git

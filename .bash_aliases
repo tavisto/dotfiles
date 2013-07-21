@@ -20,3 +20,4 @@ alias apcclear='curl http://localhost/meta/api/apc/clear &> /dev/null || echo "A
 alias bpupdate='sudo yum update bpapp*'
 alias consume_status='sudo supervisorctl status | column -t'
 alias tree='tree -C'
+alias gpush='git pull --rebase && git push'
