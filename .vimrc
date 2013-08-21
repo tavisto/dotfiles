@@ -53,6 +53,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab " Convert all tabs
 set smarttab
+set nowrap " No wrapping unless I say so.
 
 set encoding=utf-8 " Allow editing of utf-8 files.
 set iskeyword+=_,$,@,%,#,- " Adds things to the keyword search
@@ -162,7 +163,8 @@ set statusline+=%*
 let g:gundo_right = 1
 
 " Powerline stuff
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 0
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 if has("gui_running")

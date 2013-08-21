@@ -115,6 +115,15 @@ function load_darwin {
         fi
     fi
     . $HOME/.bash_completion
+
+    # Add macports path to the manpath
+    export MANPATH=$PORT_DIR/share/man:$MANPATH
+
+    # MacPorts path
+    prepend_path "$PORT_DIR/bin";
+    prepend_path "$PORT_DIR/sbin";
+
+    prepend_path "~/Downloads/v0.9.3/bin";
 }
 
 function load_linux
