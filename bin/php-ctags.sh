@@ -1,9 +1,11 @@
 #!/bin/bash
-cd $1 
+CTAGS_BIN='/opt/local/bin/ctags'
 $CTAGS_BIN -f /tmp/$USER-$2 \
+-V \
 -n \
 -h ".php.phtml" \
 -R \
+--links=no \
 --extra=+f \
 --exclude="\.svn" \
 --exclude="\.hg" \
@@ -12,6 +14,7 @@ $CTAGS_BIN -f /tmp/$USER-$2 \
 --sort=yes \
 --tag-relative=on \
 --PHP-kinds=+cifd \
+$1
 
 # when using ctags < 5.7 then these need to be used
 #--regex-PHP='/abstract class ([^ ]*)/\1/c/' \
