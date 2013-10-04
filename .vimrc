@@ -153,8 +153,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['puppet','python','php'],
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'flake8'
-let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
-let g:syntastic_phpcs_conf = "--standard=PSR "
+let g:syntastic_puppet_puppetlint_args = " --no-80chars-check "
+let g:syntastic_phpcs_conf = "--standard=PSR2 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
