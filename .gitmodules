@@ -100,4 +100,7 @@
 	url = https://github.com/carlosgaldino/elixir-snippets.git
 [submodule ".vim/bundle/twig"]
 	path = .vim/bundle/twig
-	url = https://github.com/beyondwords/vim-twig.git
+	url = https://github.com/evidens/vim-twig.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = https://github.com/bling/vim-airline.git

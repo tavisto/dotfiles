@@ -153,8 +153,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['puppet','python','php'],
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checker = 'flake8'
-let g:syntastic_puppet_lint_arguments = " --no-80chars-check "
-let g:syntastic_phpcs_conf = "--standard=PSR "
+let g:syntastic_puppet_puppetlint_args = " --no-80chars-check "
+let g:syntastic_phpcs_conf = "--standard=PSR2 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -162,17 +162,19 @@ set statusline+=%*
 " Make Gundo open on the right side
 let g:gundo_right = 1
 
-" Powerline stuff
-let g:Powerline_symbols = 'unicode'
-"let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 0
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-if has("gui_running")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-        set guifont=Source\ Code\ Pro\ Semibold:h16
-    endif
+" Airline Config
+let g:airline_detect_paste=1
+let g:airline_theme= "solarized"
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
 endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
 
 " Ack config to use silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
