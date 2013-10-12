@@ -2,7 +2,7 @@
 cd $1 
 $CTAGS_BIN -f /tmp/$USER-$2 \
 -n \
--h ".php.phtml" \
+-h ".php.phtml.twig" \
 -R \
 --extra=+f \
 --exclude="\.svn" \

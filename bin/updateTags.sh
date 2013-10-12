@@ -7,6 +7,9 @@ case $1 in
     all)
         $CTAGS /Volumes/taitken.bplwebdev002/source-code all
         ;;
+    mixolog)
+        $CTAGS /Volumes/Gimli/Sites/mixolog-silex mixolog
+        ;;
     zf)
     $CTAGS ~/SourceCode/Zend zf
     ;;

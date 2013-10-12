@@ -98,3 +98,6 @@
 [submodule ".vim/bundle/elixir-snippets"]
 	path = .vim/bundle/elixir-snippets
 	url = https://github.com/carlosgaldino/elixir-snippets.git
+[submodule ".vim/bundle/twig"]
+	path = .vim/bundle/twig
+	url = https://github.com/beyondwords/vim-twig.git
