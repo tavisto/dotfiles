@@ -10,6 +10,9 @@ case $1 in
     bpapp-php)
         $CTAGS '/Volumes/tavis.aitken-nfs/src/php-*' bpapp-php
         ;;
+    mixolog)
+        $CTAGS /Volumes/Gimli/Sites/mixolog-silex mixolog
+        ;;
     zf)
     $CTAGS ~/SourceCode/Zend zf
     ;;

@@ -3,7 +3,7 @@ CTAGS_BIN='/opt/local/bin/ctags'
 $CTAGS_BIN -f /tmp/$USER-$2 \
 -V \
 -n \
--h ".php.phtml" \
+-h ".php.phtml.twig" \
 -R \
 --links=no \
 --extra=+f \
