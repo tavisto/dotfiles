@@ -2,6 +2,7 @@ set nocompatible " Enable vim only features
 " Pathogen setup
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
+
 " call pathogen#helptags()
 
 " Enable loading filetype and indentation plugins
@@ -168,13 +169,14 @@ let g:airline_theme= "solarized"
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.whitespace = 'Ξ'
 
 " Ack config to use silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
