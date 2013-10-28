@@ -234,5 +234,13 @@ function! Preserve(command)
     let @/=_s
     call cursor(l, c)
 endfunction
+
+function! Scratch()
+    " Set buffer as a scratch buffer
+    set buftype=nofile
+    set bufhidden=hide
+    setlocal noswapfile
+endfunction
+
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
