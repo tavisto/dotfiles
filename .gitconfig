@@ -1,17 +1,17 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    diff = auto
+    status = auto
+    branch = auto
     show-branch = always
 [user]
-	name = Tavis Aitken
+    name = Tavis Aitken
     email = tavisto@tavisto.net
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
     pager = /usr/bin/less -R
 [alias]
     glog = log --graph --oneline --decorate --all
     vlog = log --date=short --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
-	root = !pwd
+    root = !pwd
 [push]
-	default = simple
+    default = simple
