@@ -80,6 +80,6 @@ defaults write com.apple.dashboard devmode -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
-defaults write com.apple.dock expose-animation-duration -float 0.15 && killall Dock 
+defaults write com.apple.dock expose-animation-duration -float 0.15 && killall Dock
 # enable text selection in quicklook
 defaults write com.apple.finder QLEnableTextSelection -bool true

@@ -9,9 +9,9 @@ export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 export HISTSIZE=2000
 # append instead of overwriting history, and do it in realtime
 shopt -s histappend
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a'
 # add date / time to history entries
-HISTTIMEFORMAT='%b %d %H:%M '
+export HISTTIMEFORMAT='%b %d %H:%M '
 
 export EDITOR=vim
 export GIT_EDITOR=vim
@@ -22,7 +22,7 @@ export PAGER=$HOME/bin/vimpager
 alias less=$PAGER
 alias zless=$PAGER
 
-# Set command line to vi mode and learn to deal with it :) 
+# Set command line to vi mode and learn to deal with it :)
 set -o vi
 # ^l clear screen
 bind -m vi-insert "\C-l":clear-screen
@@ -33,12 +33,12 @@ shopt -s checkwinsize
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+    . ~/.bash_aliases
 fi
 
 # Function definitions
 if [ -f ~/.bash_functions ]; then
-	. ~/.bash_functions
+    . ~/.bash_functions
 fi
 
 my_time() {
@@ -60,7 +60,7 @@ vc_ps1() {
          #%%  show '%'
 }
 
-vc_ps1_nocolor() { 
+vc_ps1_nocolor() {
     ~/bin/vcprompt -f "(%s:%b:%i)" 2>/dev/null
 }
 
@@ -73,27 +73,27 @@ fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-	xterm*|rxvt*)
-	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-	;;
-	*)
-	;;
+    xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+    *)
+    ;;
 esac
 
 # Set the default file permissions to 760
 umask 026
-export PATH=$HOME/bin/:$PATH
+export PATH=$HOME/bin:$PATH
 
 ###############################################################################
 # OS specific settings
 ################################################################################
 
 function load_darwin {
-	export PLATFORM='darwin'
+    export PLATFORM='darwin'
     export PORT_DIR='/opt/local'
-	# Fix screen
-	alias ls='ls -G'
-	alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
+    # Fix screen
+    alias ls='ls -G'
+    alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
 
     # Add macports path to the manpath
@@ -103,16 +103,31 @@ function load_darwin {
     prepend_path "$PORT_DIR/bin";
     prepend_path "$PORT_DIR/sbin";
     export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
-    
+
+    export BREW_PATH="/usr/local";
+    # Homebrew path
+    prepend_path "$BREW_PATH/bin"
+    prepend_path "$BREW_PATH/sbin"
+    # Add homebrew path to the manpath
+    export MANPATH=$BREW_PATH/share/man:$MANPATH
+
+
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ]; then
         ## Enable programmable completion (if available)
+        # Try from ports
         if [ -f $PORT_DIR/share/bash-completion/bash_completion ]; then
-            echo "Loading Bash Completions"
+            echo "Loading Bash Completions From MacPorts"
             . $PORT_DIR/share/bash-completion/bash_completion
-        else 
-            echo "No bash completion."
         fi
+
+        # Try from homebrew
+        if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+            echo "Loading Bash Completions From Homebrew"
+            . $(brew --prefix)/share/bash-completion/bash_completion
+        fi
+    else
+        echo "No bash completion"
     fi
     . $HOME/.bash_completion
 
@@ -122,8 +137,6 @@ function load_darwin {
     # MacPorts path
     prepend_path "$PORT_DIR/bin";
     prepend_path "$PORT_DIR/sbin";
-
-    prepend_path "~/Downloads/v0.9.3/bin";
 }
 
 function load_linux
@@ -131,7 +144,7 @@ function load_linux
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ];
     then
-        #Bash completion settings 
+        #Bash completion settings
         if [ -f /etc/bash_completion ]; then
             BASH_COMPLETION="/etc/bash_completion"
             . /etc/bash_completion
@@ -147,23 +160,23 @@ function load_linux
         BASH_COMPLETION_DIR="/etc/bash_completion.d"
     fi
 
-	bind "set completion-ignore-case on"
+    bind "set completion-ignore-case on"
     echo Loaded Linux Settings
-	alias ls='ls --color=auto'
-	export PLATFORM='linux'
-	extend_path '/sbin'
-	extend_path '/usr/sbin'
-	extend_path '/usr/local/sbin'
+    alias ls='ls --color=auto'
+    export PLATFORM='linux'
+    extend_path '/sbin'
+    extend_path '/usr/sbin'
+    extend_path '/usr/local/sbin'
 
     eval `/usr/bin/dircolors ~/.dircolors.ansi-dark`
 }
 
 # Load OS specific settings
 case "`uname`" in
-	'Darwin')
-	load_darwin ;;
-	'Linux')
-	load_linux ;;
+    'Darwin')
+    load_darwin ;;
+    'Linux')
+    load_linux ;;
 esac
 
 bind "set completion-ignore-case on"
@@ -175,11 +188,11 @@ bind "set completion-ignore-case on"
 # Load local configuration settings
 if [ -f "$HOME/.bash_local" ]; then
   echo Loading local settings
-	. "$HOME/.bash_local"
+    . "$HOME/.bash_local"
 fi
 
 ################################################################################
-#         Run tips at login           
+#         Run tips at login
 ################################################################################
 if [ -z $VIMRUNTIME ]; then
     tip
