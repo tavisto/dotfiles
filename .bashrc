@@ -130,13 +130,6 @@ function load_darwin {
         echo "No bash completion"
     fi
     . $HOME/.bash_completion
-
-    # Add macports path to the manpath
-    export MANPATH=$PORT_DIR/share/man:$MANPATH
-
-    # MacPorts path
-    prepend_path "$PORT_DIR/bin";
-    prepend_path "$PORT_DIR/sbin";
 }
 
 function load_linux
