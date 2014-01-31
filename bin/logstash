@@ -1,1 +1,0 @@
-java -jar ~/Desktop/logstash/logstash-1.1.0-monolithic.jar agent -c ~/Desktop/logstash/access2gelf.conf -v
