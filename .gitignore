@@ -13,3 +13,8 @@ syntax: glob
 *build*
 *.swp
 .DS_Store
+bin/chaosmonkeybot
+bin/composer
+bin/composer.phar
+bin/halbot
+bin/slackbot

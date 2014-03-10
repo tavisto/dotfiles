@@ -17,7 +17,7 @@ if [ -f $BREW ]; then
     echo "Updating brew"
     $BREW update
     echo "Installing stuff if needed"
-    packages='git macvim vim markdown ctags wget tree bash bash-completion2 rock-cli'
+    packages='brew-gem npm ansible git macvim vim markdown ctags wget tree bash bash-completion2 homebrew/completions/vagrant-completion rock-cli'
     installed=`$BREW list`
     for package in $packages
     do

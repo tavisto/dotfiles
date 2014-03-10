@@ -113,3 +113,6 @@
 [submodule ".vim/bundle/Dockerfile"]
 	path = .vim/bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule ".vim/bundle/preview"]
+	path = .vim/bundle/preview
+	url = git@github.com:greyblake/vim-preview.git
