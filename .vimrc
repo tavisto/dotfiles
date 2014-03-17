@@ -138,6 +138,11 @@ else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+" If we are running in macvim mode use a better font.
+if has("gui_running")
+    :set guifont=Source\ Code\ Pro\ for\ Powerline 18
+endif
+
 " Map %% to expand to the current working directory of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
