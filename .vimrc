@@ -155,11 +155,13 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['puppet','python','php'],
+            \ 'active_filetypes': ['puppet','python','php', 'javascript'],
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_puppet_puppetlint_args = " --no-80chars-check "
 let g:syntastic_phpcs_conf = "--standard=PSR2 "
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_jshint_conf="~/.jshintrc"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
