@@ -31,4 +31,6 @@ if [ -f $BREW ]; then
     $BREW upgrade
     echo "Linking stuff"
     $BREW linkapps
+    echo "Cleaning up old versions"
+    $BREW cleanup
 fi
