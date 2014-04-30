@@ -96,20 +96,31 @@ function load_darwin {
     alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
 
-    # Add macports path to the manpath
-    export MANPATH=$PORT_DIR/share/man:$MANPATH
+    if [ -d $PORT_DIR ]; then
+        # Add macports path to the manpath
+        export MANPATH=$PORT_DIR/share/man:$MANPATH
 
-    # MacPorts path
-    prepend_path "$PORT_DIR/bin";
-    prepend_path "$PORT_DIR/sbin";
-    export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
+        # MacPorts path
+        prepend_path "$PORT_DIR/bin";
+        prepend_path "$PORT_DIR/sbin";
+        export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
+    fi
 
     export BREW_PATH="/usr/local";
-    # Homebrew path
-    prepend_path "$BREW_PATH/bin"
-    prepend_path "$BREW_PATH/sbin"
-    # Add homebrew path to the manpath
-    export MANPATH=$BREW_PATH/share/man:$MANPATH
+    if [ -d $BREW_PATH ]; then
+        # Homebrew path
+        prepend_path "$BREW_PATH/bin"
+        prepend_path "$BREW_PATH/sbin"
+
+
+        if [ -d "$BREW_PATH/opt/ruby" ]; then
+            prepend_path "$BREW_PATH/opt/ruby/bin"
+            export MANPATH=$BREW_PATH/opt/ruby/share/man:$MANPATH
+        fi
+
+        # Add homebrew path to the manpath
+        export MANPATH=$BREW_PATH/share/man:$MANPATH
+    fi
 
 
     # Only try and load the bash completion if it has not already been set.
