@@ -28,8 +28,9 @@ set backspace=indent,eol,start
 set completeopt=menu,menuone,preview
 
 " Set the dictionary and add as a completion option
-set dictionary+=/usr/share/dict/words
-set complete-=k complete+=k
+" Turn this off for now, it's kind of annoying when programming
+" set dictionary+=/usr/share/dict/words
+" set complete-=k complete+=k
 
 " Remember up to 5000 'colon' commmands and search patterns
 set history=5000
@@ -160,14 +161,12 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_puppet_puppetlint_args = " --no-80chars-check "
 let g:syntastic_phpcs_conf = "--standard=PSR2 "
+let g:syntastic_ruby_checkers = ['rubylint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_conf="~/.jshintrc"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" Make Gundo open on the right side
-let g:gundo_right = 1
 
 " Airline Config
 let g:airline_detect_paste=1
@@ -190,13 +189,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " =============================================
 " Custon functions
 " =============================================
-function! LoadTags(tagfile)
-    execute "set tags=~/.vim/tags/" . a:tagfile
-endfunction
-
-"
-" Custon functions
-"
 function! LoadTags(tagfile)
     execute "set tags=~/.vim/tags/" . a:tagfile
 endfunction
