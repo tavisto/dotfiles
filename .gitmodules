@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/preview"]
 	path = .vim/bundle/preview
 	url = git@github.com:greyblake/vim-preview.git
+[submodule ".vim/bundle/vcscommand"]
+	path = .vim/bundle/vcscommand
+	url = git://repo.or.cz/vcscommand
