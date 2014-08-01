@@ -118,3 +118,6 @@
 [submodule ".vim/bundle/coffee-script"]
 	path = .vim/bundle/coffee-script
 	url = git@github.com:kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/polyglot"]
+	path = .vim/bundle/polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
