@@ -4,6 +4,8 @@ call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 " call pathogen#helptags()
 
+runtime macros/matchit.vim
+
 " Enable loading filetype and indentation plugins
 filetype plugin on
 filetype indent on
