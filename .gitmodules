@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/textobj-rubyblock"]
 	path = .vim/bundle/textobj-rubyblock
 	url = git@github.com:nelstrom/vim-textobj-rubyblock.git
+[submodule ".vim/bundle/logstash"]
+	path = .vim/bundle/logstash
+	url = https://github.com/robbles/logstash.vim.git

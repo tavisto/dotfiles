@@ -2,6 +2,10 @@
 " Filetype detection
 "
 augroup filetypedetect
+
+    " Detect .tt as 'twig' type template
+    autocmd! BufNewFile,BufRead *.tt setfiletype twig
+
     " Detect .txt as 'text'
     autocmd! BufNewFile,BufRead *.txt setfiletype text
     " PHP

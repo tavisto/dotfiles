@@ -28,7 +28,7 @@ nmap <silent> <F6> :set number!<CR>
 nmap <silent> <leader><F6> :set relativenumber!<CR>
 
 " use <F7> to togle folding
-nmap <silent> <F7> za
+nmap <silent> <F7> zA
 
 " map <F8> to toggle taglist window
 " nmap <silent> <F8> :TlistToggle<CR>
