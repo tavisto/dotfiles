@@ -130,3 +130,9 @@
 [submodule ".vim/bundle/logstash"]
 	path = .vim/bundle/logstash
 	url = https://github.com/robbles/logstash.vim.git
+[submodule ".vim/bundle/gotham"]
+	path = .vim/bundle/gotham
+	url = https://github.com/whatyouhide/vim-gotham.git
+[submodule ".vim/bundle/jedi"]
+	path = .vim/bundle/jedi
+	url = https://github.com/davidhalter/jedi-vim.git

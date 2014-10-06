@@ -46,7 +46,7 @@ syntax enable
 " Set the background to dark
 set background=dark
 
-colorscheme solarized
+colorscheme gotham
 
 " Make all tabs 4 spaces
 " Make tabs delete properly
@@ -172,7 +172,7 @@ set statusline+=%*
 
 " Airline Config
 let g:airline_detect_paste=1
-let g:airline_theme= "solarized"
+let g:airline_theme= "gotham256"
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
