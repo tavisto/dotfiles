@@ -30,7 +30,6 @@ augroup filetypedetect
     au BufNewFile,BufRead Vagrantfile setf ruby
 
     au! BufRead,BufNewFile /var/log/*  set filetype=syslog
-    au! BufRead,BufNewFile bp*.log  set filetype=pythonlog
     au! BufRead,BufNewFile *.log  set filetype=syslog
     au! BufRead,BufNewFile */nginx/* set ft=nginx
     au! BufRead,BufNewFile *.fdoc* set ft=yaml
