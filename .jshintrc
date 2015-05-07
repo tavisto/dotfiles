@@ -1,25 +1,15 @@
 {
 "-W030": true, // allow standalone expressions w/out assignment/function call (for chai tests)
    "globals": {
-       "Buffer": true,
-       "Math": false
-       "__dirname": true,
-       "console": true,
        "curly" : true,
-       "eqeqeq": true,
-       "eqnull": true
-       "exports": true,
        "global": true,
-       "immed": true,
-       "latedef": true,
-       "module" : true,
-       "newcap": true,
-       "noarg": true,
-       "noempty": true,
-       "process": true,
+       "Buffer": true,
+       "exports": true,
        "require": true,
-       "strict": true,
-       "undef": true,
-       "unused": true,
-   },
+       "console": true,
+       "process": true,
+       "__dirname": true,
+       "module" : true,
+       "Math": false
+   }
 }

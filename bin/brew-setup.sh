@@ -28,7 +28,7 @@ if [ -f $BREW ]; then
         fi
     done
     echo "Upgrading stuff"
-    $BREW upgrade
+    $BREW upgrade --all
     echo "Linking stuff"
     $BREW linkapps
     echo "Cleaning up old versions"

@@ -161,11 +161,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['puppet','python','php', 'javascript'],
             \ 'passive_filetypes': [] }
 let g:syntastic_python_checkers = ['python', 'flake8']
-let g:syntastic_python_flake8_args = " --ignore F401,F403 "  " Ingore from bla import * errors 
+let g:syntastic_python_flake8_args = " --ignore F403 "  " Ingore from bla import * errors 
 let g:syntastic_puppet_puppetlint_args = " --no-80chars-check "
 let g:syntastic_phpcs_conf = "--standard=PSR2 "
 let g:syntastic_ruby_checkers = ['rubylint', 'rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_jshint_args = '--config /Users/taitken/.jshintrc'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -188,6 +188,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " Ack config to use silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
 
 " =============================================
 " Custon functions

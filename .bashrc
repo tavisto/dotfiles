@@ -90,20 +90,12 @@ export PATH=$HOME/bin:$PATH
 
 function load_darwin {
     export PLATFORM='darwin'
-    export PORT_DIR='/opt/local'
     # Fix screen
     alias ls='ls -G'
     alias screen="export SCREENPWD=$(pwd); /usr/bin/screen"
 
-
-    if [ -d $PORT_DIR ]; then
-        # Add macports path to the manpath
-        export MANPATH=$PORT_DIR/share/man:$MANPATH
-
-        # MacPorts path
-        prepend_path "$PORT_DIR/bin";
-        prepend_path "$PORT_DIR/sbin";
-        export PATH=$PATH:"$PORT_DIR/lib/php/pear/bin";
+    if [ -f /usr/local/bin/hub ]; then
+        alias git='hub'
     fi
 
     export BREW_PATH="/usr/local";
@@ -126,12 +118,6 @@ function load_darwin {
     # Only try and load the bash completion if it has not already been set.
     if [ -z $BASH_COMPLETION ]; then
         ## Enable programmable completion (if available)
-        # Try from ports
-        if [ -f $PORT_DIR/share/bash-completion/bash_completion ]; then
-            echo "Loading Bash Completions From MacPorts"
-            . $PORT_DIR/share/bash-completion/bash_completion
-        fi
-
         # Try from homebrew
         if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
             echo "Loading Bash Completions From Homebrew"
