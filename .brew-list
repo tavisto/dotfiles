@@ -86,6 +86,7 @@ rock-runtime-ruby19
 rock-runtime-ruby20
 rock-runtime-ruby21
 ruby
+ruby-build
 ruby182
 siege
 speedtest_cli
