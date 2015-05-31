@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+context=$1
+
+echo "Switching git config to $context"
+unlink ~/.gitconfig
+ln -s ~/.dotfiles/context/${context}.gitconfig

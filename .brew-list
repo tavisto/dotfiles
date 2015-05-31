@@ -18,6 +18,9 @@ curl
 curl-ca-bundle
 docker
 docker-swarm
+docker-machine
+docker-copmose
+docker-completion
 elixir
 enchant
 erlang
