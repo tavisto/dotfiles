@@ -22,3 +22,6 @@ alias mkdatedir='mkdir `date "+%Y-%m-%d"`'
 alias tophistory='history | awk '"'"'{ print $5 }'"'"' | sort | uniq -c | sort -rn | head -25'
 alias pkglist='grep "el." | sort | uniq -c'
 alias rockeval='eval $(rock env)'
+
+alias dockerc='docker-compose'
+alias dockerm='docker-machine'

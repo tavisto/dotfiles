@@ -1,0 +1,1 @@
+scp ~/Desktop/dotfiles.tar.gz $1: && ssh $1 'tar -xzvf ~/dotfiles.tar.gz && ./.dotfiles/bin/movin.sh -c && rm dotfiles.tar.gz'
