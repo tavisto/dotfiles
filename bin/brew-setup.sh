@@ -3,7 +3,7 @@
 BREW='/usr/local/bin/brew'
 if [ -f $BREW ]; then
     echo "Tapping all the kegs!"
-    taps='homebrew/versions rockstack/rock'
+    taps='homebrew/completions homebrew/versions'
     tapped=`$BREW tap`
     for tap in $taps
     do
