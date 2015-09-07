@@ -5,13 +5,20 @@
     show-branch = always
 [user]
     name = Tavis Aitken
-    email = tavisto@tavisto.net
+    email = taitken@shutterstock.com
+    #email = tavisto@tavisto.net
 [core]
     excludesfile = ~/.gitignore
     pager = /usr/bin/less -R
 [alias]
     glog = log --graph --oneline --decorate --all
-    vlog = log --date=short --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
+    vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
     root = !pwd
 [push]
     default = simple
+[hub]
+	host = github.shuttercorp.net
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

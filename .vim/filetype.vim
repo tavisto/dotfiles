@@ -29,6 +29,9 @@ augroup filetypedetect
     " Set vagrant files as ruby
     au BufNewFile,BufRead Vagrantfile setf ruby
 
+    " Set mcollective ddl files as ruby
+    au BufNewFile,BufRead *.ddl setf ruby
+
     au! BufRead,BufNewFile /var/log/*  set filetype=syslog
     au! BufRead,BufNewFile *.log  set filetype=syslog
     au! BufRead,BufNewFile */nginx/* set ft=nginx
