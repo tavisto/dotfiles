@@ -139,3 +139,6 @@
 [submodule ".vim/bundle/jinja"]
 	path = .vim/bundle/jinja
 	url = https://github.com/mitsuhiko/vim-jinja.git
+[submodule ".vim/bundle/rhubarb"]
+	path = .vim/bundle/rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
