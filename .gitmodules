@@ -142,3 +142,6 @@
 [submodule ".vim/bundle/rhubarb"]
 	path = .vim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".vim/bundle/da-yaml"]
+	path = .vim/bundle/da-yaml
+	url = https://github.com/diefans/vim-da-yaml.git
