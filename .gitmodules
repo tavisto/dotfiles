@@ -136,12 +136,12 @@
 [submodule ".vim/bundle/jedi"]
 	path = .vim/bundle/jedi
 	url = https://github.com/davidhalter/jedi-vim.git
-[submodule ".vim/bundle/jinja"]
-	path = .vim/bundle/jinja
-	url = https://github.com/mitsuhiko/vim-jinja.git
 [submodule ".vim/bundle/rhubarb"]
 	path = .vim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
 [submodule ".vim/bundle/da-yaml"]
 	path = .vim/bundle/da-yaml
 	url = https://github.com/diefans/vim-da-yaml.git
+[submodule ".vim/bundle/golang"]
+	path = .vim/bundle/golang
+	url = https://github.com/fatih/vim-go.git
