@@ -15,8 +15,6 @@
     root = !pwd
 [push]
     default = simple
-[hub]
-	host = github.shuttercorp.net
 [filter "lfs"]
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f

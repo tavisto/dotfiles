@@ -3,7 +3,6 @@ set nocompatible " Enable vim only features
 syntax enable
 set listchars=tab:>-,trail:-
 
-colorscheme solarized
 set background=dark
 
 set encoding=utf-8 " Allow editing of utf-8 files.
