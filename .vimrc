@@ -167,6 +167,8 @@ let g:syntastic_phpcs_conf = "--standard=PSR2 "
 let g:syntastic_ruby_checkers = ['rubylint', 'rubocop']
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_jshint_args = '--config /Users/taitken/.jshintrc'
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
