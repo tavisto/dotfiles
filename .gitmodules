@@ -145,3 +145,6 @@
 [submodule ".vim/bundle/golang"]
 	path = .vim/bundle/golang
 	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/hashicorp-tools"]
+	path = .vim/bundle/hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools.git
