@@ -12,7 +12,7 @@ function repo  {
     srcDir="$HOME/src"
     repoDir=''
     relativePath=''
-    
+
     if [ $# -lt 1 -o $# -gt 2 ]; then
         echo "Changes directory to the repository specified, assuming it exists.
 
@@ -41,7 +41,7 @@ Usage:
             fi
         done
 
-        # Fall back to match any part of word 
+        # Fall back to match any part of word
         for repo in `ls "$srcDir"`; do
             if [[ "$repoDir" = '' && "$repo" = *$1* ]]; then
                 repoDir="$srcDir/$repo"
@@ -62,7 +62,7 @@ Usage:
 }
 
 ################################################################################
-# Functions 
+# Functions
 ################################################################################
 
 function random_line {
@@ -98,4 +98,7 @@ function tip {
 
 function mkpmod() {
     mkdir -p "$1/files" "$1/lib" "$1/manifests" "$1/templates" "$1/tests"
+}
+function weather() {
+    curl http://wttr.in
 }
