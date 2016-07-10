@@ -2,6 +2,7 @@ ansible
 aspell
 autoconf
 automake
+awscli
 bash
 bash-completion2
 curl
@@ -22,6 +23,9 @@ ruby
 ruby-build
 ruby-completion
 siege
+sqlite
+sysdig
+terraform
 the_silver_searcher
 tmux
 tree
