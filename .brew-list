@@ -6,6 +6,7 @@ awscli
 bash
 bash-completion2
 curl
+diff-so-fancy
 fswatch
 gem-completion
 git

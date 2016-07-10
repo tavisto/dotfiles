@@ -8,7 +8,7 @@
     email = tavisto@tavisto.net
 [core]
     excludesfile = ~/.gitignore
-    pager = /usr/bin/less -R
+	pager = diff-so-fancy | /usr/bin/less --tabs=4 -RFX
 [alias]
     glog = log --graph --oneline --decorate --all
     vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
@@ -19,3 +19,8 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
