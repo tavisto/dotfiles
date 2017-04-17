@@ -18,7 +18,12 @@ export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 
 # Set pager to vim and alias less to it for good measure
-export PAGER=$HOME/bin/vimpager
+if [[ -f /usr/local/bin/vimpager ]]
+then
+    export PAGER=/usr/local/bin/vimpager
+else
+    export PAGER=$HOME/bin/vimpager
+fi
 alias less=$PAGER
 alias zless=$PAGER
 
@@ -83,6 +88,18 @@ esac
 # Set the default file permissions to 760
 umask 026
 export PATH=$HOME/bin:$PATH
+
+## Set up rbenv if installed
+if [[ `which rbenv` ]];
+then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
+
+if [ -d $GOPATH ];
+then
+    prepend_path "$GOPATH/bin"
+fi
 
 ###############################################################################
 # OS specific settings

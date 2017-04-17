@@ -27,10 +27,19 @@ if [ -f $BREW ]; then
             $brew_command
         fi
     done
+    cask_packages=`cat ~/.brew-cask-list`
+    cask_installed=`$BREW cask list`
+    for package in $cask_packages
+    do
+        if [[ "$installed" != *$package* ]]
+        then
+            brew_command="$BREW cask install $package"
+            $brew_command
+        fi
+    done
     echo "Upgrading stuff"
-    $BREW upgrade --all
-    echo "Linking stuff"
-    $BREW linkapps
+    $BREW upgrade
     echo "Cleaning up old versions"
     $BREW cleanup
+    $BREW cask cleanup
 fi
