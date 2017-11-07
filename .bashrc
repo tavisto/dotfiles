@@ -96,10 +96,6 @@ then
     eval "$(rbenv init -)"
 fi
 
-if [ -d $GOPATH ];
-then
-    prepend_path "$GOPATH/bin"
-fi
 
 ###############################################################################
 # OS specific settings
