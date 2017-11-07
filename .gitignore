@@ -1,6 +1,7 @@
 syntax: glob
 .vim/tags*
 .vim/.*
+.vim/view/.*
 .vim/undodir/*
 .vim/backupdir/*
 .vim/dbext_sql_history.sql
@@ -16,3 +17,4 @@ syntax: glob
 bin/*bot
 bin/composer
 bin/composer.phar
+.siege/cookies.txt
