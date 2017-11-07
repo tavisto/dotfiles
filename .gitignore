@@ -1,6 +1,7 @@
 syntax: glob
 .vim/tags*
 .vim/.*
+.vim/view
 .vim/view/.*
 .vim/undodir/*
 .vim/backupdir/*
