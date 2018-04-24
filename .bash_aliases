@@ -11,6 +11,7 @@ alias ll='ls -lart'
 alias la='ls -A'
 
 alias vi='echo "Use vim, You will thank me in the end" '
+alias vim='nvim'
 
 alias hgroot='pushd `hg root`'
 alias gitroot='pushd `git root`'

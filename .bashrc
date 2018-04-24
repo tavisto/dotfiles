@@ -13,9 +13,9 @@ export PROMPT_COMMAND='history -a'
 # add date / time to history entries
 export HISTTIMEFORMAT='%b %d %H:%M '
 
-export EDITOR=vim
-export GIT_EDITOR=vim
-export SVN_EDITOR=vim
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export SVN_EDITOR=nvim
 
 # Set pager to vim and alias less to it for good measure
 if [[ -f /usr/local/bin/vimpager ]]
