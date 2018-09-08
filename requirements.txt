@@ -1,6 +1,5 @@
-flake8==2.4.1
-mccabe==0.3
-pep8==1.5.7
-pyflakes==0.8.1
-vboxapi==1.0
-virtualenv==13.0.1
+flake8
+mccabe
+pep8
+pyflakes
+virtualenv
