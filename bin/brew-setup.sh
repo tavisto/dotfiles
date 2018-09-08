@@ -41,5 +41,4 @@ if [ -f $BREW ]; then
     $BREW upgrade
     echo "Cleaning up old versions"
     $BREW cleanup
-    $BREW cask cleanup
 fi
