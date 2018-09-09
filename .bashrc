@@ -3,8 +3,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL=ignoreboth
 export HISTIGNORE='$:ls:[fb]g:exit:swd:w'
 export HISTSIZE=2000
 # append instead of overwriting history, and do it in realtime
@@ -172,6 +173,18 @@ function load_linux
     extend_path '/usr/local/sbin'
 
     eval `/usr/bin/dircolors ~/.dircolors.ansi-dark`
+
+    # enable color support of ls and also add handy aliases
+    if [ -x /usr/bin/dircolors ]; then
+	    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	    alias ls='ls --color=auto'
+	    #alias dir='dir --color=auto'
+	    #alias vdir='vdir --color=auto'
+
+	    alias grep='grep --color=auto'
+	    alias fgrep='fgrep --color=auto'
+	    alias egrep='egrep --color=auto'
+    fi
 }
 
 # Load OS specific settings
