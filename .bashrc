@@ -83,7 +83,7 @@ fi
 # If we have installed fzf source it!
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-POWERLINE=""
+POWERLINE="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
 if [[ `which powerline-go` ]]; then
   POWERLINE="$(powerline-go -modules time,aws,kube,cwd,docker,dotenv,exit,jobs,ssh,termtitle,venv,vgo,git $?)"
 fi
