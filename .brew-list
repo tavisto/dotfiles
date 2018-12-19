@@ -8,6 +8,7 @@ bash-completion2
 curl
 diff-so-fancy
 fswatch
+fzf
 gem-completion
 git
 git-lfs
@@ -17,12 +18,14 @@ httpie
 hub
 jq
 markdown
+nvim
 python
+pyenv
+rbenv
 readline
+ripgrep
 ruby-build
 ruby-completion
-rbenv
-ripgrep
 siege
 sqlite
 sysdig

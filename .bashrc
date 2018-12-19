@@ -59,14 +59,14 @@ umask 026
 export PATH=$HOME/bin:$PATH
 
 ## Set up rbenv if installed
-if [[ -d $HOME/.rbenv/bin ]];
+if [[ -d $HOME/.rbenv ]];
 then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
 ## Set up pyenv if installed
-if [[ -d $HOME/.pyenv/bin ]];
+if [[ -d $HOME/.pyenv ]];
 then
   prepend_path "$HOME/.pyenv/bin"
   eval "$(pyenv init -)"
@@ -83,13 +83,17 @@ fi
 # If we have installed fzf source it!
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-POWERLINE="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+USE_POWERLINE=false
 if [[ `which powerline-go` ]]; then
-  POWERLINE="$(powerline-go -modules time,aws,kube,cwd,docker,dotenv,exit,jobs,ssh,termtitle,venv,vgo,git $?)"
+  USE_POWERLINE=true
 fi
 
 function _update_ps1() {
-  PS1=$POWERLINE
+  if [[ $USE_POWERLINE ]]; then
+    PS1="$(powerline-go -modules time,aws,cwd,docker,dotenv,exit,jobs,ssh,termtitle,venv,vgo,git $?)"
+  else
+    PS1="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+  fi 
 }
 
 # If this is an xterm set the title to user@host:dir
@@ -98,6 +102,7 @@ case "$TERM" in
     PROMPT_COMMAND='_update_ps1; echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
     ;;
   *)
+    PROMPT_COMMAND='_update_ps1;'
     ;;
 esac
 

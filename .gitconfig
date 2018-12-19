@@ -5,8 +5,8 @@
     show-branch = always
 [user]
     name = Tavis Aitken
-    email = tavisto@tavisto.net
-    signingkey = E618FC96DCDFE023
+    email = taitken@splunk.com 
+    signingkey = 8F4418E005840D76 
 [core]
     excludesfile = ~/.gitignore
     pager = diff-so-fancy | /usr/bin/less --tabs=4 -RFX
