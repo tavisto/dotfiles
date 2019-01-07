@@ -2,7 +2,7 @@
  
 git filter-branch -f --env-filter '
 
-OLD_EMAIL="taitken@shutterstock.com"
+OLD_EMAIL="taitken@splunk.com"
 CORRECT_NAME="Tavis Aitken"
 CORRECT_EMAIL="tavisto@tavisto.net"
 
