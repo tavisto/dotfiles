@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-BREW='/usr/local/bin/brew'
+BREW=$(which brew)
+#BREW='/usr/local/bin/brew'
 if [ -f $BREW ]; then
     echo "Tapping all the kegs!"
     taps='homebrew/completions homebrew/versions'

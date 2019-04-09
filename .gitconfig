@@ -13,6 +13,7 @@
 [alias]
     glog = log --graph --oneline --decorate --all
     vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
+    klog = log --graph --pretty='%C(auto) %h %Cblue %ad %Cred %aN %Creset%s %C(auto)%d%Cgreen%G? %GK'
     root = !pwd
 [push]
     default = current
