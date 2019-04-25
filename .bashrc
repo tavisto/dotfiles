@@ -58,30 +58,6 @@ my_time() {
 umask 026
 export PATH=$HOME/bin:$PATH
 
-## Set up rbenv if installed
-if [[ -d $HOME/.rbenv ]];
-then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-## Set up pyenv if installed
-if [[ -d $HOME/.pyenv ]];
-then
-  prepend_path "$HOME/.pyenv/bin"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# If go is installed setup the go path
-if [[ `which go` ]];
-then
-  export GOPATH=$HOME/src/go
-  extend_path $GOPATH/bin
-fi
-
-# If we have installed fzf source it!
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 USE_POWERLINE=false
 if [[ `which powerline-go` ]]; then
@@ -93,7 +69,7 @@ function _update_ps1() {
     PS1="$(powerline-go -modules time,aws,cwd,docker,dotenv,exit,jobs,ssh,termtitle,venv,vgo,git $?)"
   else
     PS1="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
-  fi 
+  fi
 }
 
 # If this is an xterm set the title to user@host:dir
@@ -209,6 +185,30 @@ case "`uname`" in
 esac
 
 bind "set completion-ignore-case on"
+
+## Set up rbenv if installed
+if [[ -d $HOME/.rbenv ]];
+then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+## Set up pyenv if installed
+if [[ -d $HOME/.pyenv ]];
+then
+  prepend_path "$HOME/.pyenv/bin"
+  eval "$(pyenv init -)"
+fi
+
+# If go is installed setup the go path
+if [[ `which go` ]];
+then
+  export GOPATH=$HOME/src/go
+  extend_path $GOPATH/bin
+fi
+
+# If we have installed fzf source it!
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ################################################################################
 # Local environment
