@@ -6,7 +6,6 @@ awscli
 bash
 bash-completion2
 curl
-diff-so-fancy
 fswatch
 fzf
 gem-completion
@@ -32,8 +31,6 @@ sysdig
 terraform
 tmux
 tree
-unison
 vagrant-completion
 vim
-vimpager
 wget

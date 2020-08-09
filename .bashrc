@@ -19,16 +19,18 @@ export GIT_EDITOR=nvim
 export SVN_EDITOR=nvim
 
 # Set pager to vim and alias less to it for good measure
-if [[ -f /home/tavisto/src/github/lucc/nvimpager/nvimpager ]]
+if [[ `which nvimpager` ]]
 then
-  export PAGER=/home/tavisto/src/github/lucc/nvimpager/nvimpager
+  export PAGER=$(which nvimpager)
 else
   export PAGER=$HOME/bin/vimpager
 fi
+# Set the BAT_PAGER to less to allow tools like delta to work properly
+export BAT_PAGER=less
 # Set the man page viewer to neovim
-export MANPAGER="nvim '+set background=dark' '+set ft=man' -"
-alias less=$PAGER
-alias zless=$PAGER
+# export MANPAGER="nvim '+set background=dark' '+set ft=man' -"
+#alias less=$PAGER
+#alias zless=$PAGER
 
 # Set command line to vi mode and learn to deal with it :)
 set -o vi
@@ -59,17 +61,8 @@ umask 026
 export PATH=$HOME/bin:$PATH
 
 
-USE_POWERLINE=false
-if [[ `which powerline-go` ]]; then
-  USE_POWERLINE=true
-fi
-
 function _update_ps1() {
-  if [[ $USE_POWERLINE ]]; then
-    PS1="$(powerline-go -modules time,aws,cwd,docker,dotenv,exit,jobs,ssh,termtitle,venv,vgo,git $?)"
-  else
-    PS1="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
-  fi
+      PS1="\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
 }
 
 # If this is an xterm set the title to user@host:dir
@@ -82,6 +75,11 @@ case "$TERM" in
     ;;
 esac
 
+# Launch starship for fancy cli sugar
+if [[ $(which starship) ]]
+then
+  source <(starship init bash)
+fi
 
 ###############################################################################
 # OS specific settings
@@ -207,8 +205,13 @@ then
   extend_path $GOPATH/bin
 fi
 
+# Set up cargo for rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # If we have installed fzf source it!
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+
 
 ################################################################################
 # Local environment
@@ -226,3 +229,4 @@ fi
 if [ -z $VIMRUNTIME ]; then
   tip
 fi
+

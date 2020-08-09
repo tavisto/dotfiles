@@ -9,7 +9,18 @@
     signingkey = E618FC96DCDFE023
 [core]
     excludesfile = ~/.gitignore
-    pager = diff-so-fancy | /usr/bin/less --tabs=4 -RFX
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
 [alias]
     glog = log --graph --oneline --decorate --all
     vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
@@ -21,10 +32,5 @@
     clean = git lfs clean %f
     smudge = git lfs smudge %f
     required = true
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
 [commit]
     gpgSign = true

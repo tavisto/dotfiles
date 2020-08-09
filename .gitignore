@@ -5,6 +5,7 @@ syntax: glob
 .vim/view/.*
 .vim/undodir/*
 .vim/backupdir/*
+.vim/sessions/*
 .vim/dbext_sql_history.sql
 *.pyc
 *.project
@@ -19,3 +20,4 @@ bin/*bot
 bin/composer
 bin/composer.phar
 .siege/cookies.txt
+.local_config/

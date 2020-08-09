@@ -11,3 +11,5 @@ for i in $HOME/.bash_completion.d/* ; do
     fi
 done
 ###  End:
+[ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash 
+
