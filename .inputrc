@@ -7,3 +7,7 @@ $endif
 set editing-mode vi
 set keymap vi
 set convert-meta on
+
+set completion-ignore-case on
+set colored-completion-prefix on
+set colored-stats on
