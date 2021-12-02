@@ -21,3 +21,7 @@ bin/composer
 bin/composer.phar
 .siege/cookies.txt
 .local_config/
+zsh/.zcompcache
+zsh/.zsh_history
+zsh/.zcompdump
+zsh/completion.d/
