@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 ###############################
-# Set up some exports 
+# Set up some exports
 ###############################
 
 # Set the default config directory to keep a clean home dir.
@@ -20,3 +20,5 @@ export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 export VIMCONFIG="$XDG_CONFIG_HOME/nvim"
+
+export GOPATH="$HOME/src/go"
