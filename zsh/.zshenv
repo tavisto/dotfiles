@@ -8,6 +8,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Make sure my custom functions can load
 export FPATH="${ZDOTDIR}:${FPATH}"
+export FPATH="${ZDOTDIR}/completion.d:${FPATH}"
 
 # Make sure we ste up neovim as our default editor.
 export EDITOR="nvim"

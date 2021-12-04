@@ -60,6 +60,8 @@ zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suff
 # Setup completions
 autoload -Uz compinit && compinit
 
+eval "$(op completion zsh)"; compdef _op op
+
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -83,3 +85,5 @@ test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2
 
 fortune_len="-s"
 autoload zfortune && zfortune
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
