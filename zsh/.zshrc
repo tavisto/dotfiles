@@ -1,9 +1,14 @@
 #!/usr/bin/env zsh
 
+
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 
 # Set up homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Setup zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 if type brew &>/dev/null
 then
@@ -56,3 +61,8 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
 
 # Pyenv
 eval "$(pyenv init --path)"
+
+test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+
+FPATH="${ZDOTDIR}:${FPATH}"
+autoload zfortune && zfortune

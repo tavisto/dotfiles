@@ -8,6 +8,11 @@ fzf
 
 # Things to install from repos
 
-* Pager: nvimpager https://github.com/lucc/nvimpager
 * Prompt: Starship https://starship.rs/
 * Git diff viewer: Delta https://github.com/dandavison/delta
+*
+
+Fortunes gathered from varous sources:
+
+* https://www.splitbrain.org/projects/fortunes
+* https://www.shlomifish.org/humour/fortunes/
