@@ -1,14 +1,14 @@
-#!/usr/bin/env zsh
 
 ## Silly little function to cowsay a fortune randomzing the cow and any local fortune files
 function zfortune {
   fortune_output="This is booring, install fortune."
   if type fortune > /dev/null; then
-    fortune_output="$(fortune -e $ZDOTDIR/fortune )"
+    fortune_len=$1
+    fortune_output="$(fortune ${fortune_len} 50% ${ZDOTDIR}/fortune 50% all)"
   fi
   if type cowsay > /dev/null; then
-    echo $fortune_output | cowsay -f $(ls $(brew --prefix)/share/cows/*.cow | gshuf -n1)
+    echo "$fortune_output" | cowsay -f $(ls $(brew --prefix)/share/cows/*.cow | gshuf -n1)
   else
-    echo "A cow might say # $fortune_output #"
+    echo "A cow might say # ${fortune_output} #"
   fi
 }

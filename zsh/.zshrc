@@ -65,4 +65,5 @@ eval "$(pyenv init --path)"
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
 FPATH="${ZDOTDIR}:${FPATH}"
+fortune_len="-s"
 autoload zfortune && zfortune
