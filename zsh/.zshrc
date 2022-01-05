@@ -42,7 +42,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Make sure the completion menu pops up and is slim
-setopt MENU_COMPLETE
+setopt AUTO_MENU
 setopt LIST_PACKED
 
 # Set complation to case insensitve
@@ -87,3 +87,5 @@ fortune_len="-s"
 autoload zfortune && zfortune
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
