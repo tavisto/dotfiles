@@ -47,7 +47,7 @@ setopt LIST_PACKED
 
 # Set complation to case insensitve
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu no select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Add a fancy header to show what type a completion is
 zstyle ':completion:*' format ' -- %d --'

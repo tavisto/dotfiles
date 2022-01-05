@@ -10,3 +10,4 @@ alias wget='echo "use xh"'
 
 alias gitroot='pushd `git root`'
 alias dhog='du -cks * | sort -rn'
+alias myip='xh  https://ifconfig.co/json'
