@@ -7,7 +7,7 @@ function zfortune {
     fortune_output="$(fortune ${fortune_len} 50% ${ZDOTDIR}/fortune 50% all)"
   fi
   if type cowsay > /dev/null; then
-    echo "$fortune_output" | cowsay -f $(ls $(brew --prefix)/share/cows/*.cow | gshuf -n1)
+    echo "$fortune_output" | cowsay -f $(cat ${ZDOTDIR}/cows.txt | gshuf -n1)
   else
     echo "A cow might say # ${fortune_output} #"
   fi

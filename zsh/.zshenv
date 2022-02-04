@@ -29,3 +29,5 @@ export VIMCONFIG="$XDG_CONFIG_HOME/nvim"
 
 # Go dog go
 export GOPATH="$HOME/src/go"
+export PATH="$PATH:$GOPATH/bin"
+. "$HOME/.cargo/env"

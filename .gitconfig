@@ -34,3 +34,5 @@
     required = true
 [commit]
     gpgSign = true
+[init]
+	defaultBranch = main
