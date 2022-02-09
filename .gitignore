@@ -21,3 +21,5 @@ bin/composer
 bin/composer.phar
 .siege/cookies.txt
 .local_config/
+zsh/*
+Brewfile.lock.json
