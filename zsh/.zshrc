@@ -77,15 +77,8 @@ setopt PUSHD_SILENT       # Do not print the directory stack after pushd or popd
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
-# Pyenv
-eval "$(pyenv init --path)"
-
-# iTerm2 
-test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
-
 fortune_len="-s"
 autoload zfortune && zfortune
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# Source any local configs
+test -e "${ZDOTDIR}/local.zsh" && source "${ZDOTDIR}/local.zsh"
