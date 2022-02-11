@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-
 setopt HIST_SAVE_NO_DUPS   # Do not write a duplicate event to the history file.
 setopt NO_CASE_GLOB        # Make all globs ignore case
 setopt SHARE_HISTORY       # share history across multiple zsh sessions
@@ -8,19 +7,14 @@ setopt APPEND_HISTORY      # append to history
 setopt INC_APPEND_HISTORY  # adds commands as they are typed, not at shell exit
 setopt CORRECT             # Enable correction during commands
 
-
-# Set up homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Setup zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
+export ZPLUG_HOME="${HOMEBREW_PREFIX}/opt/zplug"
 source $ZPLUG_HOME/init.zsh
 
 if type brew &>/dev/null
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 fi
-
 
 # Starship for that fancy prompt
 eval "$(starship init zsh)"
@@ -31,7 +25,6 @@ source $ZDOTDIR/aliases.zsh
 # Set vim mode
 bindkey -v
 export KEYTIMEOUT=1
-
 
 # Reverse history search
 bindkey '^R' history-incremental-search-pattern-backward
