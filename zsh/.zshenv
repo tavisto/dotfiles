@@ -34,9 +34,5 @@ export PATH="$PATH:$GOPATH/bin"
 # Add local bin
 export PATH="$PATH:${HOME}/bin:$PATH"
 
-# Set up homebrew, depending on old or new version.
-if [[ -d "/opt/homebrew" ]] then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
+# Set up homebrew
+eval $(/opt/homebrew/bin/brew shellenv)

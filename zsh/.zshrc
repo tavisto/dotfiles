@@ -2,9 +2,9 @@
 
 setopt HIST_SAVE_NO_DUPS   # Do not write a duplicate event to the history file.
 setopt NO_CASE_GLOB        # Make all globs ignore case
-setopt SHARE_HISTORY       # share history across multiple zsh sessions
+#setopt SHARE_HISTORY       # share history across multiple zsh sessions
 setopt APPEND_HISTORY      # append to history
-setopt INC_APPEND_HISTORY  # adds commands as they are typed, not at shell exit
+#setopt INC_APPEND_HISTORY  # adds commands as they are typed, not at shell exit
 setopt CORRECT             # Enable correction during commands
 
 # Setup zplug
@@ -75,3 +75,5 @@ autoload zfortune && zfortune
 
 # Source any local configs
 test -e "${ZDOTDIR}/local.zsh" && source "${ZDOTDIR}/local.zsh"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
