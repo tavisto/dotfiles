@@ -20,6 +20,7 @@ config.font_size=14
 -- config.color_scheme = 'AdventureTime'
 config.color_scheme = 'GitHub Lite'
 
+config.show_close_tab_button_in_tabs = false
 
 config.keys = {
   -- This will create a new vsplit
