@@ -22,6 +22,17 @@ config.color_scheme = 'GitHub Lite'
 
 config.show_close_tab_button_in_tabs = false
 
+config.audible_bell = "Disabled"
+config.visual_bell = {
+  fade_in_function = 'Linear',
+  fade_in_duration_ms = 75,
+  fade_out_function = 'Linear',
+  fade_out_duration_ms = 75,
+}
+config.colors = {
+  visual_bell = '#200F20',
+}
+
 config.keys = {
   -- This will create a new vsplit
   {

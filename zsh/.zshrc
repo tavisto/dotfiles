@@ -50,6 +50,9 @@ zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions comm
 # partial completion suggestions aka /u/l/b -> /usr/local/bin
 zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix 
 
+# append asdf completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
 # Setup completions
 autoload -Uz compinit && compinit
 
@@ -75,5 +78,5 @@ autoload zfortune && zfortune
 
 # Source any local configs
 test -e "${ZDOTDIR}/local.zsh" && source "${ZDOTDIR}/local.zsh"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+eval $(atuin init zsh)

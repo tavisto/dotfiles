@@ -36,3 +36,7 @@ export PATH="$PATH:${HOME}/bin:$PATH"
 
 # Set up homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
+
+# Set up asdf
+export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
