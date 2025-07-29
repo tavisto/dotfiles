@@ -6,21 +6,23 @@ local config = wezterm.config_builder()
 
 local act = wezterm.action
 
-
 -- This is where you actually apply your config choices
 -- ~/Library/Fonts/HackNerdFontMono-Regular.ttf
 config.font = wezterm.font("Hack Nerd Font Mono", {
   weight="Regular",
   stretch="Normal",
-  style="Normal"
+  style="Normal",
 })
 config.font_size=14
+
+-- config.font.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+
 
 -- For example, changing the color scheme:
 -- config.color_scheme = 'AdventureTime'
 config.color_scheme = 'GitHub Lite'
 
-config.show_close_tab_button_in_tabs = false
+-- config.show_close_tab_button_in_tabs = false
 
 config.audible_bell = "Disabled"
 config.visual_bell = {
@@ -34,7 +36,7 @@ config.colors = {
 }
 
 config.keys = {
-  -- This will create a new vsplit
+  -- This will create a new vsplit to the left of the current pane
   {
     key = 'd',
     mods = 'CMD',
@@ -43,7 +45,7 @@ config.keys = {
       size = { Percent = 50 },
     },
   },
-  -- This will create a new split and run the `top` program inside it
+  -- This will create a new split underneath the current pane
   {
     key = 'd',
     mods = 'SHIFT|CMD',

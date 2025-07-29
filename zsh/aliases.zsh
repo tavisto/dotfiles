@@ -9,11 +9,11 @@ alias lta='lsd --tree -a -l'
 
 alias tree='tree -Cp -L 2'
 alias http='echo "use xh"'
-alias wget='echo "use xh"'
+# alias wget='echo "use xh"'
 
 alias gitroot='pushd `git root`'
 alias dhog='du -cks * | sort -rn'
 alias myip='xh  https://ifconfig.co/json'
 alias k='kubectl'
-alias tf='terraform'
+alias tf='tofu'
 alias dig='dig +noall +answer'

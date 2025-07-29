@@ -1,11 +1,23 @@
 #!/usr/bin/env zsh
 
-setopt HIST_SAVE_NO_DUPS   # Do not write a duplicate event to the history file.
-setopt NO_CASE_GLOB        # Make all globs ignore case
-#setopt SHARE_HISTORY       # share history across multiple zsh sessions
-setopt APPEND_HISTORY      # append to history
-#setopt INC_APPEND_HISTORY  # adds commands as they are typed, not at shell exit
-setopt CORRECT             # Enable correction during commands
+
+# Do the PATH manipulation here after the OS level stuff has already run
+# Go dog go
+export GOPATH="$HOME/src/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Add local bin
+export PATH="$PATH:${HOME}/bin:$PATH"
+
+# Set up homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# Set up asdf
+export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Prepend asdf shim paths to PATH
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:${ASDF_DATA_DIR:-$HOME/.asdf}/bin:$PATH"
 
 # Setup zplug
 export ZPLUG_HOME="${HOMEBREW_PREFIX}/opt/zplug"
@@ -79,4 +91,18 @@ autoload zfortune && zfortune
 # Source any local configs
 test -e "${ZDOTDIR}/local.zsh" && source "${ZDOTDIR}/local.zsh"
 
-eval $(atuin init zsh)
+# Set up History stuff
+setopt HIST_SAVE_NO_DUPS   # Do not write a duplicate event to the history file.
+setopt NO_CASE_GLOB        # Make all globs ignore case
+#setopt SHARE_HISTORY       # share history across multiple zsh sessions
+setopt APPEND_HISTORY      # append to history
+#setopt INC_APPEND_HISTORY  # adds commands as they are typed, not at shell exit
+setopt CORRECT             # Enable correction during commands
+
+# Source atuin if it's installed
+if type atuin &>/dev/null
+then
+  source "${ZDOTDIR}/atuin.zsh"
+fi
+
+

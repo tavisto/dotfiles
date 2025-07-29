@@ -1,38 +1,46 @@
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    show-branch = always
+  diff = auto
+  status = auto
+  branch = auto
+  show-branch = always
 [user]
-    name = Tavis Aitken
-    email = tavisto@tavisto.net
-    signingkey = E618FC96DCDFE023
+  name = Tavis Aitken
+  email = taitken@easypost.com
+  signingkey = E618FC96DCDFE023
 [core]
-    excludesfile = ~/.gitignore
-    pager = delta
+  excludesfile = ~/.gitignore
+  pager = delta
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    features = side-by-side line-numbers decorations
-    whitespace-error-style = 22 reverse
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
 
 [delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
 [alias]
-    glog = log --graph --oneline --decorate --all
-    vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
-    klog = log --graph --pretty='%C(auto) %h %Cblue %ad %Cred %aN %Creset%s %C(auto)%d%Cgreen%G? %GK'
-    root = !pwd
+  glog = log --graph --oneline --decorate --all
+  vlog = log --date=iso --graph --pretty='%C(auto) %h %d%Cblue %ad%Cred %aN %Creset%s'
+  klog = log --graph --pretty='%C(auto) %h %Cblue %ad %Cred %aN %Creset%s %C(auto)%d%Cgreen%G? %GK'
+  root = !pwd
 [push]
-    default = current
+  default = current
 [filter "lfs"]
-    clean = git lfs clean %f
-    smudge = git lfs smudge %f
-    required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 [commit]
-    gpgSign = true
+  gpgSign = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[submodule]
+  recurse = true
+[credential "https://github.com"]
+  helper =
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !/opt/homebrew/bin/gh auth git-credential

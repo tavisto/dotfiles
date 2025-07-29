@@ -27,16 +27,6 @@ export SAVEHIST=10000                   # Maximum events in history file
 # Make sure neovim knows where to go
 export VIMCONFIG="$XDG_CONFIG_HOME/nvim"
 
-# Go dog go
-export GOPATH="$HOME/src/go"
-export PATH="$PATH:$GOPATH/bin"
+# Cargo configs
+export CARGO_HOME=$XDG_CONFIG_HOME/cargo
 
-# Add local bin
-export PATH="$PATH:${HOME}/bin:$PATH"
-
-# Set up homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
-
-# Set up asdf
-export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
