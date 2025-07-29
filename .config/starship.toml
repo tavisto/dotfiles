@@ -1,10 +1,17 @@
 [aws]
 format = "[$symbol($profile(@$region))]($style)"
 style = "bold yellow"
+[azure]
+disabled = false
+format = "[$symbol($subscription)]($style)"
+style = "bold blue"
+symbol = "󰠅 "
+[azure.subscription_aliases]
+"EasyPost Core Platform Development WestUS3" = "EP Core Dev WestUS3"
 [gcloud]
 disabled = true
 [directory]
-truncate_to_repo = false
+truncate_to_repo = true
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
@@ -22,8 +29,6 @@ GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
 GIT_REMOTE_URL=$(echo $GIT_REMOTE | sed -E 's/^https?:\\/\\/(.+@)?//; s/\\.git$//; s/.+@(.*):(.*)$/\\1\\/\\2/; s/\\/$//')
 if [[ "$GIT_REMOTE" =~ "github" ]]; then
     GIT_REMOTE_SYMBOL=" "
-elif [[ "$GIT_REMOTE" =~ "splunkdev" ]]; then
-    GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
     GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
@@ -45,7 +50,7 @@ style = 'blue'
 [golang]
 symbol = " "
 [kubernetes]
-disabled = false 
+disabled = false
 symbol = "⎈ "
 style = "bold blue"
 

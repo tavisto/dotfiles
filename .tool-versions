@@ -1,5 +1,7 @@
-nodejs 23.4.0
+golang 1.24.2
+nodejs 23.7.0
 opentofu 1.8.8
+pre-commit 4.1.0
 python 3.12.9
 ruby 3.3.6
 rust 1.89.0
