@@ -5,8 +5,8 @@
   show-branch = always
 [user]
   name = Tavis Aitken
-  email = taitken@easypost.com
   signingkey = E618FC96DCDFE023
+  email = taitken@easypost.com
 [core]
   excludesfile = ~/.gitignore
   pager = delta
@@ -33,7 +33,7 @@
   smudge = git lfs smudge %f
   required = true
 [commit]
-  gpgSign = false
+  gpgSign = true
 [init]
   defaultBranch = main
 [submodule]
