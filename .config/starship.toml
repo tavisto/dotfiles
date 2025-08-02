@@ -12,6 +12,7 @@ symbol = "󰠅 "
 disabled = true
 [directory]
 truncate_to_repo = true
+
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
@@ -60,4 +61,5 @@ symbol = " "
 style = "bold green"
 
 [time]
+style = "green"
 disabled = false

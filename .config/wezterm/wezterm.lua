@@ -19,8 +19,10 @@ config.font_size=14
 
 
 -- For example, changing the color scheme:
--- config.color_scheme = 'AdventureTime'
-config.color_scheme = 'GitHub Lite'
+-- config.color_scheme = 'Solarized'
+-- config.color_scheme = 'Solarized Light (Gogh)'
+-- config.color_scheme = 'Github Light (Gogh)'
+config.color_scheme = 'Github Dark (Gogh)'
 
 -- config.show_close_tab_button_in_tabs = false
 
@@ -77,15 +79,6 @@ config.keys = {
 }
 
 
-wezterm.on('update-status', function(window, pane)
-  local overrides = window:get_config_overrides() or {}
-  if window:is_focused() then
-    overrides.color_scheme = 'Github Dark'
-  else
-    overrides.color_scheme = 'nightfox'
-  end
-  window:set_config_overrides(overrides)
-end)
 
 -- and finally, return the configuration to wezterm
 return config
