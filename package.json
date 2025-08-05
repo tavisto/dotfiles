@@ -1,0 +1,10 @@
+{
+  "name": "global-packages",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google/gemini-cli": "0.1.2",
+    "copilot-api": "0.5.7",
+    "corepack": "0.31.0",
+    "npm": "10.9.2"
+  }
+}
