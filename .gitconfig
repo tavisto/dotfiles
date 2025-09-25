@@ -8,7 +8,7 @@
   signingkey = E618FC96DCDFE023
   email = taitken@easypost.com
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/taitken/src/github.com/tavisto/dotfiles/gitignore_global
   pager = delta
 [interactive]
   diffFilter = delta --color-only
