@@ -29,4 +29,5 @@ export VIMCONFIG="$XDG_CONFIG_HOME/nvim"
 
 # Cargo configs
 export CARGO_HOME=$XDG_CONFIG_HOME/cargo
+export PATH="$PATH:$XDG_CONFIG_HOME/cargo/bin"
 
