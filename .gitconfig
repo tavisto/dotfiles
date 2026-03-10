@@ -6,7 +6,7 @@
 [user]
   name = Tavis Aitken
   signingkey = E618FC96DCDFE023
-  email = taitken@easypost.com
+  email = tavisto@tavisto.net 
 [core]
 	excludesfile = /Users/taitken/src/github.com/tavisto/dotfiles/gitignore_global
   pager = delta
