@@ -91,8 +91,6 @@ autoload zfortune && zfortune
 # Source any local configs
 test -e "${ZDOTDIR}/local.zsh" && source "${ZDOTDIR}/local.zsh"
 
-<<<<<<< HEAD
-eval $(atuin init zsh)
 
 # Add local bin
 export PATH="$PATH:${HOME}/bin:$PATH"
@@ -121,5 +119,8 @@ setopt CORRECT             # Enable correction during commands
 # Source atuin if it's installed
 if type atuin &>/dev/null
 then
-  source "${ZDOTDIR}/atuin.zsh"
+  if [[ -f "${ZDOTDIR}/atuin.zsh" ]]; then
+    source "${ZDOTDIR}/atuin.zsh"
+  fi
+  eval $(atuin init zsh)
 fi

@@ -1,18 +1,10 @@
 [aws]
 format = "[$symbol($profile(@$region))]($style)"
 style = "bold yellow"
-[azure]
-disabled = true
-format = "[$symbol($subscription)]($style)"
-style = "bold blue"
-symbol = "󰠅 "
-[azure.subscription_aliases]
-"EasyPost Core Platform Development WestUS3" = "EP Core Dev WestUS3"
 [gcloud]
 disabled = true
 [directory]
 truncate_to_repo = true
-
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"

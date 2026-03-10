@@ -23,3 +23,13 @@ bin/composer.phar
 .local_config/
 zsh/*
 Brewfile.lock.json
+**/AGENTS.md
+AGENTS.md
+GEMINI.md
+**/GEMINI.md
+CLAUDE.md
+**/CLAUDE.md
+.vscode/*
+.claude/*
+.cursor/*
+.opencode/*

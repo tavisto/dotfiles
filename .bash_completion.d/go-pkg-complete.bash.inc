@@ -1,1 +1,0 @@
-/Users/tavisto/src/github/skelterjohn/go-pkg-complete/go-pkg-complete.bash.inc
