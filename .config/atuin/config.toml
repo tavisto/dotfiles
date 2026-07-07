@@ -1,0 +1,10 @@
+## Atuin config — local only, no sync
+
+auto_sync = false
+update_check = false
+
+search_mode = "fuzzy"
+filter_mode = "host"
+
+style = "compact"
+show_preview = true

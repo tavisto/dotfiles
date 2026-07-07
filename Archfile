@@ -1,0 +1,117 @@
+# Arch/CachyOS package list — parallel to Brewfile for Linux installs
+#
+# Install all packages:
+#   grep -v '^#' Archfile | grep -v '^$' | paru -S --needed -
+#
+# Install pacman-only (no AUR):
+#   grep -v '^#' Archfile | grep -v '^$' | grep -v '# AUR' | sudo pacman -S --needed -
+
+## Shell & Prompt
+starship
+atuin
+zoxide
+fish                    # if not already default
+
+## Terminal Tools
+bat
+fzf
+fd
+ripgrep
+tree
+dust                    # AUR: du-dust
+bottom                  # btm — system monitor
+htop
+btop                    # system monitor
+glances                 # system monitor
+duf                     # disk usage
+fastfetch               # system info
+xh
+glow                    # markdown renderer
+just                    # command runner
+plocate                 # locate
+
+## Git
+git
+git-delta
+git-lfs
+github-cli              # gh
+jujutsu                 # jj — AUR
+
+## Editors
+neovim
+vim
+micro
+
+## Neovim Language Servers & Tooling
+# Enabled in nvim-configs/lua/nvim-lspconfig.lua and treesitter.lua
+lua-language-server            # lua_ls
+rust-analyzer                  # rust_analyzer
+jedi-language-server           # jedi_language_server (Python)
+yaml-language-server           # yamlls
+bash-language-server           # bashls
+helm-ls                        # AUR — helm_ls
+vscode-langservers-extracted   # AUR — jsonls, html, cssls, eslint
+marksman                       # markdown
+tree-sitter-cli                # nvim-treesitter parser builds
+
+## Languages & Runtimes
+lua
+uv                      # Python package manager
+go
+nodejs
+npm
+rust                    # provides cargo + rustfmt
+
+## Cloud & Infra
+kubectl
+helm
+k9s
+kubectx
+kustomize               # AUR
+skaffold                # AUR
+stern                   # AUR
+
+## Containers & Local Kubernetes
+podman
+netavark                # container network stack (podman dependency — pin to avoid provider prompt)
+cni-plugins             # required for Podman networking
+k3d-bin                 # AUR — k3s in containers, matches remote clusters
+dive                    # AUR — inspect container image layers
+ollama
+
+## Linters & Dev Tools
+shellcheck
+shfmt
+yamllint
+jq
+go-yq                   # yq
+jsonnet                 # AUR — pin to avoid go-jsonnet/go-jsonnet-git prompts
+aspell
+cowsay
+fortune-mod
+
+## Terminals
+alacritty
+ghostty
+
+## Applications (GUI)
+1password                # AUR
+1password-cli            # AUR — op
+firefox
+discord
+slack-desktop            # AUR
+element-desktop
+obsidian
+meld
+haruna                   # media player
+vlc-plugins-all          # vlc
+openra                   # game
+shelly
+
+## Networking
+tailscale
+
+## Fonts (install via pacman or nerd-fonts AUR)
+# ttf-firacode-nerd
+ttf-hack-nerd
+ttf-meslo-nerd

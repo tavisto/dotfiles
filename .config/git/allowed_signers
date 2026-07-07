@@ -1,0 +1,3 @@
+# Trusted SSH signing keys for local verification (git log --show-signature, klog).
+# Format: <principal/email> <key-type> <key-blob>
+tavisto@tavisto.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbPBy2UcJXrMqbfAV3s/YG6NuEXpJbbr9B18lBYSbey

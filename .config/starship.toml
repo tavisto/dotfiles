@@ -55,3 +55,4 @@ style = "bold green"
 [time]
 style = "green"
 disabled = false
+format = "[$time]($style) "

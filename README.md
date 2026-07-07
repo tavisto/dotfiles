@@ -1,14 +1,30 @@
 # Dotfiles
 
-Personal development environment for macOS and Ubuntu — shell config, CLI tooling, container/K8s setup, and multi-language runtimes.
+Personal development environment for macOS, Arch/CachyOS, and Ubuntu — shell config, CLI tooling, container/K8s setup, and multi-language runtimes.
 
 ## Quick Start
+
+### macOS
 
 ```sh
 brew bundle          # install all packages
 brew upgrade         # update everything
 ./bin/brew-setup.sh  # full brew cycle (bundle + update + upgrade + cleanup)
 ```
+
+### Arch / CachyOS
+
+`paru` ships with CachyOS; on plain Arch install it first. Then:
+
+```sh
+./bin/arch-setup.sh     # full bootstrap: Archfile + Flatfile + services + k3d + ollama
+./bin/arch-install.sh   # packages only (Archfile -> paru --needed)
+./bin/flatpak-install.sh # flatpak apps only (Flatfile -> Flathub)
+./bin/arch-diff.sh      # show drift between Archfile and installed packages
+./bin/movin.sh -b       # link dotfiles into ~ (backs up existing with -b, or -c to clean first)
+```
+
+`Archfile` tracks pacman/AUR packages (including Neovim language servers) and `Flatfile` tracks Flathub apps — both are the source of truth for a re-image.
 
 ## Prerequisites
 
@@ -20,9 +36,12 @@ brew upgrade         # update everything
 
 | Path | What it does |
 |---|---|
-| `Brewfile` | Homebrew taps, CLI tools, and cask apps — the single source of truth for `brew bundle` |
+| `Brewfile` | Homebrew taps, CLI tools, and cask apps — the single source of truth for `brew bundle` (macOS) |
+| `Archfile` | Arch/CachyOS pacman + AUR packages, including Neovim language servers — source of truth for `arch-install.sh` |
+| `Flatfile` | Flathub application IDs — source of truth for `flatpak-install.sh` |
 | `zsh/` | Shell config: `.zshenv`, `.zshrc`, aliases, login/logout, plus a fortune utility and custom completion |
 | `bin/` | Utility scripts for setup, K8s, Ollama, npm, Git, DNS, and more (see below) |
+| `docs/` | Notes on non-obvious fixes/setups (see below) |
 | `.config/` | App-level config: WezTerm terminal, Starship prompt, etc. |
 | `.gitconfig` | Git config with Delta as diff viewer, signing keys, aliases (`glog`, `vlog`, `klog`) |
 | `.tool-versions` | ASDF version pins across Go 1.24, Node 23, Python 3.12, Ruby 3.3, Rust 1.89, Terraform/OpenTofu |
@@ -62,7 +81,11 @@ Installed and managed via ASDF (see `.tool-versions`):
 
 | Script | Purpose |
 |---|---|
+| [arch-diff.sh](bin/arch-diff.sh) | Show drift between the Archfile and explicitly-installed pacman packages |
+| [arch-install.sh](bin/arch-install.sh) | Install/sync packages from the Archfile via `paru -S --needed` |
+| [arch-setup.sh](bin/arch-setup.sh) | Full Arch/CachyOS bootstrap: Archfile + Flatfile installs, Podman socket, k3d cluster, Ollama daemon, Ghostty as KDE terminal |
 | [asdf-setup.sh](bin/asdf-setup.sh) | Install asdf-rust plugin + latest Rust/Cargo |
+| [flatpak-install.sh](bin/flatpak-install.sh) | Install apps from the Flatfile (adds Flathub remote, then `flatpak install`) |
 | [autossh.sh](bin/autossh.sh) | Set up persistent SSH SOCKS tunnel to a remote host |
 | [brew-setup.sh](bin/brew-setup.sh) | Full Homebrew lifecycle: `brew bundle`, `update`, `upgrade`, `cleanup` (with error handling) |
 | [clear-dns.sh](bin/clear-dns.sh) | Flush DNS cache on macOS (`dscacheutil`) + restart mDNSResponder |
@@ -75,12 +98,19 @@ Installed and managed via ASDF (see `.tool-versions`):
 | [install-dotfiles.sh](bin/install-dotfiles.sh) | SCP dotfiles tarball to a remote host and run `movin.sh` to symlink configs |
 | [k8s-context-do.sh](bin/k8s-context-do.sh) | List pods by node label, with optional `--context` flag for kubeconfig contexts |
 | [k8s-pods-by-node.sh](bin/k8s-pods-by-node.sh) | Core K8s helper: lists pods per node (excludes DaemonSets), accepts `-c` context flag |
+| [k3d-recreate.sh](bin/k3d-recreate.sh) | Recreate a k3d cluster on rootless Podman with the env var and kubelet feature gate it needs (see [docs/k3d-rootless-podman.md](docs/k3d-rootless-podman.md)) |
 | [movin.sh](bin/movin.sh) | Dotfiles linker — backs up existing files (`-b`) or cleans them (`-c`) before symlinking everything from this repo into `~` |
 | [npm-global-dump.sh](bin/npm-global-dump.sh) | Dumps currently installed global npm packages into a `package.json` for backup/restore |
 | [npm-global.sh](bin/npm-global.sh) | Installs all packages listed in a `package.json` globally (`npm install -g`) |
 | [test-models.sh](bin/test-models.sh) | Benchmark local Ollama models: runs a fibonacci completion prompt, reports latency (ms) and throughput (tokens/sec) |
 | [ubuntu-setup.sh](bin/ubuntu-setup.sh) | One-command Ubuntu bootstrap: installs neovim/fzf, clones nvim config, runs `PackUpdate` |
 | [x-man-page.sh](bin/x-man-page.sh) | Quick helper to look up man pages with section numbers (e.g. `x-man-page.sh 5 date`) |
+
+## docs/
+
+| Doc | What it covers |
+|---|---|
+| [k3d-rootless-podman.md](docs/k3d-rootless-podman.md) | Why k3d breaks on rootless Podman (docker.sock bind-mount, kubelet/`/dev/kmsg`) and how `k3d-recreate.sh` fixes it |
 
 ## How It Works
 

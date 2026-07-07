@@ -6,7 +6,9 @@
 [user]
     name = Tavis Aitken
     email = tavisto@tavisto.net
-    signingkey = E618FC96DCDFE023
+    ; SSH signing key (private key lives in 1Password, served via its agent). The
+    ; OS-specific op-ssh-sign path is set per-machine in ~/.config/git/config.
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbPBy2UcJXrMqbfAV3s/YG6NuEXpJbbr9B18lBYSbey
 [core]
     excludesfile = ~/.gitignore
     pager = delta
@@ -32,13 +34,13 @@
     required = true
 [commit]
     gpgSign = true
+[tag]
+    gpgSign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
 [init]
     defaultBranch = main
 [submodule]
     recurse = true
-[credential "https://github.com"]
-    helper =
-    helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-    helper =
-    helper = !/opt/homebrew/bin/gh auth git-credential

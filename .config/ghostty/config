@@ -1,0 +1,10 @@
+font-family = "Hack Nerd Font Mono"
+font-size = 14
+
+# Theme
+theme = GitHub Dark
+
+copy-on-select = true
+right-click-action = "copy-or-paste"
+
+split-divider-color = #FFFFB0

@@ -1,0 +1,17 @@
+# Flatpak application list — installed from Flathub
+#
+# Install all apps:
+#   ./bin/flatpak-install.sh
+#
+# Add the Flathub remote first (flatpak-install.sh does this automatically):
+#   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+## Emulators & Gaming
+app.xemu.xemu                   # xemu — original Xbox
+com.supermodel3.Supermodel      # Supermodel — Sega Model 3 arcade
+io.github.shiiion.primehack     # PrimeHack — Metroid Prime (Dolphin fork)
+net.kuribo64.melonDS            # melonDS — Nintendo DS
+org.DolphinEmu.dolphin-emu      # Dolphin — GameCube / Wii
+org.libretro.RetroArch          # RetroArch — multi-system frontend
+org.ppsspp.PPSSPP               # PPSSPP — Sony PSP
+org.scummvm.ScummVM             # ScummVM — classic adventure games
