@@ -2,7 +2,7 @@
   "name": "global-packages",
   "version": "1.0.0",
   "dependencies": {
-    "@google/gemini-cli": "0.1.2",
+    "@google/gemini-cli": "0.39.1",
     "opencode-ai": "0.4.45",
     "copilot-api": "0.5.7",
     "corepack": "0.31.0",
